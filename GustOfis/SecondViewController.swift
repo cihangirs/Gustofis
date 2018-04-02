@@ -8,8 +8,10 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: ViewController {
 
+    @IBOutlet weak var myTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

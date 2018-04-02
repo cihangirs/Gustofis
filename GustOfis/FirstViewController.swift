@@ -8,11 +8,25 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: ViewController {
 
+    @IBOutlet weak var myTextView: UITextView!
+    
+    var orderArray = [Order]()
+    
+    let arrayCompletionHandler: ([Order]) -> Void = {
+        print("declaredCompletionHandler: \($0)")
+        //        var orderArray = [Order]()
+        //        orderArray.append(contentsOf: $0)
+    }
+    
+    //arrayCompletionHandler()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NetworkManager.shared().fetchOrders(completionHandler: arrayCompletionHandler)
+//        print(NetworkManager.shared().fetchOrders())
         // Do any additional setup after loading the view.
     }
 

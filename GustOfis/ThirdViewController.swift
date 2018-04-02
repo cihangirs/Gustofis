@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: ViewController {
 
+    @IBOutlet weak var myTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

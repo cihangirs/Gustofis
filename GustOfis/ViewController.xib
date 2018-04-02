@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="GustOfis" customModuleProvider="target">
             <connections>
-                <outlet property="mainTabBar" destination="jYj-L7-Afq" id="SSa-T7-0z3"/>
                 <outlet property="view" destination="iN0-l3-epB" id="FtS-6W-w2B"/>
             </connections>
         </placeholder>
@@ -20,22 +19,6 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYj-L7-Afq">
-                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <items>
-                        <tabBarItem title="First" id="pR8-iq-Fes"/>
-                        <tabBarItem tag="1" title="Second" id="K6e-ed-Z1s"/>
-                        <tabBarItem tag="2" title="Third" id="Zek-xx-KlK"/>
-                        <tabBarItem tag="3" title="Fourth" id="z9d-eW-t9Z"/>
-                    </items>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="2dL-Yw-UTb"/>
-                    </connections>
-                </tabBar>
-            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="-219" y="53"/>

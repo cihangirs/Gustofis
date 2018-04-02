@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import ObjectMapper
+import AlamofireObjectMapper
 
 class NetworkManager: NSObject {
 
@@ -29,6 +30,10 @@ class NetworkManager: NSObject {
     }()
     
     let baseURL: URL
+    
+    let declaredCompletionHandler: (NSArray) -> Void = {
+        print("declaredCompletionHandlerValue: \($0)")
+    }
     
     // Initialization
     
@@ -62,45 +67,122 @@ class NetworkManager: NSObject {
     func fetchProducts() -> Void
     {
         let requestStr = "\(API.baseURL)" + "products"
-        baseRequest(url: requestStr)
+        
+//        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
     
-    func fetchOrders() -> Void
+    func fetchOrders(completionHandler: @escaping (_ someArray: [Order]) -> Void) -> Void
     {
         let requestStr = "\(API.baseURL)" + "orders"
-        baseRequest(url: requestStr)
+
+        self.sessionManager.request(requestStr,
+                                    method: .get,
+                                    parameters: nil,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseArray() { (response: DataResponse<[Order]>) in
+
+                                        switch response.result
+                                        {
+                                            case .success:
+                                                let orders = response.result.value
+                                                print("orders: \(orders!)")
+
+                                                for order in orders!
+                                                {
+                                                    print("orderId: \(order.orderId!) parentId: \(order.parentId!)")
+                                                }
+
+                                                completionHandler(orders!)
+
+                                            case .failure:
+                                                debugPrint("failureResponse: \(response)")
+                                        }
+        }
+
+        //baseRequest(url: requestStr, completionHandler: completionHandler)
     }
     
     func fetchCategories() -> Void
     {
         let requestStr = "\(API.baseURL)" + "products/categories"
-        baseRequest(url: requestStr)
+        
+//        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
     
-    func baseRequest(url: URLConvertible) -> Void
+    func baseRequest(url: URLConvertible, completionHandler: @escaping (_ someArray: NSArray) -> Void) -> Void
     {
         print(url)
+
+//        self.sessionManager.request(url,
+//                                    method: .get,
+//                                    parameters: nil,
+//                                    encoding: JSONEncoding.default,
+//                                    headers: nil).validate().responseArray() { response in
+//                                        print("\(response)")
+//        }
         
         self.sessionManager.request(url,
-                          method: .get,
-                          parameters: nil,
-                          encoding: JSONEncoding.default,
-                          headers: nil).validate().responseJSON { response in
-                            
-                            switch response.result
-                            {
-                                case .success:
-                                    if let unwrappedValue = response.result.value
-                                    {
-                                        dump("unwrappedValue: \(unwrappedValue)")
-                                    }
-                                    else
-                                    {
-                                        debugPrint("success valueless response: \(response)")
-                                    }
-                                case .failure:
-                                    debugPrint("failureResponse: \(response)")
-                            }
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: nil).validate().responseArray() { (response: DataResponse<[Order]>) in
+            
+                switch response.result
+                {
+                    case .success:
+                        if let result = response.result.value
+                        {
+                            let JSON = result as NSArray
+                            print("JSON: \(JSON)")
+                            completionHandler(JSON)
+                        }
+                        else
+                        {
+                            print("")
+                        }
+
+                    case .failure:
+                        debugPrint("failureResponse: \(response)")
+//                                    completionHandler("fail")
+                }
+                //let orders = response.result.value
+//                for order in orders!
+//                {
+//                    print("orderId: \(order.orderId!) parentId: \(order.parentId!)")
+//                }
         }
+        
+//        self.sessionManager.request(url,
+//                          method: .get,
+//                          parameters: nil,
+//                          encoding: JSONEncoding.default,
+//                          headers: nil).validate().responseJSON { response in
+//
+//                            //(response: DataResponse<Any>)
+//                            print("value: \(response.result.value!)")
+//                            print("typeOf value: \(type(of: response.result.value))")
+//
+//                            switch response.result
+//                            {
+//                                case .success:
+//                                    if let result = response.result.value
+//                                    {
+//                                        let JSON = result as! NSArray
+////                                        dump("unwrappedValue: \(unwrappedValue)")
+////                                        print("JSON: \(JSON)")
+//
+//                                        completionHandler(JSON)
+//                                    }
+//                                    else
+//                                    {
+////                                        debugPrint("success valueless response: \(response)")
+////                                        completionHandler("")
+//                                    }
+//
+//                                case .failure:
+//                                    debugPrint("failureResponse: \(response)")
+////                                    completionHandler("fail")
+//                            }
+//        }
     }
 }

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class FourthViewController: UIViewController {
+class FourthViewController: ViewController {
 
+    @IBOutlet weak var fourthTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
