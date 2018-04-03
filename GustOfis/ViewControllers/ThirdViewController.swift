@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class ThirdViewController: ViewController {
 
@@ -17,6 +18,10 @@ class ThirdViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
         NetworkManager.shared().fetchProducts(completionHandler: { productArray in
             
             self.myTextView.text.removeAll()
@@ -29,6 +34,7 @@ class ThirdViewController: ViewController {
                 print("productId: \(product.productId!) productName: \(product.name!)\n")
             }
             
+            hud.dismiss()
         })
         // Do any additional setup after loading the view.
     }

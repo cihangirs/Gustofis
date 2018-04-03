@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class FirstViewController: ViewController {
 
@@ -25,6 +26,10 @@ class FirstViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+
         NetworkManager.shared().fetchOrders(completionHandler: { orderArray in
             
             self.myTextView.text.removeAll()
@@ -36,6 +41,8 @@ class FirstViewController: ViewController {
                 self.myTextView.text.append("orderId: \(order.orderId!) parentId: \(order.parentId!)\n")
                 print("orderId: \(order.orderId!) parentId: \(order.parentId!)\n")
             }
+            
+            hud.dismiss()
         })
 
         // Do any additional setup after loading the view.

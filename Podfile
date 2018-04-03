@@ -8,6 +8,7 @@ target 'GustOfis' do
   pod 'Alamofire'
   pod 'ObjectMapper'
   pod 'AlamofireObjectMapper'
+  pod 'JGProgressHUD'
 
   target 'GustOfisTests' do
     inherit! :search_paths

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class SecondViewController: ViewController {
 
@@ -17,6 +18,10 @@ class SecondViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
         NetworkManager.shared().fetchCategories(completionHandler: { categorieArray in
             
             self.myTextView.text.removeAll()
@@ -29,7 +34,7 @@ class SecondViewController: ViewController {
                 print("categorieId: \(categorie.categorieId!) parentId: \(categorie.name!)\n")
             }
             
-            
+            hud.dismiss()
         })
         
         // Do any additional setup after loading the view.
