@@ -18,7 +18,17 @@ class ThirdViewController: ViewController {
         super.viewDidLoad()
 
         NetworkManager.shared().fetchProducts(completionHandler: { productArray in
+            
+            self.myTextView.text.removeAll()
+            
             self.productArray = productArray;
+            
+            for product in self.productArray
+            {
+                self.myTextView.text.append("productId: \(product.productId!) productName: \(product.name!)\n")
+                print("productId: \(product.productId!) productName: \(product.name!)\n")
+            }
+            
         })
         // Do any additional setup after loading the view.
     }

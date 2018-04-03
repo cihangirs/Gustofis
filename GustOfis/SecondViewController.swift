@@ -18,7 +18,18 @@ class SecondViewController: ViewController {
         super.viewDidLoad()
 
         NetworkManager.shared().fetchCategories(completionHandler: { categorieArray in
+            
+            self.myTextView.text.removeAll()
+            
             self.categorieArray = categorieArray;
+            
+            for categorie in self.categorieArray
+            {
+                self.myTextView.text.append("categorieId: \(categorie.categorieId!) categorieName: \(categorie.name!)\n")
+                print("categorieId: \(categorie.categorieId!) parentId: \(categorie.name!)\n")
+            }
+            
+            
         })
         
         // Do any additional setup after loading the view.

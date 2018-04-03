@@ -26,8 +26,16 @@ class FirstViewController: ViewController {
         super.viewDidLoad()
  
         NetworkManager.shared().fetchOrders(completionHandler: { orderArray in
+            
+            self.myTextView.text.removeAll()
+            
             self.orderArray = orderArray
-            myTextView.text = self.orderArray
+            
+            for order in self.orderArray
+            {
+                self.myTextView.text.append("orderId: \(order.orderId!) parentId: \(order.parentId!)\n")
+                print("orderId: \(order.orderId!) parentId: \(order.parentId!)\n")
+            }
         })
 
         // Do any additional setup after loading the view.
