@@ -12,9 +12,15 @@ class SecondViewController: ViewController {
 
     @IBOutlet weak var myTextView: UITextView!
     
+    var categorieArray = [Categorie]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NetworkManager.shared().fetchCategories(completionHandler: { categorieArray in
+            self.categorieArray = categorieArray;
+        })
+        
         // Do any additional setup after loading the view.
     }
 

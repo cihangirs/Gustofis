@@ -11,10 +11,15 @@ import UIKit
 class ThirdViewController: ViewController {
 
     @IBOutlet weak var myTextView: UITextView!
+
+    var productArray = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NetworkManager.shared().fetchProducts(completionHandler: { productArray in
+            self.productArray = productArray;
+        })
         // Do any additional setup after loading the view.
     }
 

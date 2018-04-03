@@ -14,19 +14,22 @@ class FirstViewController: ViewController {
     
     var orderArray = [Order]()
     
-    let arrayCompletionHandler: ([Order]) -> Void = {
-        print("declaredCompletionHandler: \($0)")
-        //        var orderArray = [Order]()
-        //        orderArray.append(contentsOf: $0)
-    }
-    
-    //arrayCompletionHandler()
+//    let arrayCompletionHandler: ([Order]) -> Void = {
+//        print("declaredCompletionHandler: \($0)")
+//        var orderArray = $0
+//
+//        //        var orderArray = [Order]()
+//        //        orderArray.append(contentsOf: $0)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
+        NetworkManager.shared().fetchOrders(completionHandler: { orderArray in
+            self.orderArray = orderArray
+            myTextView.text = self.orderArray
+        })
 
-        NetworkManager.shared().fetchOrders(completionHandler: arrayCompletionHandler)
-//        print(NetworkManager.shared().fetchOrders())
         // Do any additional setup after loading the view.
     }
 

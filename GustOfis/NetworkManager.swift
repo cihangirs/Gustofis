@@ -64,14 +64,38 @@ class NetworkManager: NSObject {
         return sharedNetworkManager
     }
     
-    func fetchProducts() -> Void
+    func fetchProducts(completionHandler: @escaping (_ someArray: [Product]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "products"
+
+        self.sessionManager.request(requestStr,
+                                    method: .get,
+                                    parameters: nil,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseArray() { (response: DataResponse<[Product]>) in
+                                        
+                                        switch response.result
+                                        {
+                                            case .success:
+                                                let products = response.result.value
+                                                print("products: \(products!)")
+                                                
+                                                for product in products!
+                                                {
+                                                    print("productId: \(product.productId!) productName: \(product.name!)")
+                                                }
+                                                
+                                                completionHandler(products!)
+                                            
+                                            case .failure:
+                                                debugPrint("failureResponse: \(response)")
+                                        }
+        }
         
 //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
-    
-    func fetchOrders(completionHandler: @escaping (_ someArray: [Order]) -> Void) -> Void
+
+    func fetchOrders(completionHandler: @escaping (_ someArray: [Order]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "orders"
 
@@ -98,13 +122,36 @@ class NetworkManager: NSObject {
                                                 debugPrint("failureResponse: \(response)")
                                         }
         }
-
         //baseRequest(url: requestStr, completionHandler: completionHandler)
     }
     
-    func fetchCategories() -> Void
+    func fetchCategories(completionHandler: @escaping (_ someArray: [Categorie]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "products/categories"
+
+        self.sessionManager.request(requestStr,
+                                    method: .get,
+                                    parameters: nil,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseArray() { (response: DataResponse<[Categorie]>) in
+                                        
+                                        switch response.result
+                                        {
+                                            case .success:
+                                                let categories = response.result.value
+                                                print("categories: \(categories!)")
+                                                
+                                                for categorie in categories!
+                                                {
+                                                    print("orderId: \(categorie.categorieId!) parentId: \(categorie.name!)")
+                                                }
+                                                
+                                                completionHandler(categories!)
+                                            
+                                            case .failure:
+                                                debugPrint("failureResponse: \(response)")
+                                        }
+        }
         
 //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
