@@ -29,6 +29,7 @@
 		6C8FFD46206BF00D00C5698E /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD44206BF00D00C5698E /* FourthViewController.swift */; };
 		6C8FFD47206BF00D00C5698E /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD45206BF00D00C5698E /* FourthViewController.xib */; };
 		6CC7BBAC206E2AC3003E5149 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC7BBAB206E2AC3003E5149 /* NetworkManager.swift */; };
+		6CFC9DEC20739F4600615B1B /* Billing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFC9DEB20739F4600615B1B /* Billing.swift */; };
 		B1D25DC1B45ADFC6DE70C2D5 /* Pods_GustOfisUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F173B4CB0D0ED8A35E3B81CC /* Pods_GustOfisUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		6C8FFD44206BF00D00C5698E /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		6C8FFD45206BF00D00C5698E /* FourthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
 		6CC7BBAB206E2AC3003E5149 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		6CFC9DEB20739F4600615B1B /* Billing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Billing.swift; sourceTree = "<group>"; };
 		6E9D5A4D2B1FC1ABF86FAB36 /* Pods-GustOfis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GustOfis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GustOfis/Pods-GustOfis.debug.xcconfig"; sourceTree = "<group>"; };
 		9CA505761DA3DE20D4D9625B /* Pods-GustOfisUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GustOfisUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GustOfisUITests/Pods-GustOfisUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC66623FFBEECC8D4146720D /* Pods_GustOfisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GustOfisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,7 @@
 				6C3291E7207244B700DBFC5E /* Order.swift */,
 				6C22B07120736FEC00C73AB9 /* Categorie.swift */,
 				6C22B0732073719700C73AB9 /* Product.swift */,
+				6CFC9DEB20739F4600615B1B /* Billing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CFC9DEC20739F4600615B1B /* Billing.swift in Sources */,
 				6C8FFD46206BF00D00C5698E /* FourthViewController.swift in Sources */,
 				6C22B07220736FEC00C73AB9 /* Categorie.swift in Sources */,
 				6C8FFD3E206BEFF400C5698E /* SecondViewController.swift in Sources */,

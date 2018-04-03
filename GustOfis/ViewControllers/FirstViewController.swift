@@ -38,8 +38,8 @@ class FirstViewController: ViewController {
             
             for order in self.orderArray
             {
-                self.myTextView.text.append("orderId: \(order.orderId!) parentId: \(order.parentId!)\n")
-                print("orderId: \(order.orderId!) parentId: \(order.parentId!)\n")
+                self.myTextView.text.append("orderId: \(order.orderId!) parentId: \(order.parentId!) billing.firstName: \(order.billing!.firstName!) billing.lastName: \(order.billing!.lastName!)\n")
+                print("orderId: \(order.orderId!) parentId: \(order.parentId!) billing: \(order.billing!)\n")
             }
             
             hud.dismiss()

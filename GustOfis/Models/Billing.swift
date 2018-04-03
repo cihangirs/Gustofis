@@ -1,19 +1,18 @@
 //
-//  Order.swift
+//  Billing.swift
 //  GustOfis
 //
-//  Created by Cihangir Sungur on 02/04/2018.
+//  Created by Cihangir Sungur on 03/04/2018.
 //  Copyright © 2018 Cihangir Sungur. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
-class Order: NSObject, Mappable {
+class Billing: NSObject, Mappable {
     
-    var orderId: Int?
-    var parentId: Int?
-    var billing: Billing?
+    var firstName: String?
+    var lastName: String?
     
     override init() {
         super.init()
@@ -24,9 +23,8 @@ class Order: NSObject, Mappable {
     }
     
     func mapping(map: Map) {
-        orderId <- map["id"]
-        parentId <- map["parent_id"]
-        billing <- map["billing"]
+        firstName <- map["first_name"]
+        lastName <- map["last_name"]
     }
     
 }
