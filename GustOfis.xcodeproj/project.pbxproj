@@ -12,11 +12,12 @@
 		6C22B07220736FEC00C73AB9 /* Categorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C22B07120736FEC00C73AB9 /* Categorie.swift */; };
 		6C22B0742073719700C73AB9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C22B0732073719700C73AB9 /* Product.swift */; };
 		6C3291E8207244B700DBFC5E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3291E7207244B700DBFC5E /* Order.swift */; };
+		6C3BA60E2075091D00B7F411 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C3BA60D2075091D00B7F411 /* LaunchScreen.xib */; };
+		6C3BA614207512F400B7F411 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C3BA613207512F400B7F411 /* Default.png */; };
 		6C8FFD05206BD23800C5698E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD04206BD23800C5698E /* AppDelegate.swift */; };
 		6C8FFD07206BD23800C5698E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD06206BD23800C5698E /* ViewController.swift */; };
 		6C8FFD0A206BD23800C5698E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD08206BD23800C5698E /* Main.storyboard */; };
 		6C8FFD0C206BD23800C5698E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD0B206BD23800C5698E /* Assets.xcassets */; };
-		6C8FFD0F206BD23800C5698E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD0D206BD23800C5698E /* LaunchScreen.storyboard */; };
 		6C8FFD1A206BD23900C5698E /* GustOfisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD19206BD23900C5698E /* GustOfisTests.swift */; };
 		6C8FFD25206BD23900C5698E /* GustOfisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD24206BD23900C5698E /* GustOfisUITests.swift */; };
 		6C8FFD35206BD61900C5698E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD34206BD61900C5698E /* ViewController.xib */; };
@@ -57,12 +58,13 @@
 		6C22B07120736FEC00C73AB9 /* Categorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categorie.swift; sourceTree = "<group>"; };
 		6C22B0732073719700C73AB9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		6C3291E7207244B700DBFC5E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		6C3BA60D2075091D00B7F411 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		6C3BA613207512F400B7F411 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6C8FFD01206BD23800C5698E /* GustOfis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GustOfis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8FFD04206BD23800C5698E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C8FFD06206BD23800C5698E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C8FFD09206BD23800C5698E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C8FFD0B206BD23800C5698E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6C8FFD0E206BD23800C5698E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C8FFD10206BD23800C5698E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C8FFD15206BD23900C5698E /* GustOfisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GustOfisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8FFD19206BD23900C5698E /* GustOfisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GustOfisTests.swift; sourceTree = "<group>"; };
@@ -132,10 +134,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6C3BA612207512B600B7F411 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6C3BA613207512F400B7F411 /* Default.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		6C8FFCF8206BD23800C5698E = {
 			isa = PBXGroup;
 			children = (
 				6C8FFD03206BD23800C5698E /* GustOfis */,
+				6C3BA612207512B600B7F411 /* Assets */,
 				6C8FFD18206BD23900C5698E /* GustOfisTests */,
 				6C8FFD23206BD23900C5698E /* GustOfisUITests */,
 				6C8FFD02206BD23800C5698E /* Products */,
@@ -163,9 +174,9 @@
 				6C91B550207399650073560D /* Managers */,
 				6C8FFD08206BD23800C5698E /* Main.storyboard */,
 				6C8FFD0B206BD23800C5698E /* Assets.xcassets */,
-				6C8FFD0D206BD23800C5698E /* LaunchScreen.storyboard */,
 				6C8FFD10206BD23800C5698E /* Info.plist */,
 				6CFC9DF02074CB4400615B1B /* QRReaderView.swift */,
+				6C3BA60D2075091D00B7F411 /* LaunchScreen.xib */,
 			);
 			path = GustOfis;
 			sourceTree = "<group>";
@@ -353,12 +364,13 @@
 			files = (
 				6C8FFD47206BF00D00C5698E /* FourthViewController.xib in Resources */,
 				6C8FFD43206BF00100C5698E /* ThirdViewController.xib in Resources */,
-				6C8FFD0F206BD23800C5698E /* LaunchScreen.storyboard in Resources */,
 				6C8FFD3B206BEFE800C5698E /* FirstViewController.xib in Resources */,
 				6C8FFD3F206BEFF400C5698E /* SecondViewController.xib in Resources */,
 				6C8FFD0C206BD23800C5698E /* Assets.xcassets in Resources */,
 				6C8FFD35206BD61900C5698E /* ViewController.xib in Resources */,
+				6C3BA60E2075091D00B7F411 /* LaunchScreen.xib in Resources */,
 				6C8FFD0A206BD23800C5698E /* Main.storyboard in Resources */,
+				6C3BA614207512F400B7F411 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,14 +621,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6C8FFD0D206BD23800C5698E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6C8FFD0E206BD23800C5698E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -732,6 +736,7 @@
 			baseConfigurationReference = 6E9D5A4D2B1FC1ABF86FAB36 /* Pods-GustOfis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2K2MQG792;
 				INFOPLIST_FILE = GustOfis/Info.plist;
@@ -749,6 +754,7 @@
 			baseConfigurationReference = 50907C49E76C085EEA01DF55 /* Pods-GustOfis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2K2MQG792;
 				INFOPLIST_FILE = GustOfis/Info.plist;
