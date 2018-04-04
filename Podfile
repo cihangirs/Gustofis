@@ -12,6 +12,7 @@ target 'GustOfis' do
   pod 'QRCodeReader.swift'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'OneSignal'
 
   target 'GustOfisTests' do
     inherit! :search_paths
