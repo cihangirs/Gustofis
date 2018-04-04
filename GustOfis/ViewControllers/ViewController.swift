@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import Crashlytics
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NetworkManager.shared().fetchProducts()
-//        NetworkManager.shared().fetchOrders()
-//        NetworkManager.shared().fetchCategories()
+//        let button = UIButton(type: .roundedRect)
+//        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
+//        button.setTitle("Crash", for: [])
+//        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+//        view.addSubview(button)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +27,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+//        Crashlytics.sharedInstance().crash()
+//    }
+
     // UITabBarDelegate
 //    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
 //

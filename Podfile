@@ -9,6 +9,9 @@ target 'GustOfis' do
   pod 'ObjectMapper'
   pod 'AlamofireObjectMapper'
   pod 'JGProgressHUD'
+  pod 'QRCodeReader.swift'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   target 'GustOfisTests' do
     inherit! :search_paths
