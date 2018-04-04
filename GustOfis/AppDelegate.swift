@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let thirdViewController: ThirdViewController = ThirdViewController()
     let fourthViewController: FourthViewController = FourthViewController()
 
+    let loginScreenViewController: LoginScreenViewController = LoginScreenViewController()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         //sleep(1)
@@ -33,9 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controllers = [firstViewController, secondViewController, thirdViewController, fourthViewController]
         tabBarController.viewControllers = controllers
         
+        let navigationController = UINavigationController(rootViewController: loginScreenViewController)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        window?.rootViewController = tabBarController
+        //window?.rootViewController = tabBarController
+        window?.rootViewController = navigationController;
         window?.makeKeyAndVisible()
         
         return true
