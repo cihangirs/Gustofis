@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let fourthViewController: FourthViewController = FourthViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        Fabric.with([Crashlytics.self])
 
         firstViewController.tabBarItem = UITabBarItem(title: "First", image: UIImage(named: "first"), tag: 0)
         secondViewController.tabBarItem = UITabBarItem(title: "Second", image: UIImage(named: "second"), tag: 0)
