@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,19 +17,86 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TK-Rr-23b">
-                    <rect key="frame" x="150" y="318" width="74" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TK-Rr-23b">
+                    <rect key="frame" x="123" y="438" width="74" height="30"/>
                     <state key="normal" title="DEVAM ET"/>
                     <connections>
                         <action selector="proceedButtonTapped:" destination="-1" eventType="touchUpInside" id="F7s-jC-nCN"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zgr-wF-tVV">
+                    <rect key="frame" x="40" y="28" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.367556465" green="0.54564566150000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="Hqk-Ss-EKU"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4T-Lr-dyY">
+                    <rect key="frame" x="40" y="172" width="240" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-posta adresi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AFE-ZA-oHI">
+                    <rect key="frame" x="40" y="210" width="240" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQX-J1-dGu">
+                    <rect key="frame" x="40" y="248" width="240" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre tekrar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-26-K31">
+                    <rect key="frame" x="40" y="286" width="240" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefon numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pVv-ND-5Wq">
+                    <rect key="frame" x="40" y="400" width="240" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chH-az-1cL">
+                    <rect key="frame" x="121" y="335" width="79" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="0.53301467579999995" blue="0.29082333869999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="chH-az-1cL" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="AUa-vh-oHF"/>
+                <constraint firstItem="pVv-ND-5Wq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="BWS-zq-bxn"/>
+                <constraint firstItem="u4T-Lr-dyY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="C6l-gB-BEy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0TK-Rr-23b" secondAttribute="bottom" constant="12" id="FcG-kZ-EwI"/>
+                <constraint firstItem="WQX-J1-dGu" firstAttribute="top" secondItem="AFE-ZA-oHI" secondAttribute="bottom" constant="8" id="G7t-Wd-rfm"/>
+                <constraint firstItem="0TK-Rr-23b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="123" id="IKI-pS-GN2"/>
+                <constraint firstItem="AFE-ZA-oHI" firstAttribute="top" secondItem="u4T-Lr-dyY" secondAttribute="bottom" constant="8" id="KdK-S5-g6D"/>
+                <constraint firstItem="sVL-26-K31" firstAttribute="top" secondItem="WQX-J1-dGu" secondAttribute="bottom" constant="8" id="LNi-qV-Jl0"/>
+                <constraint firstItem="sVL-26-K31" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="MMU-PT-0EV"/>
+                <constraint firstItem="zgr-wF-tVV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="RgG-ph-Hxm"/>
+                <constraint firstItem="zgr-wF-tVV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="Ush-v8-Q8N"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0TK-Rr-23b" secondAttribute="trailing" constant="123" id="X5u-we-2v0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zgr-wF-tVV" secondAttribute="trailing" constant="40" id="a9g-6v-wvT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WQX-J1-dGu" secondAttribute="trailing" constant="40" id="aNM-M9-EFF"/>
+                <constraint firstItem="0TK-Rr-23b" firstAttribute="top" secondItem="pVv-ND-5Wq" secondAttribute="bottom" constant="8" id="iIb-Ca-YsC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u4T-Lr-dyY" secondAttribute="trailing" constant="40" id="kS4-mi-n7E"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sVL-26-K31" secondAttribute="trailing" constant="40" id="l8Q-e4-Fcz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AFE-ZA-oHI" secondAttribute="trailing" constant="40" id="pud-sy-xPE"/>
+                <constraint firstItem="AFE-ZA-oHI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="rwh-y9-Yyw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pVv-ND-5Wq" secondAttribute="trailing" constant="40" id="tTU-hB-FOs"/>
+                <constraint firstItem="WQX-J1-dGu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="wTM-Uv-TbS"/>
+                <constraint firstItem="chH-az-1cL" firstAttribute="top" secondItem="sVL-26-K31" secondAttribute="bottom" constant="19" id="wwF-RF-LI2"/>
+                <constraint firstItem="u4T-Lr-dyY" firstAttribute="top" secondItem="zgr-wF-tVV" secondAttribute="bottom" constant="16" id="yf4-l2-giH"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
