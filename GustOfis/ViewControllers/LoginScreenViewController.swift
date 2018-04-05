@@ -12,10 +12,14 @@ class LoginScreenViewController: ViewController {
 
     @IBOutlet weak var nameSurname: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.registerButton.layer.cornerRadius = 17.5
+        self.facebookButton.layer.cornerRadius = 17.5
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.
     }

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewMemberViewController" customModule="GustOfis" customModuleProvider="target">
             <connections>
+                <outlet property="locationSelection" destination="rln-iS-tmm" id="UF0-iN-i01"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TK-Rr-23b">
-                    <rect key="frame" x="123" y="438" width="74" height="30"/>
+                    <rect key="frame" x="40" y="438" width="240" height="30"/>
                     <state key="normal" title="DEVAM ET"/>
                     <connections>
                         <action selector="proceedButtonTapped:" destination="-1" eventType="touchUpInside" id="F7s-jC-nCN"/>
@@ -64,38 +65,53 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chH-az-1cL">
-                    <rect key="frame" x="121" y="335" width="79" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chH-az-1cL">
+                    <rect key="frame" x="13" y="319" width="294" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="TKF-3g-L9a"/>
+                    </constraints>
+                    <string key="text">Şu an için sadece sınırlı sayıda lokasyona hizmet vermekteyiz. Lütfen aşağıdan size uygun olanı seçin, ya da bize telefon numaranızı bırakın.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LOKASYON SEÇİN" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rln-iS-tmm">
+                    <rect key="frame" x="40" y="361" width="240" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="0.53301467579999995" blue="0.29082333869999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="chH-az-1cL" secondAttribute="trailing" constant="13" id="9hQ-9A-SOg"/>
                 <constraint firstItem="chH-az-1cL" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="AUa-vh-oHF"/>
                 <constraint firstItem="pVv-ND-5Wq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="BWS-zq-bxn"/>
                 <constraint firstItem="u4T-Lr-dyY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="C6l-gB-BEy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0TK-Rr-23b" secondAttribute="bottom" constant="12" id="FcG-kZ-EwI"/>
                 <constraint firstItem="WQX-J1-dGu" firstAttribute="top" secondItem="AFE-ZA-oHI" secondAttribute="bottom" constant="8" id="G7t-Wd-rfm"/>
-                <constraint firstItem="0TK-Rr-23b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="123" id="IKI-pS-GN2"/>
+                <constraint firstItem="pVv-ND-5Wq" firstAttribute="top" secondItem="rln-iS-tmm" secondAttribute="bottom" constant="9" id="Hwh-OP-kMj"/>
+                <constraint firstItem="0TK-Rr-23b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="IKI-pS-GN2"/>
                 <constraint firstItem="AFE-ZA-oHI" firstAttribute="top" secondItem="u4T-Lr-dyY" secondAttribute="bottom" constant="8" id="KdK-S5-g6D"/>
                 <constraint firstItem="sVL-26-K31" firstAttribute="top" secondItem="WQX-J1-dGu" secondAttribute="bottom" constant="8" id="LNi-qV-Jl0"/>
                 <constraint firstItem="sVL-26-K31" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="MMU-PT-0EV"/>
+                <constraint firstItem="chH-az-1cL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="13" id="RAK-wW-HTO"/>
                 <constraint firstItem="zgr-wF-tVV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="RgG-ph-Hxm"/>
                 <constraint firstItem="zgr-wF-tVV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="Ush-v8-Q8N"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0TK-Rr-23b" secondAttribute="trailing" constant="123" id="X5u-we-2v0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0TK-Rr-23b" secondAttribute="trailing" constant="40" id="X5u-we-2v0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zgr-wF-tVV" secondAttribute="trailing" constant="40" id="a9g-6v-wvT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WQX-J1-dGu" secondAttribute="trailing" constant="40" id="aNM-M9-EFF"/>
                 <constraint firstItem="0TK-Rr-23b" firstAttribute="top" secondItem="pVv-ND-5Wq" secondAttribute="bottom" constant="8" id="iIb-Ca-YsC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u4T-Lr-dyY" secondAttribute="trailing" constant="40" id="kS4-mi-n7E"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sVL-26-K31" secondAttribute="trailing" constant="40" id="l8Q-e4-Fcz"/>
+                <constraint firstItem="rln-iS-tmm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="lLr-fU-TED"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AFE-ZA-oHI" secondAttribute="trailing" constant="40" id="pud-sy-xPE"/>
                 <constraint firstItem="AFE-ZA-oHI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="rwh-y9-Yyw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pVv-ND-5Wq" secondAttribute="trailing" constant="40" id="tTU-hB-FOs"/>
                 <constraint firstItem="WQX-J1-dGu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="wTM-Uv-TbS"/>
-                <constraint firstItem="chH-az-1cL" firstAttribute="top" secondItem="sVL-26-K31" secondAttribute="bottom" constant="19" id="wwF-RF-LI2"/>
+                <constraint firstItem="chH-az-1cL" firstAttribute="top" secondItem="sVL-26-K31" secondAttribute="bottom" constant="3" id="wwF-RF-LI2"/>
                 <constraint firstItem="u4T-Lr-dyY" firstAttribute="top" secondItem="zgr-wF-tVV" secondAttribute="bottom" constant="16" id="yf4-l2-giH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rln-iS-tmm" secondAttribute="trailing" constant="40" id="zmn-zm-DlD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
