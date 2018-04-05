@@ -102,6 +102,10 @@
 		6C8FFD44206BF00D00C5698E /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		6C8FFD45206BF00D00C5698E /* FourthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
 		6CC7BBAB206E2AC3003E5149 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		6CD431C42076790B008D045C /* Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
+		6CD431C52076790B008D045C /* Bitter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bitter-Bold.otf"; sourceTree = "<group>"; };
+		6CD431C62076790B008D045C /* Bitter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bitter-Regular.otf"; sourceTree = "<group>"; };
+		6CD431C72076790C008D045C /* Proxima Nova Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Regular.otf"; sourceTree = "<group>"; };
 		6CFC9DEB20739F4600615B1B /* Billing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Billing.swift; sourceTree = "<group>"; };
 		6CFC9DF02074CB4400615B1B /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
 		6E9D5A4D2B1FC1ABF86FAB36 /* Pods-GustOfis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GustOfis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GustOfis/Pods-GustOfis.debug.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				6C91B54E2073993B0073560D /* ViewControllers */,
 				6C91B54F207399560073560D /* Models */,
 				6C91B550207399650073560D /* Managers */,
+				6CD431C820767911008D045C /* Fonts */,
 				6C8FFD08206BD23800C5698E /* Main.storyboard */,
 				6C8FFD0B206BD23800C5698E /* Assets.xcassets */,
 				6C8FFD10206BD23800C5698E /* Info.plist */,
@@ -263,6 +268,17 @@
 				6CC7BBAB206E2AC3003E5149 /* NetworkManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		6CD431C820767911008D045C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6CD431C52076790B008D045C /* Bitter-Bold.otf */,
+				6CD431C62076790B008D045C /* Bitter-Regular.otf */,
+				6CD431C72076790C008D045C /* Proxima Nova Regular.otf */,
+				6CD431C42076790B008D045C /* Proxima Nova Semibold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		90AAEFDA191C60242D4F857C /* Frameworks */ = {
