@@ -11,12 +11,15 @@ import UIKit
 class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var locationSelection: UITextField!
+    @IBOutlet weak var proceedButton: UIButton!
     
     let pickerView = UIPickerView()
-    let pickerArray = ["First", "Second"]
+    let pickerArray = ["LEVENT 1C PLAZA", "LEVENT 41D PLAZA"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.proceedButton.layer.cornerRadius = 17.5
         
         self.pickerView.backgroundColor = UIColor.white
         self.pickerView.delegate = self
@@ -36,8 +39,12 @@ class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerV
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         
+        self.locationSelection.layer.cornerRadius = 17.5
+        self.locationSelection.layer.masksToBounds = true
         self.locationSelection.inputAccessoryView = toolBar
         self.locationSelection.inputView = pickerView
+        self.locationSelection.layer.borderWidth = 0.5
+        self.locationSelection.layer.borderColor = UIColor(red: 53/255, green: 53/255, blue: 62/255, alpha: 1.0).cgColor
         // Do any additional setup after loading the view.
     }
 

@@ -10,9 +10,17 @@ import UIKit
 
 class NewMemberTwoViewController: ViewController {
 
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var photoUploadButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.cameraButton.layer.cornerRadius = 17.5
+        self.photoUploadButton.layer.cornerRadius = 17.5
+        self.registerButton.layer.cornerRadius = 17.5
         // Do any additional setup after loading the view.
     }
 

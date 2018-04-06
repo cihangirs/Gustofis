@@ -20,8 +20,12 @@ class LoginScreenViewController: ViewController {
         super.viewDidLoad()
         
         self.nameSurname.layer.cornerRadius = 17.5
+        self.nameSurname.layer.masksToBounds = true
         self.password.layer.cornerRadius = 17.5
+        self.password.layer.masksToBounds = true
         self.loginButton.layer.cornerRadius = 17.5
+        self.loginButton.layer.borderWidth = 0.5
+        self.loginButton.layer.borderColor = UIColor(red: 114/255, green: 113/255, blue: 143/255, alpha: 1.0).cgColor
         self.registerButton.layer.cornerRadius = 17.5
         self.facebookButton.layer.cornerRadius = 17.5
         
