@@ -45,6 +45,9 @@ class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerV
         self.locationSelection.inputView = pickerView
         self.locationSelection.layer.borderWidth = 0.5
         self.locationSelection.layer.borderColor = UIColor(red: 53/255, green: 53/255, blue: 62/255, alpha: 1.0).cgColor
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -68,7 +71,7 @@ class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerV
         print("pickerCancelButtonTapped")
         self.locationSelection.resignFirstResponder()
     }
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

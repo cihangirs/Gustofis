@@ -11,6 +11,9 @@ import Crashlytics
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    var textfield: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,9 +25,37 @@ class ViewController: UIViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func keyboardWillShow(note: NSNotification) {
+        let userInfo = note.userInfo
+        let keyboardFrame = userInfo?[UIKeyboardFrameEndUserInfoKey] as! CGRect
+        let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.height, 0.0)
+        self.scrollView.contentInset = contentInset
+        self.scrollView.scrollIndicatorInsets = contentInset
+        self.scrollView.scrollRectToVisible(self.textfield.frame, animated: true)
+    }
+    
+    @objc func keyboardWillHide(note: NSNotification){
+        let contentInset = UIEdgeInsets.zero
+        self.scrollView.contentInset = contentInset
+        self.scrollView.scrollIndicatorInsets = contentInset
     }
     
 //    @IBAction func crashButtonTapped(_ sender: AnyObject) {

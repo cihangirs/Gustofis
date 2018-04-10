@@ -8,13 +8,16 @@
 
 import UIKit
 
-class LoginScreenViewController: ViewController {
+class LoginScreenViewController: ViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameSurname: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
+    
+    @IBOutlet weak var gustofisLogo: UIImageView!
+    @IBOutlet weak var gustofisLogoTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +33,41 @@ class LoginScreenViewController: ViewController {
         self.facebookButton.layer.cornerRadius = 17.5
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        print("\(UIScreen.main.bounds.size.width) : \(UIScreen.main.bounds.size.height)")
+        
+        self.scrollView.contentSize = CGSize(width:UIScreen.main.bounds.size.width, height:667)
+
+        print("before: \(self.gustofisLogoTopConstraint.constant)")
+        
+        self.gustofisLogoTopConstraint.constant = -((self.nameSurname.frame.origin.y - self.gustofisLogo.frame.size.height) / 2)
+        
+        print("after: \(self.gustofisLogoTopConstraint.constant)")
+        
+        self.view.layoutIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.textfield = textField
+        self.textfield.becomeFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.textfield.resignFirstResponder()
+        return true
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -45,9 +77,9 @@ class LoginScreenViewController: ViewController {
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
-            print("registerButtonTapped")
         self.navigationController?.pushViewController(NewMemberViewController(), animated: true)
     }
+    
     /*
     // MARK: - Navigation
 
