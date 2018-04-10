@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var locationSelection: UITextField!
     @IBOutlet weak var proceedButton: UIButton!
@@ -39,6 +39,7 @@ class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerV
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         
+        self.locationSelection.tintColor = UIColor.clear
         self.locationSelection.layer.cornerRadius = 17.5
         self.locationSelection.layer.masksToBounds = true
         self.locationSelection.inputAccessoryView = toolBar
@@ -51,6 +52,30 @@ class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerV
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.scrollView.contentSize = CGSize(width:UIScreen.main.bounds.size.width, height:667)
+        
+//        print("before: \(self.gustofisLogoTopConstraint.constant)")
+//        
+//        self.gustofisLogoTopConstraint.constant = -((self.nameSurname.frame.origin.y - self.gustofisLogo.frame.size.height) / 2)
+//        
+//        print("after: \(self.gustofisLogoTopConstraint.constant)")
+        
+        self.view.layoutIfNeeded()
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.textfield = textField
+        self.textfield.becomeFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.textfield.resignFirstResponder()
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
