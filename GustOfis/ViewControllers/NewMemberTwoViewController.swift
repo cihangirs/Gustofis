@@ -8,12 +8,12 @@
 
 import UIKit
 
-class NewMemberTwoViewController: ViewController {
+class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var photoUploadButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
-    
+    @IBOutlet weak var imagePicked: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +28,42 @@ class NewMemberTwoViewController: ViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imagePicked.image = image
+        dismiss(animated:true, completion: nil)
+    }
+    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+//        imagePicked.image = image
+//        dismiss(animated:true, completion: nil)
+//    }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         print("registerButtonTapped")
         self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+    }
+    
+    @IBAction func openCameraButton(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func openPhotoLibraryButton(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     /*

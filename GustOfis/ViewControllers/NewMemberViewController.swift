@@ -13,6 +13,8 @@ class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var locationSelection: UITextField!
     @IBOutlet weak var proceedButton: UIButton!
     
+    var locationSelectionView = LocationSelectionView()
+    
     let pickerView = UIPickerView()
     let pickerArray = ["LEVENT 1C PLAZA", "LEVENT 41D PLAZA"]
     
@@ -46,6 +48,10 @@ class NewMemberViewController: ViewController, UIPickerViewDataSource, UIPickerV
         self.locationSelection.inputView = pickerView
         self.locationSelection.layer.borderWidth = 0.5
         self.locationSelection.layer.borderColor = UIColor(red: 53/255, green: 53/255, blue: 62/255, alpha: 1.0).cgColor
+        
+        self.locationSelectionView.frame = CGRect(x:0, y:0, width:375, height: 350)
+        self.locationSelectionView.backgroundColor = UIColor.red
+        self.scrollView.addSubview(self.locationSelectionView)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)

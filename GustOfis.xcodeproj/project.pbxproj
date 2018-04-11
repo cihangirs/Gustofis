@@ -24,6 +24,8 @@
 		6C3BA618207515E400B7F411 /* LoginScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C3BA616207515E400B7F411 /* LoginScreenViewController.xib */; };
 		6C3BA61B20751ADF00B7F411 /* NewMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3BA61920751ADF00B7F411 /* NewMemberViewController.swift */; };
 		6C3BA61C20751ADF00B7F411 /* NewMemberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C3BA61A20751ADF00B7F411 /* NewMemberViewController.xib */; };
+		6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */; };
+		6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */; };
 		6C8FFD05206BD23800C5698E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD04206BD23800C5698E /* AppDelegate.swift */; };
 		6C8FFD07206BD23800C5698E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD06206BD23800C5698E /* ViewController.swift */; };
 		6C8FFD0A206BD23800C5698E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD08206BD23800C5698E /* Main.storyboard */; };
@@ -80,6 +82,8 @@
 		6C3BA616207515E400B7F411 /* LoginScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginScreenViewController.xib; sourceTree = "<group>"; };
 		6C3BA61920751ADF00B7F411 /* NewMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberViewController.swift; sourceTree = "<group>"; };
 		6C3BA61A20751ADF00B7F411 /* NewMemberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewMemberViewController.xib; sourceTree = "<group>"; };
+		6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionView.swift; sourceTree = "<group>"; };
+		6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSelectionView.xib; sourceTree = "<group>"; };
 		6C8FFD01206BD23800C5698E /* GustOfis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GustOfis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8FFD04206BD23800C5698E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C8FFD06206BD23800C5698E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,16 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		6C4BB1B9207D063800320E90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6CFC9DF02074CB4400615B1B /* QRReaderView.swift */,
+				6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */,
+				6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6C8FFCF8206BD23800C5698E = {
 			isa = PBXGroup;
 			children = (
@@ -195,12 +209,12 @@
 				6C8FFD04206BD23800C5698E /* AppDelegate.swift */,
 				6C91B54E2073993B0073560D /* ViewControllers */,
 				6C91B54F207399560073560D /* Models */,
+				6C4BB1B9207D063800320E90 /* Views */,
 				6C91B550207399650073560D /* Managers */,
 				6CD431C820767911008D045C /* Fonts */,
 				6C8FFD08206BD23800C5698E /* Main.storyboard */,
 				6C8FFD0B206BD23800C5698E /* Assets.xcassets */,
 				6C8FFD10206BD23800C5698E /* Info.plist */,
-				6CFC9DF02074CB4400615B1B /* QRReaderView.swift */,
 				6C3BA60D2075091D00B7F411 /* LaunchScreen.xib */,
 			);
 			path = GustOfis;
@@ -420,6 +434,7 @@
 				6C8FFD35206BD61900C5698E /* ViewController.xib in Resources */,
 				6C3BA60E2075091D00B7F411 /* LaunchScreen.xib in Resources */,
 				6C8FFD0A206BD23800C5698E /* Main.storyboard in Resources */,
+				6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */,
 				6C20B50E207523BD001D7A78 /* NewMemberTwoViewController.xib in Resources */,
 				6C3BA614207512F400B7F411 /* Default.png in Resources */,
 			);
@@ -619,6 +634,7 @@
 			files = (
 				6CFC9DEC20739F4600615B1B /* Billing.swift in Sources */,
 				6C8FFD46206BF00D00C5698E /* FourthViewController.swift in Sources */,
+				6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */,
 				6C22B07220736FEC00C73AB9 /* Categorie.swift in Sources */,
 				6C20B51520752768001D7A78 /* HomeViewController.swift in Sources */,
 				6C8FFD3E206BEFF400C5698E /* SecondViewController.swift in Sources */,

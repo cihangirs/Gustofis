@@ -21,6 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewMemberTwoViewController" customModule="GustOfis" customModuleProvider="target">
             <connections>
                 <outlet property="cameraButton" destination="g0a-TH-chb" id="0oM-Dc-TyX"/>
+                <outlet property="imagePicked" destination="Mz9-fa-0Go" id="B8Z-xP-CfN"/>
                 <outlet property="photoUploadButton" destination="4JZ-DB-4qv" id="Zjd-nb-Fmd"/>
                 <outlet property="registerButton" destination="NW3-lh-L92" id="FQc-v3-Iit"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,22 +36,18 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gustofisLogo" translatesAutoresizingMaskIntoConstraints="NO" id="f9y-13-sod">
-                    <rect key="frame" x="97" y="81" width="181.5" height="72"/>
+                    <rect key="frame" x="97" y="81" width="181.5" height="62.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62.5" id="QxL-cm-MRb"/>
+                        <constraint firstAttribute="width" constant="181.5" id="igL-1E-uqz"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YENİ ÜYE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rj9-iq-CXs">
-                    <rect key="frame" x="150" y="166" width="74" height="18"/>
+                    <rect key="frame" x="151" y="156.5" width="72" height="18"/>
                     <fontDescription key="fontDescription" name="Bitter-Bold" family="Bitter" pointSize="15"/>
                     <color key="textColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afs-ts-dIC">
-                    <rect key="frame" x="137.5" y="178" width="100" height="100"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="100" id="O0Q-Em-YIR"/>
-                        <constraint firstAttribute="height" constant="100" id="flg-Ow-zWz"/>
-                    </constraints>
-                    <state key="normal" title=" " image="cameraImage"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-TH-chb">
                     <rect key="frame" x="40" y="444" width="295" height="35"/>
                     <color key="backgroundColor" red="0.23137254901960785" green="0.20784313725490194" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,6 +58,9 @@
                     <state key="normal" title="KAMERA">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="openCameraButtonWithSender:" destination="-1" eventType="touchUpInside" id="NF3-mZ-y5o"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JZ-DB-4qv">
                     <rect key="frame" x="40" y="488" width="295" height="35"/>
@@ -72,6 +72,9 @@
                     <state key="normal" title="FOTOĞRAFLARIM">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="openPhotoLibraryButtonWithSender:" destination="-1" eventType="touchUpInside" id="bR7-zI-Uat"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NW3-lh-L92">
                     <rect key="frame" x="40" y="595" width="295" height="35"/>
@@ -88,38 +91,43 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bir profil fotoğrafı seçin." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aL-o7-cbr">
-                    <rect key="frame" x="125.5" y="299" width="124.5" height="15"/>
+                    <rect key="frame" x="125.5" y="289.5" width="124.5" height="15"/>
                     <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                     <color key="textColor" red="0.69019607843137254" green="0.69019607843137254" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-fa-0Go">
+                    <rect key="frame" x="137" y="182.5" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="6u5-yq-vxE"/>
+                        <constraint firstAttribute="width" constant="100" id="aJS-qp-ZBO"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.93640797149999999" green="1" blue="0.38202772660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4JZ-DB-4qv" secondAttribute="trailing" constant="40" id="1w3-e0-5Yt"/>
-                <constraint firstItem="4JZ-DB-4qv" firstAttribute="top" secondItem="g0a-TH-chb" secondAttribute="bottom" constant="9" id="2Yh-ey-jG0"/>
-                <constraint firstItem="Rj9-iq-CXs" firstAttribute="centerX" secondItem="f9y-13-sod" secondAttribute="centerX" id="3ln-NY-5Yk"/>
-                <constraint firstItem="afs-ts-dIC" firstAttribute="top" secondItem="f9y-13-sod" secondAttribute="bottom" constant="25" id="53m-az-lhu"/>
-                <constraint firstItem="5aL-o7-cbr" firstAttribute="top" secondItem="afs-ts-dIC" secondAttribute="bottom" constant="21" id="6kW-wH-b2f"/>
-                <constraint firstItem="g0a-TH-chb" firstAttribute="top" secondItem="5aL-o7-cbr" secondAttribute="bottom" constant="130" id="8bn-Gt-2tR"/>
+                <constraint firstItem="Mz9-fa-0Go" firstAttribute="top" secondItem="f9y-13-sod" secondAttribute="bottom" constant="39" id="2U6-O2-f9z"/>
+                <constraint firstItem="5aL-o7-cbr" firstAttribute="top" secondItem="Mz9-fa-0Go" secondAttribute="bottom" constant="7" id="6kW-wH-b2f"/>
                 <constraint firstItem="Rj9-iq-CXs" firstAttribute="top" secondItem="f9y-13-sod" secondAttribute="bottom" constant="13" id="8jn-Ev-qAJ"/>
                 <constraint firstItem="g0a-TH-chb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="95o-lU-VvL"/>
-                <constraint firstItem="f9y-13-sod" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="97" id="9kM-2o-ItV"/>
+                <constraint firstItem="Mz9-fa-0Go" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="DAN-Hw-Pdg"/>
+                <constraint firstItem="Rj9-iq-CXs" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="DRR-Jl-Fqg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZCO-Ha-JdO" secondAttribute="trailing" id="GTE-XH-le8"/>
                 <constraint firstItem="ZCO-Ha-JdO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KnR-u0-Wip"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f9y-13-sod" secondAttribute="trailing" constant="96" id="MeB-cg-MNc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NW3-lh-L92" secondAttribute="trailing" constant="40" id="PMa-L7-RgN"/>
+                <constraint firstItem="4JZ-DB-4qv" firstAttribute="top" secondItem="g0a-TH-chb" secondAttribute="bottom" constant="9" id="VW9-ub-KIr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="ZCO-Ha-JdO" secondAttribute="top" constant="20" id="as4-AJ-YWa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g0a-TH-chb" secondAttribute="trailing" constant="40" id="d4W-RA-jyG"/>
-                <constraint firstItem="5aL-o7-cbr" firstAttribute="centerX" secondItem="afs-ts-dIC" secondAttribute="centerX" id="eP5-0Y-zTU"/>
+                <constraint firstItem="f9y-13-sod" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="dKZ-vG-Gf7"/>
+                <constraint firstItem="5aL-o7-cbr" firstAttribute="centerX" secondItem="Mz9-fa-0Go" secondAttribute="centerX" id="eP5-0Y-zTU"/>
                 <constraint firstItem="4JZ-DB-4qv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="fwv-O5-9wQ"/>
+                <constraint firstItem="NW3-lh-L92" firstAttribute="top" secondItem="4JZ-DB-4qv" secondAttribute="bottom" constant="72" id="guG-J2-fuc"/>
+                <constraint firstItem="f9y-13-sod" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="61" id="hLe-oW-9Uy"/>
                 <constraint firstItem="NW3-lh-L92" firstAttribute="centerX" secondItem="4JZ-DB-4qv" secondAttribute="centerX" id="onZ-A1-AUM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rj9-iq-CXs" secondAttribute="trailing" constant="151" id="p1r-Bx-tTK"/>
                 <constraint firstItem="NW3-lh-L92" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="pRm-0S-c1T"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZCO-Ha-JdO" secondAttribute="bottom" id="rIw-sv-H4P"/>
                 <constraint firstItem="4JZ-DB-4qv" firstAttribute="centerX" secondItem="g0a-TH-chb" secondAttribute="centerX" id="sNU-En-YA1"/>
-                <constraint firstItem="f9y-13-sod" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="61" id="v9G-TX-cCj"/>
-                <constraint firstItem="afs-ts-dIC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="xx9-tH-JQy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="NW3-lh-L92" secondAttribute="bottom" constant="37" id="zBm-h5-z3C"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -127,7 +135,7 @@
     </objects>
     <resources>
         <image name="backgroundImage" width="375" height="667"/>
-        <image name="cameraImage" width="28" height="19"/>
         <image name="gustofisLogo" width="210" height="72"/>
+        <image name="profilePhoto" width="100" height="100"/>
     </resources>
 </document>
