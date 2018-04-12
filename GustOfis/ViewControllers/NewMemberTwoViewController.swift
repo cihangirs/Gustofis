@@ -43,7 +43,8 @@ class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegat
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         print("registerButtonTapped")
-        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+        //self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+        self.navigationController?.pushViewController(HomeViewController(), animated: true)
     }
     
     @IBAction func openCameraButton(sender: AnyObject) {

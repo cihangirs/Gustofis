@@ -9,44 +9,73 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bitter-Bold.otf">
+            <string>Bitter-Bold</string>
+        </array>
+        <array key="Proxima Nova Semibold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationSelectionView" customModule="GustOfis" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="R9E-FH-woh"/>
+                <outlet property="locationTableView" destination="hrd-qB-WPQ" id="KVf-kL-sY8"/>
+                <outlet property="okButton" destination="DDG-XG-B26" id="fnm-yv-D0r"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LocationSelectionView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="405"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dgsdgsdgsd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p48-zG-4zb">
-                    <rect key="frame" x="139" y="20" width="96" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOKASYON SEÇİN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p48-zG-4zb">
+                    <rect key="frame" x="138" y="33" width="99.5" height="15"/>
+                    <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hrd-qB-WPQ">
-                    <rect key="frame" x="0.0" y="70" width="375" height="192"/>
-                    <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="0.0" y="117" width="375" height="218"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="192" id="lAy-sI-uKJ"/>
+                        <constraint firstAttribute="height" constant="218" id="lAy-sI-uKJ"/>
                     </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zRy-6u-6Gd"/>
+                        <outlet property="delegate" destination="-1" id="3kb-uv-WHE"/>
+                    </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDG-XG-B26">
-                    <rect key="frame" x="164" y="288" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
+                    <rect key="frame" x="110" y="346" width="154" height="35"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="154" id="E9a-zk-kLT"/>
+                        <constraint firstAttribute="height" constant="35" id="Yv3-ve-Kjy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Bitter-Bold" family="Bitter" pointSize="10"/>
+                    <state key="normal" title="TAMAM">
+                        <color key="titleColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="okButtonTapped:" destination="-1" eventType="touchUpInside" id="2Ko-ip-nWn"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="hrd-qB-WPQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="70" id="8Om-cj-IWn"/>
-                <constraint firstItem="p48-zG-4zb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="9Gs-t8-oOq"/>
+                <constraint firstItem="p48-zG-4zb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="33" id="9Gs-t8-oOq"/>
                 <constraint firstItem="hrd-qB-WPQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Csd-uP-1F6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hrd-qB-WPQ" secondAttribute="trailing" id="MGa-Ze-6B2"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DDG-XG-B26" secondAttribute="bottom" constant="32" id="Nlw-qA-ufN"/>
+                <constraint firstItem="hrd-qB-WPQ" firstAttribute="top" secondItem="p48-zG-4zb" secondAttribute="bottom" constant="69" id="NP8-Rk-uex"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DDG-XG-B26" secondAttribute="bottom" constant="24" id="Nlw-qA-ufN"/>
                 <constraint firstItem="DDG-XG-B26" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="qt8-XP-Pff"/>
                 <constraint firstItem="p48-zG-4zb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="s4r-7a-NbS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="33.5" y="-113"/>
+            <point key="canvasLocation" x="33.5" y="-113.5"/>
         </view>
     </objects>
 </document>
