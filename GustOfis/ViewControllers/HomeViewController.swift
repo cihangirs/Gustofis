@@ -34,7 +34,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     fileprivate struct MenuItem1: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
             let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
-            tabView.tabIcon = UIImageView(image: UIImage(named:"categorieIcon.png"))
+            tabView.tabIcon.image = UIImage(named:"categorieIcon")
             tabView.tabTitle.text = "ÜRÜNLER"
             return .custom(view: tabView)
         }
@@ -42,7 +42,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     fileprivate struct MenuItem2: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
             let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
-            tabView.tabIcon = UIImageView(image: UIImage(named:"exclusiveIcon.png"))
+            tabView.tabIcon.image = UIImage(named:"exclusiveIcon")
             tabView.tabTitle.text = "SİZE ÖZEL"
             return .custom(view: tabView)
         }
@@ -50,7 +50,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     fileprivate struct MenuItem3: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
             let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
-            tabView.tabIcon = UIImageView(image: UIImage(named:"filterIcon.png"))
+            tabView.tabIcon.image = UIImage(named:"filterIcon")
             tabView.tabTitle.text = "FİLTRELE"
             return .custom(view: tabView)
         }
