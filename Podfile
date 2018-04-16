@@ -9,10 +9,21 @@ target 'GustOfis' do
   pod 'ObjectMapper'
   pod 'AlamofireObjectMapper'
   pod 'JGProgressHUD'
-  pod 'QRCodeReader.swift'
+#  pod 'QRCodeReader.swift'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'OneSignal'
+  # pod 'PageMenu'
+  
+  pod "PagingMenuController"
+  
+  post_install do |installer|
+      installer.pods_project.targets.each do |target|
+          target.build_configurations.each do |config|
+              config.build_settings['SWIFT_VERSION'] = '3.0'
+          end
+      end
+  end
 
   target 'GustOfisTests' do
     inherit! :search_paths

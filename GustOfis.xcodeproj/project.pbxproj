@@ -28,6 +28,12 @@
 		6C40A9A3207E68E5000FF25F /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C40A9A1207E68E5000FF25F /* LocationTableViewCell.xib */; };
 		6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */; };
 		6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */; };
+		6C68CE1E208100B300821295 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C68CE1C208100B300821295 /* CategoriesViewController.swift */; };
+		6C68CE1F208100B300821295 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C68CE1D208100B300821295 /* CategoriesViewController.xib */; };
+		6C68CE22208100C200821295 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C68CE20208100C200821295 /* FiltersViewController.swift */; };
+		6C68CE23208100C200821295 /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C68CE21208100C200821295 /* FiltersViewController.xib */; };
+		6C68CE26208100E500821295 /* ExclusivesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C68CE24208100E500821295 /* ExclusivesViewController.swift */; };
+		6C68CE27208100E500821295 /* ExclusivesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C68CE25208100E500821295 /* ExclusivesViewController.xib */; };
 		6C8FFD05206BD23800C5698E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD04206BD23800C5698E /* AppDelegate.swift */; };
 		6C8FFD07206BD23800C5698E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD06206BD23800C5698E /* ViewController.swift */; };
 		6C8FFD0A206BD23800C5698E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD08206BD23800C5698E /* Main.storyboard */; };
@@ -88,6 +94,12 @@
 		6C40A9A1207E68E5000FF25F /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionView.swift; sourceTree = "<group>"; };
 		6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSelectionView.xib; sourceTree = "<group>"; };
+		6C68CE1C208100B300821295 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		6C68CE1D208100B300821295 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
+		6C68CE20208100C200821295 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		6C68CE21208100C200821295 /* FiltersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersViewController.xib; sourceTree = "<group>"; };
+		6C68CE24208100E500821295 /* ExclusivesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusivesViewController.swift; sourceTree = "<group>"; };
+		6C68CE25208100E500821295 /* ExclusivesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExclusivesViewController.xib; sourceTree = "<group>"; };
 		6C8FFD01206BD23800C5698E /* GustOfis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GustOfis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8FFD04206BD23800C5698E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C8FFD06206BD23800C5698E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +287,12 @@
 				6C20B5102075266D001D7A78 /* ProfileViewController.xib */,
 				6C20B51320752768001D7A78 /* HomeViewController.swift */,
 				6C20B51420752768001D7A78 /* HomeViewController.xib */,
+				6C68CE1C208100B300821295 /* CategoriesViewController.swift */,
+				6C68CE1D208100B300821295 /* CategoriesViewController.xib */,
+				6C68CE20208100C200821295 /* FiltersViewController.swift */,
+				6C68CE21208100C200821295 /* FiltersViewController.xib */,
+				6C68CE24208100E500821295 /* ExclusivesViewController.swift */,
+				6C68CE25208100E500821295 /* ExclusivesViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -441,16 +459,19 @@
 				6C8FFD43206BF00100C5698E /* ThirdViewController.xib in Resources */,
 				6C20B5122075266D001D7A78 /* ProfileViewController.xib in Resources */,
 				6C8FFD3B206BEFE800C5698E /* FirstViewController.xib in Resources */,
+				6C68CE1F208100B300821295 /* CategoriesViewController.xib in Resources */,
 				6C20B51620752768001D7A78 /* HomeViewController.xib in Resources */,
 				6C40A9A3207E68E5000FF25F /* LocationTableViewCell.xib in Resources */,
 				6C8FFD3F206BEFF400C5698E /* SecondViewController.xib in Resources */,
 				6C3BA618207515E400B7F411 /* LoginScreenViewController.xib in Resources */,
+				6C68CE23208100C200821295 /* FiltersViewController.xib in Resources */,
 				6C8FFD0C206BD23800C5698E /* Assets.xcassets in Resources */,
 				6C8FFD35206BD61900C5698E /* ViewController.xib in Resources */,
 				6C3BA60E2075091D00B7F411 /* LaunchScreen.xib in Resources */,
 				6C8FFD0A206BD23800C5698E /* Main.storyboard in Resources */,
 				6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */,
 				6C20B50E207523BD001D7A78 /* NewMemberTwoViewController.xib in Resources */,
+				6C68CE27208100E500821295 /* ExclusivesViewController.xib in Resources */,
 				6C3BA614207512F400B7F411 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,7 +595,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
+				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -582,7 +603,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -652,6 +673,7 @@
 				6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */,
 				6C22B07220736FEC00C73AB9 /* Categorie.swift in Sources */,
 				6C20B51520752768001D7A78 /* HomeViewController.swift in Sources */,
+				6C68CE26208100E500821295 /* ExclusivesViewController.swift in Sources */,
 				6C8FFD3E206BEFF400C5698E /* SecondViewController.swift in Sources */,
 				6C3291E8207244B700DBFC5E /* Order.swift in Sources */,
 				6C8FFD3A206BEFE800C5698E /* FirstViewController.swift in Sources */,
@@ -661,7 +683,9 @@
 				6C22B0742073719700C73AB9 /* Product.swift in Sources */,
 				6CC7BBAC206E2AC3003E5149 /* NetworkManager.swift in Sources */,
 				6C40A9A2207E68E5000FF25F /* LocationTableViewCell.swift in Sources */,
+				6C68CE1E208100B300821295 /* CategoriesViewController.swift in Sources */,
 				6C8FFD42206BF00100C5698E /* ThirdViewController.swift in Sources */,
+				6C68CE22208100C200821295 /* FiltersViewController.swift in Sources */,
 				6C8FFD07206BD23800C5698E /* ViewController.swift in Sources */,
 				6C3BA61B20751ADF00B7F411 /* NewMemberViewController.swift in Sources */,
 				6C3BA617207515E400B7F411 /* LoginScreenViewController.swift in Sources */,
