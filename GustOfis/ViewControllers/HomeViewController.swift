@@ -11,8 +11,8 @@ import PagingMenuController
 
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     private let viewController1 = CategoriesViewController()
-    private let viewController2 = FiltersViewController()
-    private let viewController3 = ExclusivesViewController()
+    private let viewController2 = ExclusivesViewController()
+    private let viewController3 = FiltersViewController()
     
     fileprivate var componentType: ComponentType {
         return .all(menuOptions: MenuOptions(), pagingControllers: pagingControllers)
@@ -33,17 +33,26 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     
     fileprivate struct MenuItem1: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
-            return .text(title: MenuItemText(text: "ÜRÜNLER"))
+            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
+            tabView.tabIcon = UIImageView(image: UIImage(named:"categorieIcon.png"))
+            tabView.tabTitle.text = "ÜRÜNLER"
+            return .custom(view: tabView)
         }
     }
     fileprivate struct MenuItem2: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
-            return .text(title: MenuItemText(text: "SİZE ÖZEL"))
+            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
+            tabView.tabIcon = UIImageView(image: UIImage(named:"exclusiveIcon.png"))
+            tabView.tabTitle.text = "SİZE ÖZEL"
+            return .custom(view: tabView)
         }
     }
     fileprivate struct MenuItem3: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
-            return .text(title: MenuItemText(text: "FİLTRELE"))
+            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
+            tabView.tabIcon = UIImageView(image: UIImage(named:"filterIcon.png"))
+            tabView.tabTitle.text = "FİLTRELE"
+            return .custom(view: tabView)
         }
     }
 }
@@ -82,6 +91,8 @@ class HomeViewController: ViewController {
         view.addSubview(pagingMenuController.view)
         pagingMenuController.didMove(toParentViewController: self)
 
+        pagingMenuController.move(toPage: 1, animated: false)
+        pagingMenuController.menuView?.currentMenuItemView.menuImageView.image = UIImage(named: "1.jpg")
         // Do any additional setup after loading the view.
     }
 

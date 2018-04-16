@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="249" id="KGk-i7-Jjw" customClass="ExclusiveTableViewCell" customModule="GustOfis" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="399.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="h6V-kY-mOR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="241"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="241" id="h8e-xJ-8Kq"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peynir Tabağı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTj-XL-kf8">
+                        <rect key="frame" x="16" y="261" width="114" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="114" id="IWZ-Vg-cED"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7U-0Q-H9k">
+                        <rect key="frame" x="258.5" y="261" width="44.5" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, set do yot hangart youwe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqh-xa-Kwn">
+                        <rect key="frame" x="16" y="296" width="287" height="41"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="41" id="f6f-2f-XF1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eai-p3-zWm">
+                        <rect key="frame" x="218" y="359" width="85" height="30"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="Axt-r8-1Km"/>
+                            <constraint firstAttribute="height" constant="30" id="btC-ap-kcT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="SEPETE EKLE">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-lB-qSe">
+                        <rect key="frame" x="16" y="360" width="94" height="29"/>
+                    </stepper>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XTj-XL-kf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5aJ-cQ-qkh"/>
+                    <constraint firstAttribute="bottom" secondItem="eai-p3-zWm" secondAttribute="bottom" constant="10.5" id="AIO-tg-SKY"/>
+                    <constraint firstItem="Oqg-lB-qSe" firstAttribute="leading" secondItem="Rqh-xa-Kwn" secondAttribute="leading" id="CXA-4c-nVi"/>
+                    <constraint firstAttribute="bottom" secondItem="Oqg-lB-qSe" secondAttribute="bottom" constant="10.5" id="D3E-ux-jv7"/>
+                    <constraint firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" constant="17" id="FUb-vf-dx4"/>
+                    <constraint firstItem="F7U-0Q-H9k" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="20" id="Ffq-rG-MKc"/>
+                    <constraint firstItem="h6V-kY-mOR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Q2T-2e-9ts"/>
+                    <constraint firstItem="Rqh-xa-Kwn" firstAttribute="leading" secondItem="XTj-XL-kf8" secondAttribute="leading" id="RAN-Wn-SW2"/>
+                    <constraint firstAttribute="trailing" secondItem="h6V-kY-mOR" secondAttribute="trailing" id="TKL-Ye-YyO"/>
+                    <constraint firstItem="Rqh-xa-Kwn" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="55" id="bmc-Di-JlZ"/>
+                    <constraint firstItem="eai-p3-zWm" firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" id="cgx-G4-PlM"/>
+                    <constraint firstItem="XTj-XL-kf8" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="20" id="dxQ-Kj-Ww1"/>
+                    <constraint firstItem="Rqh-xa-Kwn" firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" id="sJ9-bu-xs5"/>
+                    <constraint firstItem="h6V-kY-mOR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xgz-fB-eOo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="-169" y="87"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="1.jpg" width="320" height="240"/>
+    </resources>
+</document>
