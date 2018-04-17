@@ -92,7 +92,6 @@ class HomeViewController: ViewController {
         pagingMenuController.didMove(toParentViewController: self)
 
         pagingMenuController.move(toPage: 1, animated: false)
-        pagingMenuController.menuView?.currentMenuItemView.menuImageView.image = UIImage(named: "1.jpg")
         // Do any additional setup after loading the view.
     }
 
