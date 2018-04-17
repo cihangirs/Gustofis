@@ -8,11 +8,17 @@
 
 import UIKit
 
-class FiltersViewController: ViewController {
+class FiltersViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var filterTableView: UITableView!
+    var selectedRow: Int = 0
+    
+    let filterArray = ["Gluten Free", "Dairy Free", "Sugar Free", "Vegan"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.filterTableView.register(UINib(nibName: "FilterTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +27,50 @@ class FiltersViewController: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellReuseIdentifier = "cell"
+        // create a new cell if needed or reuse an old one
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? FilterTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        cell.contentView.backgroundColor = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1.0)
+        cell.filterName.text = self.filterArray[indexPath.row]
+        cell.filterImageView.image = UIImage(named:"filterImageView\(indexPath.row + 1)")
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filterArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 63
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.selectedRow = indexPath.row
+//
+//        let cell:CategoryTableViewCell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
+//
+//        if(cell.isSelected){
+//            cell.contentView.backgroundColor = UIColor(red: 153/255, green: 204/255, blue: 0/255, alpha: 1.0)
+//        }else{
+//            cell.contentView.backgroundColor = UIColor.clear
+//        }
+//        print("selected")
+//    }
+    
     /*
     // MARK: - Navigation
 

@@ -13,9 +13,9 @@ target 'GustOfis' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'OneSignal'
-  # pod 'PageMenu'
+  pod 'GMStepper'
   
-  pod "PagingMenuController"
+  pod 'PagingMenuController'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|

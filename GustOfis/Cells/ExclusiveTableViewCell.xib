@@ -13,6 +13,9 @@
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue-Bold</string>
         </array>
+        <array key="Proxima Nova Semibold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -62,20 +65,24 @@
                             <constraint firstAttribute="width" constant="85" id="Axt-r8-1Km"/>
                             <constraint firstAttribute="height" constant="30" id="btC-ap-kcT"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="11"/>
                         <state key="normal" title="SEPETE EKLE">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-lB-qSe">
-                        <rect key="frame" x="16" y="360" width="94" height="29"/>
-                    </stepper>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtE-Gj-Zns" customClass="GMStepper" customModule="GMStepper">
+                        <rect key="frame" x="16" y="359" width="120" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="PtG-aY-JAF"/>
+                            <constraint firstAttribute="height" constant="30" id="SiG-PM-2Dt"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="XTj-XL-kf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5aJ-cQ-qkh"/>
                     <constraint firstAttribute="bottom" secondItem="eai-p3-zWm" secondAttribute="bottom" constant="10.5" id="AIO-tg-SKY"/>
-                    <constraint firstItem="Oqg-lB-qSe" firstAttribute="leading" secondItem="Rqh-xa-Kwn" secondAttribute="leading" id="CXA-4c-nVi"/>
-                    <constraint firstAttribute="bottom" secondItem="Oqg-lB-qSe" secondAttribute="bottom" constant="10.5" id="D3E-ux-jv7"/>
+                    <constraint firstItem="RtE-Gj-Zns" firstAttribute="leading" secondItem="Rqh-xa-Kwn" secondAttribute="leading" id="DiQ-9J-gUy"/>
                     <constraint firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" constant="17" id="FUb-vf-dx4"/>
                     <constraint firstItem="F7U-0Q-H9k" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="20" id="Ffq-rG-MKc"/>
                     <constraint firstItem="h6V-kY-mOR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Q2T-2e-9ts"/>
@@ -84,11 +91,16 @@
                     <constraint firstItem="Rqh-xa-Kwn" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="55" id="bmc-Di-JlZ"/>
                     <constraint firstItem="eai-p3-zWm" firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" id="cgx-G4-PlM"/>
                     <constraint firstItem="XTj-XL-kf8" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="20" id="dxQ-Kj-Ww1"/>
+                    <constraint firstAttribute="bottom" secondItem="RtE-Gj-Zns" secondAttribute="bottom" constant="10.5" id="lnc-VJ-Uuy"/>
                     <constraint firstItem="Rqh-xa-Kwn" firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" id="sJ9-bu-xs5"/>
                     <constraint firstItem="h6V-kY-mOR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xgz-fB-eOo"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addToBasketButton" destination="eai-p3-zWm" id="TyJ-gw-qcb"/>
+                <outlet property="stepper" destination="RtE-Gj-Zns" id="Ibe-Dq-kqX"/>
+            </connections>
             <point key="canvasLocation" x="-169" y="87"/>
         </tableViewCell>
     </objects>
