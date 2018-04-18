@@ -121,6 +121,9 @@
                             <state key="normal" title="FACEBOOK İLE KAYDOL">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="didFacebookButtonTapped:" destination="-1" eventType="touchUpInside" id="gg0-tw-iVE"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
