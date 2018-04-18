@@ -59,23 +59,26 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eai-p3-zWm">
-                        <rect key="frame" x="218" y="359" width="85" height="30"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="201" y="365" width="102" height="24"/>
+                        <color key="backgroundColor" red="0.85882352941176465" green="0.14117647058823529" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="85" id="Axt-r8-1Km"/>
-                            <constraint firstAttribute="height" constant="30" id="btC-ap-kcT"/>
+                            <constraint firstAttribute="width" constant="102" id="Axt-r8-1Km"/>
+                            <constraint firstAttribute="height" constant="24" id="btC-ap-kcT"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="11"/>
                         <state key="normal" title="SEPETE EKLE">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="didAddToBasketButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="RLO-5W-hgq"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtE-Gj-Zns" customClass="GMStepper" customModule="GMStepper">
-                        <rect key="frame" x="16" y="359" width="120" height="30"/>
+                        <rect key="frame" x="16" y="365" width="94.5" height="24"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="120" id="PtG-aY-JAF"/>
-                            <constraint firstAttribute="height" constant="30" id="SiG-PM-2Dt"/>
+                            <constraint firstAttribute="width" constant="94.5" id="PtG-aY-JAF"/>
+                            <constraint firstAttribute="height" constant="24" id="SiG-PM-2Dt"/>
                         </constraints>
                     </view>
                 </subviews>

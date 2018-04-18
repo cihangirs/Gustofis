@@ -16,6 +16,7 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 
         self.exclusiveTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
 
@@ -41,6 +42,11 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected")
+        self.navigationController?.pushViewController(ProductDetailViewController(), animated: true)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }

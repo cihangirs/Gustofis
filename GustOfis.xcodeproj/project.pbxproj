@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3807B17C87412CC2C06713BF /* Pods_GustOfis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D98482FCD074E365399BC4 /* Pods_GustOfis.framework */; };
 		57262235C79A9B43186DB475 /* Pods_GustOfisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC66623FFBEECC8D4146720D /* Pods_GustOfisTests.framework */; };
+		6C1B4E3C2087611D0073AFD0 /* InnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B4E3B2087611D0073AFD0 /* InnerView.swift */; };
+		6C1B4E3E208761290073AFD0 /* InnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C1B4E3D208761290073AFD0 /* InnerView.xib */; };
 		6C20B50D207523BD001D7A78 /* NewMemberTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C20B50B207523BD001D7A78 /* NewMemberTwoViewController.swift */; };
 		6C20B50E207523BD001D7A78 /* NewMemberTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C20B50C207523BD001D7A78 /* NewMemberTwoViewController.xib */; };
 		6C20B5112075266D001D7A78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C20B50F2075266D001D7A78 /* ProfileViewController.swift */; };
@@ -28,6 +30,8 @@
 		6C40A9A3207E68E5000FF25F /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C40A9A1207E68E5000FF25F /* LocationTableViewCell.xib */; };
 		6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */; };
 		6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */; };
+		6C542DAD20861F59006A520D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C542DAB20861F59006A520D /* ProductDetailViewController.swift */; };
+		6C542DAE20861F59006A520D /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C542DAC20861F59006A520D /* ProductDetailViewController.xib */; };
 		6C68CE1E208100B300821295 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C68CE1C208100B300821295 /* CategoriesViewController.swift */; };
 		6C68CE1F208100B300821295 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C68CE1D208100B300821295 /* CategoriesViewController.xib */; };
 		6C68CE22208100C200821295 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C68CE20208100C200821295 /* FiltersViewController.swift */; };
@@ -89,6 +93,8 @@
 /* Begin PBXFileReference section */
 		50907C49E76C085EEA01DF55 /* Pods-GustOfis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GustOfis.release.xcconfig"; path = "Pods/Target Support Files/Pods-GustOfis/Pods-GustOfis.release.xcconfig"; sourceTree = "<group>"; };
 		61D98482FCD074E365399BC4 /* Pods_GustOfis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GustOfis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C1B4E3B2087611D0073AFD0 /* InnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerView.swift; sourceTree = "<group>"; };
+		6C1B4E3D208761290073AFD0 /* InnerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InnerView.xib; sourceTree = "<group>"; };
 		6C20B50B207523BD001D7A78 /* NewMemberTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberTwoViewController.swift; sourceTree = "<group>"; };
 		6C20B50C207523BD001D7A78 /* NewMemberTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewMemberTwoViewController.xib; sourceTree = "<group>"; };
 		6C20B50F2075266D001D7A78 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 		6C40A9A1207E68E5000FF25F /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionView.swift; sourceTree = "<group>"; };
 		6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSelectionView.xib; sourceTree = "<group>"; };
+		6C542DAB20861F59006A520D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		6C542DAC20861F59006A520D /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		6C68CE1C208100B300821295 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		6C68CE1D208100B300821295 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		6C68CE20208100C200821295 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +243,8 @@
 				6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */,
 				6C68CE382084EC6700821295 /* TabView.swift */,
 				6C68CE3A2084EC7900821295 /* TabView.xib */,
+				6C1B4E3B2087611D0073AFD0 /* InnerView.swift */,
+				6C1B4E3D208761290073AFD0 /* InnerView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,6 +337,8 @@
 				6C68CE25208100E500821295 /* ExclusivesViewController.xib */,
 				6C68CE20208100C200821295 /* FiltersViewController.swift */,
 				6C68CE21208100C200821295 /* FiltersViewController.xib */,
+				6C542DAB20861F59006A520D /* ProductDetailViewController.swift */,
+				6C542DAC20861F59006A520D /* ProductDetailViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -511,7 +523,9 @@
 				6C68CE332084C84D00821295 /* 1.jpg in Resources */,
 				6C8FFD0C206BD23800C5698E /* Assets.xcassets in Resources */,
 				6C8FFD35206BD61900C5698E /* ViewController.xib in Resources */,
+				6C542DAE20861F59006A520D /* ProductDetailViewController.xib in Resources */,
 				6C3BA60E2075091D00B7F411 /* LaunchScreen.xib in Resources */,
+				6C1B4E3E208761290073AFD0 /* InnerView.xib in Resources */,
 				6C8FFD0A206BD23800C5698E /* Main.storyboard in Resources */,
 				6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */,
 				6C20B50E207523BD001D7A78 /* NewMemberTwoViewController.xib in Resources */,
@@ -725,6 +739,7 @@
 				6C8FFD3E206BEFF400C5698E /* SecondViewController.swift in Sources */,
 				6C3291E8207244B700DBFC5E /* Order.swift in Sources */,
 				6C8FFD3A206BEFE800C5698E /* FirstViewController.swift in Sources */,
+				6C542DAD20861F59006A520D /* ProductDetailViewController.swift in Sources */,
 				6C20B5112075266D001D7A78 /* ProfileViewController.swift in Sources */,
 				6C20B50D207523BD001D7A78 /* NewMemberTwoViewController.swift in Sources */,
 				6CFC9DF12074CB4400615B1B /* QRReaderView.swift in Sources */,
@@ -738,6 +753,7 @@
 				6C68CE392084EC6700821295 /* TabView.swift in Sources */,
 				6C8FFD07206BD23800C5698E /* ViewController.swift in Sources */,
 				6C3BA61B20751ADF00B7F411 /* NewMemberViewController.swift in Sources */,
+				6C1B4E3C2087611D0073AFD0 /* InnerView.swift in Sources */,
 				6C3BA617207515E400B7F411 /* LoginScreenViewController.swift in Sources */,
 				6C8FFD05206BD23800C5698E /* AppDelegate.swift in Sources */,
 			);
