@@ -47,4 +47,11 @@ class InnerView: UIView {
         self.stepper.labelTextColor = UIColor(red: 72/255, green: 70/255, blue: 70/255, alpha: 1)
     }
     
+    @IBAction func didAddToBasketButtonTapped(_ sender: UIButton) {
+        print("didAddToBasketButtonTapped with stepper value:\(stepper.value)")
+    }
+    
+    @IBAction func didAddToHealthAppButtonTapped(_ sender: UIButton) {
+        print("didAddToHealthAppButtonTapped")
+    }
 }

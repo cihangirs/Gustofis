@@ -47,6 +47,9 @@
                     <state key="normal" title="HEALTH UYGULAMASINA EKLE">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="didAddToHealthAppButtonTapped:" destination="-1" eventType="touchUpInside" id="k0b-OW-stP"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzU-ia-u7O">
                     <rect key="frame" x="245.5" y="95.5" width="44.5" height="20"/>
@@ -65,6 +68,9 @@
                     <state key="normal" title="SEPETE EKLE">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="didAddToBasketButtonTapped:" destination="-1" eventType="touchUpInside" id="b4l-KD-HAc"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKa-wk-BLV" customClass="GMStepper" customModule="GMStepper">
                     <rect key="frame" x="21" y="135" width="94" height="24"/>

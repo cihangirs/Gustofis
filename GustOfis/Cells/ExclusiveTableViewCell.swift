@@ -37,7 +37,7 @@ class ExclusiveTableViewCell: UITableViewCell {
     }
     
     @IBAction func didAddToBasketButtonTapped(_ sender: UIButton) {
-        print("didAddToBasketButtonTapped")
+        print("didAddToBasketButtonTapped with stepper value:\(stepper.value)")
     }
     
     
