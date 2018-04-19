@@ -19,6 +19,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     }
     
     fileprivate var pagingControllers: [ViewController] {
+        print("viewController1.frame: \(viewController1.view.frame)")
         return [viewController1, viewController2, viewController3]
     }
     
@@ -33,7 +34,8 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     
     fileprivate struct MenuItem1: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
-            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
+                    print("UIScreen.main.bounds.size.width: \(UIScreen.main.bounds.size.width)")
+            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width / 3, height: 45))
             tabView.tabIcon.image = UIImage(named:"categorieIcon")
             tabView.tabTitle.text = "ÜRÜNLER"
             return .custom(view: tabView)
@@ -41,7 +43,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     }
     fileprivate struct MenuItem2: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
-            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
+            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width / 3, height: 45))
             tabView.tabIcon.image = UIImage(named:"exclusiveIcon")
             tabView.tabTitle.text = "SİZE ÖZEL"
             return .custom(view: tabView)
@@ -49,7 +51,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     }
     fileprivate struct MenuItem3: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
-            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: 125, height: 45))
+            let tabView = TabView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width / 3, height: 45))
             tabView.tabIcon.image = UIImage(named:"filterIcon")
             tabView.tabTitle.text = "FİLTRELE"
             return .custom(view: tabView)
@@ -62,10 +64,9 @@ class HomeViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("homeViewController frame: \(self.view.frame)")
         let options = PagingMenuOptions()
         let pagingMenuController = PagingMenuController(options: options)
-        pagingMenuController.view.frame.origin.y += 64
-        pagingMenuController.view.frame.size.height -= 64
         pagingMenuController.onMove = { state in
             switch state {
             case let .willMoveController(menuController, previousMenuController):
@@ -86,6 +87,10 @@ class HomeViewController: ViewController {
                 print("Scroll end")
             }
         }
+        
+        pagingMenuController.view.frame = view.frame
+        pagingMenuController.view.frame.origin.y += 64
+        pagingMenuController.view.frame.size.height -= 64
         
         addChildViewController(pagingMenuController)
         view.addSubview(pagingMenuController.view)

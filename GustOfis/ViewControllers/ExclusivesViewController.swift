@@ -17,6 +17,7 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
 
         self.exclusiveTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        print("exclusives frame: \(self.view.frame)")
         // Do any additional setup after loading the view.
     }
 

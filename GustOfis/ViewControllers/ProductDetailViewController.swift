@@ -36,14 +36,14 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        self.innerScrollView.contentSize = CGSize(width: 335, height: 760 + 275)
+        self.innerScrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width - 40, height: 760 + 275)
 
 //        print("innerScrollView before: \(self.innerScrollView.frame)")
 //        print("innerView before: \(self.innerView.frame)")
 
         self.view.layoutIfNeeded()
         
-        self.innerView = InnerView(frame: CGRect(origin: CGPoint(x: 0,y :275), size: CGSize(width: 335, height: self.innerScrollView.contentSize.height - 275)))
+        self.innerView = InnerView(frame: CGRect(origin: CGPoint(x: 0,y :275), size: CGSize(width: UIScreen.main.bounds.size.width - 40, height: self.innerScrollView.contentSize.height - 275)))
         self.innerView.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
         self.innerView.layoutIfNeeded()
        //self.innerView.translatesAutoresizingMaskIntoConstraints = false

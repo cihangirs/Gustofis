@@ -66,7 +66,7 @@
                             <rect key="frame" x="40" y="236.5" width="295" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="MnY-CO-ZWy"/>
                             </connections>
@@ -117,7 +117,7 @@
                             <rect key="frame" x="40" y="520" width="295" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="VeW-Hq-yhG"/>
                             </connections>
