@@ -8,19 +8,19 @@
 
 import UIKit
 import PagingMenuController
+import JGProgressHUD
 
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
-    private let viewController1 = CategoriesViewController()
-    private let viewController2 = ExclusivesViewController()
-    private let viewController3 = FiltersViewController()
+    private let categoriesViewController = CategoriesViewController()
+    private let exclusivesViewController = ExclusivesViewController()
+    private let filtersViewController = FiltersViewController()
     
     fileprivate var componentType: ComponentType {
         return .all(menuOptions: MenuOptions(), pagingControllers: pagingControllers)
     }
     
     fileprivate var pagingControllers: [ViewController] {
-        print("viewController1.frame: \(viewController1.view.frame)")
-        return [viewController1, viewController2, viewController3]
+        return [categoriesViewController, exclusivesViewController, filtersViewController]
     }
     
     fileprivate struct MenuOptions: MenuViewCustomizable {
@@ -34,7 +34,6 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     
     fileprivate struct MenuItem1: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
-                    print("UIScreen.main.bounds.size.width: \(UIScreen.main.bounds.size.width)")
             let tabView = TabView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width / 3, height: 45))
             tabView.tabIcon.image = UIImage(named:"categorieIcon")
             tabView.tabTitle.text = "ÜRÜNLER"
@@ -63,8 +62,7 @@ class HomeViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("homeViewController frame: \(self.view.frame)")
+        
         let options = PagingMenuOptions()
         let pagingMenuController = PagingMenuController(options: options)
         pagingMenuController.onMove = { state in
@@ -98,6 +96,37 @@ class HomeViewController: ViewController {
 
         pagingMenuController.move(toPage: 1, animated: false)
         // Do any additional setup after loading the view.
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+
+        NetworkManager.shared().fetchProducts(completionHandler: { productArray in
+        
+            (options.pagingControllers[1] as! ExclusivesViewController).productArray = productArray;
+            (options.pagingControllers[1] as! ExclusivesViewController).exclusiveTableView.reloadData()
+//            for product in self.productArray
+//            {
+//                //self.myTextView.text.append("productId: \(product.productId!) productName: \(product.name!)\n")
+//                print("productId: \(product.productId!) productName: \(product.name!)\n")
+//            }
+            
+            hud.dismiss()
+        })
+        
+        NetworkManager.shared().fetchCategories(completionHandler: { categorieArray in
+            
+            //self.categorieArray = categorieArray;
+            
+            (options.pagingControllers[0] as! CategoriesViewController).categorieArray = categorieArray
+            (options.pagingControllers[0] as! CategoriesViewController).categoryTableView.reloadData()
+//            for categorie in self.categorieArray
+//            {
+//                print("categorieId: \(categorie.categorieId!) parentId: \(categorie.name!)\n")
+//            }
+            
+            hud.dismiss()
+        })
     }
 
     override func didReceiveMemoryWarning() {

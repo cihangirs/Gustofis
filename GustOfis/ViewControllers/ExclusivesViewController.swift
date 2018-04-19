@@ -12,12 +12,14 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var exclusiveTableView: UITableView!
     
+    var productArray = [Product]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.exclusiveTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        print("exclusives frame: \(self.view.frame)")
+        
         // Do any additional setup after loading the view.
     }
 
@@ -34,6 +36,9 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
+        cell.productName.text = self.productArray[indexPath.section].name
+        cell.productPrice.text = "\(self.productArray[indexPath.section].price!)" + " TL"
+        cell.productShortDescription.text = self.productArray[indexPath.section].shortDescription
 //        cell.categorieLabel.text = self.categorieArray[indexPath.row]
         //        cell.separatorInset = UIEdgeInsets.zero;
         //        cell.contentView.backgroundColor = UIColor(red: 49/255, green: 49/255, blue: 57/255, alpha: 1.0)
@@ -44,12 +49,11 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
         self.navigationController?.pushViewController(ProductDetailViewController(), animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return self.productArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

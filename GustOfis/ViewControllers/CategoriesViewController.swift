@@ -13,7 +13,7 @@ class CategoriesViewController: ViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var categoryTableView: UITableView!
     var selectedRow: Int = 0
     
-    let categorieArray = ["KAHVALTILIKLAR", "SANDVİÇ", "OFİS PAKETLERİ", "SÜT ÜRÜNLERİ", "ATIŞTIRMALIKLAR", "MEYVE & SEBZE", "İÇECEKLER", "DİĞER ÜRÜNLER", "SON SİPARİŞLERİM"]
+    var categorieArray = [Categorie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,8 @@ class CategoriesViewController: ViewController, UITableViewDelegate, UITableView
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        cell.categorieLabel.text = self.categorieArray[indexPath.row]
+        cell.categorieLabel.text = self.categorieArray[indexPath.row].name
+    
 //        cell.separatorInset = UIEdgeInsets.zero;
 //        cell.contentView.backgroundColor = UIColor(red: 49/255, green: 49/255, blue: 57/255, alpha: 1.0)
 //        cell.backgroundColor = UIColor(red: 49/255, green: 49/255, blue: 57/255, alpha: 1.0)
@@ -72,15 +73,5 @@ class CategoriesViewController: ViewController, UITableViewDelegate, UITableView
         }
         print("selected")
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

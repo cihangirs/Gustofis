@@ -13,6 +13,8 @@ class Product: NSObject, Mappable {
     
     var productId: Int?
     var name: String?
+    var price: String?
+    var shortDescription: String?
     
     override init() {
         super.init()
@@ -25,6 +27,8 @@ class Product: NSObject, Mappable {
     func mapping(map: Map) {
         productId <- map["id"]
         name <- map["name"]
+        price <- map["price"]
+        shortDescription <- map["short_description"]
     }
     
 }
