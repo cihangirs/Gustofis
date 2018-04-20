@@ -16,6 +16,7 @@ class ExclusiveTableViewCell: UITableViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productShortDescription: UILabel!
+    @IBOutlet weak var productImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,11 @@ class ExclusiveTableViewCell: UITableViewCell {
         self.stepper.labelTextColor = UIColor.black
         self.stepper.labelFont = UIFont(name: "ProximaNova-Semibold", size: 15.0)!
         self.stepper.labelTextColor = UIColor(red: 72/255, green: 70/255, blue: 70/255, alpha: 1)
+        
+//        let centerConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+
+//        imageView?.translatesAutoresizingMaskIntoConstraints = false
+//        self.contentView.addConstraint(centerConstraint)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

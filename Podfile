@@ -14,7 +14,7 @@ target 'GustOfis' do
   pod 'Crashlytics'
   pod 'OneSignal'
   pod 'GMStepper'
-  
+  pod 'SDWebImage'
   pod 'PagingMenuController'
   
   post_install do |installer|

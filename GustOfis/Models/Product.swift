@@ -15,6 +15,7 @@ class Product: NSObject, Mappable {
     var name: String?
     var price: String?
     var shortDescription: String?
+    var images: [ProductImage]?
     
     override init() {
         super.init()
@@ -29,6 +30,7 @@ class Product: NSObject, Mappable {
         name <- map["name"]
         price <- map["price"]
         shortDescription <- map["short_description"]
+        images <- map["images"]
     }
     
 }

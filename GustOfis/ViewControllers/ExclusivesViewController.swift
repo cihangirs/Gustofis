@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ExclusivesViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -19,10 +20,10 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
 
         self.exclusiveTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        
+    
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,12 +40,12 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
         cell.productName.text = self.productArray[indexPath.section].name
         cell.productPrice.text = "\(self.productArray[indexPath.section].price!)" + " TL"
         cell.productShortDescription.text = self.productArray[indexPath.section].shortDescription
-//        cell.categorieLabel.text = self.categorieArray[indexPath.row]
-        //        cell.separatorInset = UIEdgeInsets.zero;
-        //        cell.contentView.backgroundColor = UIColor(red: 49/255, green: 49/255, blue: 57/255, alpha: 1.0)
-        //        cell.backgroundColor = UIColor(red: 49/255, green: 49/255, blue: 57/255, alpha: 1.0)
-        // set the text from the data model
-        
+
+        cell.productImageView?.sd_setImage(with: URL(string: self.productArray[indexPath.section].images![0].src!), placeholderImage: nil){ (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
+
+            cell.productImageView?.image = self.resizeImage(image: image!, newWidth: 240)
+        }
+
         return cell
     }
 
@@ -84,14 +85,16 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
         return CGFloat.leastNormalMagnitude
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
     }
-    */
 
 }

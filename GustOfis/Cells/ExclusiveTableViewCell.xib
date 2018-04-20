@@ -30,11 +30,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="399.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="h6V-kY-mOR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="241"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6V-kY-mOR">
+                        <rect key="frame" x="40" y="0.0" width="240" height="240"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="241" id="h8e-xJ-8Kq"/>
+                            <constraint firstAttribute="width" constant="240" id="GC0-c3-NPV"/>
+                            <constraint firstAttribute="height" constant="240" id="h8e-xJ-8Kq"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peynir Tabağı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTj-XL-kf8">
@@ -87,31 +88,28 @@
                     <constraint firstAttribute="bottom" secondItem="eai-p3-zWm" secondAttribute="bottom" constant="10.5" id="AIO-tg-SKY"/>
                     <constraint firstItem="RtE-Gj-Zns" firstAttribute="leading" secondItem="Rqh-xa-Kwn" secondAttribute="leading" id="DiQ-9J-gUy"/>
                     <constraint firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" constant="17" id="FUb-vf-dx4"/>
-                    <constraint firstItem="F7U-0Q-H9k" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="20" id="Ffq-rG-MKc"/>
+                    <constraint firstItem="F7U-0Q-H9k" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="21" id="Ffq-rG-MKc"/>
                     <constraint firstItem="F7U-0Q-H9k" firstAttribute="leading" secondItem="XTj-XL-kf8" secondAttribute="trailing" constant="18" id="PuG-lG-iVy"/>
                     <constraint firstItem="h6V-kY-mOR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Q2T-2e-9ts"/>
                     <constraint firstItem="Rqh-xa-Kwn" firstAttribute="leading" secondItem="XTj-XL-kf8" secondAttribute="leading" id="RAN-Wn-SW2"/>
-                    <constraint firstAttribute="trailing" secondItem="h6V-kY-mOR" secondAttribute="trailing" id="TKL-Ye-YyO"/>
-                    <constraint firstItem="Rqh-xa-Kwn" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="55" id="bmc-Di-JlZ"/>
+                    <constraint firstItem="Rqh-xa-Kwn" firstAttribute="top" secondItem="h6V-kY-mOR" secondAttribute="bottom" constant="56" id="bmc-Di-JlZ"/>
                     <constraint firstItem="eai-p3-zWm" firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" id="cgx-G4-PlM"/>
                     <constraint firstAttribute="bottom" secondItem="RtE-Gj-Zns" secondAttribute="bottom" constant="10.5" id="lnc-VJ-Uuy"/>
+                    <constraint firstItem="h6V-kY-mOR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qsw-jc-S9t"/>
                     <constraint firstItem="Rqh-xa-Kwn" firstAttribute="trailing" secondItem="F7U-0Q-H9k" secondAttribute="trailing" id="sJ9-bu-xs5"/>
                     <constraint firstItem="XTj-XL-kf8" firstAttribute="centerY" secondItem="F7U-0Q-H9k" secondAttribute="centerY" id="x7k-8n-MmR"/>
-                    <constraint firstItem="h6V-kY-mOR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xgz-fB-eOo"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addToBasketButton" destination="eai-p3-zWm" id="TyJ-gw-qcb"/>
+                <outlet property="productImageView" destination="h6V-kY-mOR" id="Otl-9D-mED"/>
                 <outlet property="productName" destination="XTj-XL-kf8" id="DuZ-5Q-D81"/>
                 <outlet property="productPrice" destination="F7U-0Q-H9k" id="Vfv-qi-2Pv"/>
                 <outlet property="productShortDescription" destination="Rqh-xa-Kwn" id="msQ-KT-U0k"/>
                 <outlet property="stepper" destination="RtE-Gj-Zns" id="Ibe-Dq-kqX"/>
             </connections>
-            <point key="canvasLocation" x="-169" y="87"/>
+            <point key="canvasLocation" x="-324" y="136"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="1.jpg" width="320" height="240"/>
-    </resources>
 </document>
