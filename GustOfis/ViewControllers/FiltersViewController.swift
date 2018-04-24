@@ -11,9 +11,11 @@ import UIKit
 class FiltersViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var filterTableView: UITableView!
-    var selectedRow: Int = 0
+    weak var delegate: HomeViewController?
     
-    let filterArray = ["Gluten Free", "Dairy Free", "Sugar Free", "Vegan"]
+    var selectedRow: Int = 0
+    var filterArray = [Filter]()
+    //let filterArray = ["Gluten Free", "Dairy Free", "Sugar Free", "Vegan"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class FiltersViewController: ViewController, UITableViewDelegate, UITableViewDat
         }
         
         cell.contentView.backgroundColor = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1.0)
-        cell.filterName.text = self.filterArray[indexPath.row]
+        cell.filterName.text = self.filterArray[indexPath.row].filterName
         cell.filterImageView.image = UIImage(named:"filterImageView\(indexPath.row + 1)")
         
         return cell

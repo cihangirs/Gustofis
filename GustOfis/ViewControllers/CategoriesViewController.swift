@@ -11,8 +11,9 @@ import UIKit
 class CategoriesViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var categoryTableView: UITableView!
-    var selectedRow: Int = 0
     
+    weak var delegate: HomeViewController?
+    var selectedRow: Int = 0
     var categorieArray = [Categorie]()
     
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ class CategoriesViewController: ViewController, UITableViewDelegate, UITableView
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
+        cell.categorie = self.categorieArray[indexPath.row]
         cell.categorieLabel.text = self.categorieArray[indexPath.row].name
     
 //        cell.separatorInset = UIEdgeInsets.zero;
@@ -71,7 +73,10 @@ class CategoriesViewController: ViewController, UITableViewDelegate, UITableView
         }else{
             cell.contentView.backgroundColor = UIColor.clear
         }
-        print("selected")
+        
+        print("cell.categorie: \(cell.categorie)")
+
+        self.delegate?.fetchCategorieProducts(categorieId: cell.categorie.categorieId!)
     }
 
 }

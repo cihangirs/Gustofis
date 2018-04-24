@@ -12,6 +12,8 @@ class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var categorieLabel: UILabel!
     
+    var categorie: Categorie!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

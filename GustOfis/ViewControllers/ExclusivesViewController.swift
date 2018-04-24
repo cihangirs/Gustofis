@@ -12,6 +12,7 @@ import SDWebImage
 class ExclusivesViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var exclusiveTableView: UITableView!
+    weak var delegate: HomeViewController?
     
     var productArray = [Product]()
     

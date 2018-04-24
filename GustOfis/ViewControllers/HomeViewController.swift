@@ -11,9 +11,9 @@ import PagingMenuController
 import JGProgressHUD
 
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
-    private let categoriesViewController = CategoriesViewController()
-    private let exclusivesViewController = ExclusivesViewController()
-    private let filtersViewController = FiltersViewController()
+    let categoriesViewController = CategoriesViewController()
+    let exclusivesViewController = ExclusivesViewController()
+    let filtersViewController = FiltersViewController()
     
     fileprivate var componentType: ComponentType {
         return .all(menuOptions: MenuOptions(), pagingControllers: pagingControllers)
@@ -59,11 +59,11 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 }
 
 class HomeViewController: ViewController {
+    fileprivate let options = PagingMenuOptions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let options = PagingMenuOptions()
         let pagingMenuController = PagingMenuController(options: options)
         pagingMenuController.onMove = { state in
             switch state {
@@ -97,38 +97,111 @@ class HomeViewController: ViewController {
         pagingMenuController.move(toPage: 1, animated: false)
         // Do any additional setup after loading the view.
         
+        self.setChildViewControllersDelegate(pagingViewControllers: pagingMenuController.pagingViewController!)
+        
+        self.fetchProducts()
+        self.fetchCategories()
+        self.fetchFilters()
+        //print("pagingMenuController.pagingViewController: \(pagingMenuController.pagingViewController!)")
+    }
+
+    func fetchProducts() {
+    
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
 
         NetworkManager.shared().fetchProducts(completionHandler: { productArray in
-        
-            (options.pagingControllers[1] as! ExclusivesViewController).productArray = productArray;
-            (options.pagingControllers[1] as! ExclusivesViewController).exclusiveTableView.reloadData()
-//            for product in self.productArray
-//            {
-//                //self.myTextView.text.append("productId: \(product.productId!) productName: \(product.name!)\n")
-//                print("productId: \(product.productId!) productName: \(product.name!)\n")
-//            }
+            self.options.exclusivesViewController.productArray = productArray;
+            self.options.exclusivesViewController.exclusiveTableView.reloadData()
+            //            for product in self.productArray
+            //            {
+            //                //self.myTextView.text.append("productId: \(product.productId!) productName: \(product.name!)\n")
+            //                print("productId: \(product.productId!) productName: \(product.name!)\n")
+            //            }
             
             hud.dismiss()
         })
+    }
+    
+    func fetchCategories() {
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
         
         NetworkManager.shared().fetchCategories(completionHandler: { categorieArray in
             
             //self.categorieArray = categorieArray;
             
-            (options.pagingControllers[0] as! CategoriesViewController).categorieArray = categorieArray
-            (options.pagingControllers[0] as! CategoriesViewController).categoryTableView.reloadData()
-//            for categorie in self.categorieArray
-//            {
-//                print("categorieId: \(categorie.categorieId!) parentId: \(categorie.name!)\n")
-//            }
+            self.options.categoriesViewController.categorieArray = categorieArray
+            self.options.categoriesViewController.categoryTableView.reloadData()
+            //            for categorie in self.categorieArray
+            //            {
+            //                print("categorieId: \(categorie.categorieId!) parentId: \(categorie.name!)\n")
+            //            }
             
             hud.dismiss()
         })
     }
-
+    
+    func fetchCategorieProducts(categorieId: Int) {
+        
+        print("self.childViewControllers: \(self.childViewControllers)")
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
+        let pagingMenuController = self.childViewControllers.first as! PagingMenuController
+        pagingMenuController.move(toPage: 1)
+        
+        NetworkManager.shared().fetchCategorieProducts(categorieId:categorieId, completionHandler: { productArray in
+            
+            //self.categorieArray = categorieArray;
+            
+            self.options.exclusivesViewController.productArray = productArray
+            self.options.exclusivesViewController.exclusiveTableView.reloadData()
+            //            for categorie in self.categorieArray
+            //            {
+            //                print("categorieId: \(categorie.categorieId!) parentId: \(categorie.name!)\n")
+            //            }
+            
+            hud.dismiss()
+        })
+    }
+    
+    func fetchFilters() {
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
+        NetworkManager.shared().fetchFilters(completionHandler: { filterArray in
+            
+            //self.categorieArray = categorieArray;
+            print("filterArray: \(filterArray)")
+            
+            self.options.filtersViewController.filterArray = filterArray
+            self.options.filtersViewController.filterTableView.reloadData()
+            //            for categorie in self.categorieArray
+            //            {
+            //                print("categorieId: \(categorie.categorieId!) parentId: \(categorie.name!)\n")
+            //            }
+            
+            hud.dismiss()
+        })
+    }
+    
+    func setChildViewControllersDelegate(pagingViewControllers: PagingViewController) {
+//        for pagingViewController in pagingViewControllers.controllers {
+//            pagingViewController.
+//        }
+        (pagingViewControllers.controllers[0] as! CategoriesViewController).delegate = self
+        (pagingViewControllers.controllers[1] as! ExclusivesViewController).delegate = self
+        (pagingViewControllers.controllers[2] as! FiltersViewController).delegate = self
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

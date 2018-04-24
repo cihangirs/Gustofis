@@ -63,6 +63,68 @@ class NetworkManager: NSObject {
     class func shared() -> NetworkManager {
         return sharedNetworkManager
     }
+
+    func fetchFilters(completionHandler: @escaping (_ someArray: [Filter]) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "products/attributes/1/terms"
+        
+        self.sessionManager.request(requestStr,
+                                    method: .get,
+                                    parameters: nil,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseArray() { (response: DataResponse<[Filter]>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let filters = response.result.value
+                                            print("filters: \(filters!)")
+                                            
+//                                            for filter in filters!
+//                                            {
+//                                                print("productId: \(product.productId!) productName: \(product.name!)")
+//                                            }
+                                            
+                                            completionHandler(filters!)
+                                            
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+        
+        //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
+    }
+    
+    func fetchCategorieProducts(categorieId:Int, completionHandler: @escaping (_ someArray: [Product]) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "products?category=" + "\(categorieId)"
+        
+        self.sessionManager.request(requestStr,
+                                    method: .get,
+                                    parameters: nil,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseArray() { (response: DataResponse<[Product]>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let products = response.result.value
+                                            print("products: \(products!)")
+                                            
+                                            for product in products!
+                                            {
+                                                print("productId: \(product.productId!) productName: \(product.name!)")
+                                            }
+                                            
+                                            completionHandler(products!)
+                                            
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+        
+        //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
+    }
     
     func fetchProducts(completionHandler: @escaping (_ someArray: [Product]) -> Void)
     {
@@ -143,7 +205,7 @@ class NetworkManager: NSObject {
                                                 
                                                 for categorie in categories!
                                                 {
-                                                    print("orderId: \(categorie.categorieId!) parentId: \(categorie.name!)")
+                                                    print("categorieId: \(categorie.categorieId!) categorieName: \(categorie.name!)")
                                                 }
                                                 
                                                 completionHandler(categories!)
