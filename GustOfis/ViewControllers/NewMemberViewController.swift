@@ -8,13 +8,20 @@
 
 import UIKit
 
-class NewMemberViewController: ViewController, UITextFieldDelegate, SomeProtocol {
+class NewMemberViewController: ViewController, SomeProtocol {
     
     @IBOutlet weak var proceedButton: UIButton!
     @IBOutlet weak var locationSelectionButton: UIButton!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var passwordAgain: UITextField!
+    @IBOutlet weak var telephone: UITextField!
     
     var locationSelectionView = LocationSelectionView()
-    var backgroundView = UIView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.size.width, height:UIScreen.main.bounds.size.height ))
+    var backgroundView = UIView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.size.width, height:UIScreen.main.bounds.size.height))
+    var isTextFieldsSetDefault: Bool!
+    
     //let pickerView = UIPickerView()
     let locationArray = ["LEVENT 1C PLAZA", "LEVENT 41D PLAZA"]
     
@@ -22,6 +29,14 @@ class NewMemberViewController: ViewController, UITextFieldDelegate, SomeProtocol
         super.viewDidLoad()
         
         self.proceedButton.layer.cornerRadius = 17.5
+        
+        self.isTextFieldsSetDefault = false
+        
+        self.username.setDefaults(placeholderText: "Kullanıcı adı", borderLineWidth: 270)
+        self.email.setDefaults(placeholderText: "E-posta adresi", borderLineWidth: 270)
+        self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: 270)
+        self.passwordAgain.setDefaults(placeholderText: "Şifre tekrar", borderLineWidth: 270)
+        self.telephone.setDefaults(placeholderText: "Telefon numarası", borderLineWidth: 270)
         
 //        self.pickerView.backgroundColor = UIColor.white
 //        self.pickerView.delegate = self
@@ -67,14 +82,21 @@ class NewMemberViewController: ViewController, UITextFieldDelegate, SomeProtocol
         self.locationSelectionView.layer.borderWidth = 1
         self.locationSelectionView.layer.borderColor = UIColor(red: 114/255, green: 113/255, blue: 143/255, alpha: 1.0).cgColor
         self.locationSelectionView.delegate = self
-        //self.backgroundView.isHidden = true
-//        self.view.addSubview(self.backgroundView)
-//        self.view.addSubview(self.locationSelectionView)
+        
+        if !self.isTextFieldsSetDefault {
+            self.isTextFieldsSetDefault = !self.isTextFieldsSetDefault
+        }
     }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    
+    override func textFieldDidBeginEditing(_ textField: UITextField) {
+        super.textFieldDidBeginEditing(textField)
+        
         self.textfield = textField
         self.textfield.becomeFirstResponder()
+    }
+    
+    override func textFieldDidEndEditing(_ textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

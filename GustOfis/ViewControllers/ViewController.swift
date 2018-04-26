@@ -9,7 +9,7 @@
 import UIKit
 import Crashlytics
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     var textfield: UITextField!
@@ -56,6 +56,14 @@ class ViewController: UIViewController {
         let contentInset = UIEdgeInsets.zero
         self.scrollView.contentInset = contentInset
         self.scrollView.scrollIndicatorInsets = contentInset
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.setAsFocused()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.setAsUnfocused(borderColor: UIColor(red: 114/255, green: 113/255, blue: 143/255, alpha: 1.0))
     }
     
 //    @IBAction func crashButtonTapped(_ sender: AnyObject) {

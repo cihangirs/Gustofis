@@ -23,9 +23,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewMemberViewController" customModule="GustOfis" customModuleProvider="target">
             <connections>
+                <outlet property="email" destination="AFE-ZA-oHI" id="k3W-BI-NRT"/>
                 <outlet property="locationSelectionButton" destination="Nqx-K2-zy6" id="BRX-li-nMD"/>
+                <outlet property="password" destination="WQX-J1-dGu" id="E3O-jc-3pf"/>
+                <outlet property="passwordAgain" destination="sVL-26-K31" id="VAo-xo-TYx"/>
                 <outlet property="proceedButton" destination="0TK-Rr-23b" id="lMM-fI-MZa"/>
                 <outlet property="scrollView" destination="yYz-Vx-wLV" id="5uN-id-ERT"/>
+                <outlet property="telephone" destination="pVv-ND-5Wq" id="tLO-lh-FGh"/>
+                <outlet property="username" destination="u4T-Lr-dyY" id="UUb-4i-FaM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -55,6 +60,9 @@
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4T-Lr-dyY">
                             <rect key="frame" x="40" y="187.5" width="295" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="8um-qt-o8D"/>
+                            </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                             <textInputTraits key="textInputTraits"/>
@@ -64,6 +72,9 @@
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-posta adresi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AFE-ZA-oHI">
                             <rect key="frame" x="40" y="236.5" width="295" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Na8-AQ-oQG"/>
+                            </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -73,6 +84,9 @@
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQX-J1-dGu">
                             <rect key="frame" x="40" y="289.5" width="295" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="O5A-Yt-amR"/>
+                            </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -82,6 +96,9 @@
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre tekrar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVL-26-K31">
                             <rect key="frame" x="40" y="342.5" width="295" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="89Q-an-Wsb"/>
+                            </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -115,6 +132,9 @@
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefon numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pVv-ND-5Wq">
                             <rect key="frame" x="40" y="520" width="295" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="n2Z-wV-NgM"/>
+                            </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>

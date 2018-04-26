@@ -64,6 +64,30 @@ class NetworkManager: NSObject {
         return sharedNetworkManager
     }
 
+    func createUser(user: User, completionHandler: @escaping (_ someArray: User) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "customers"
+        
+        let userDictionary = ["username": user.username!, "email": user.email!, "password": user.password!]
+
+        self.sessionManager.request(requestStr,
+            method: .post,
+            parameters: userDictionary,
+            encoding: JSONEncoding.default,
+            headers: nil).validate().responseObject() { (response: DataResponse<User>) in
+                
+                switch response.result
+                {
+                    case .success:
+                        let user = response.result.value
+                        completionHandler(user!)
+                    
+                    case .failure:
+                        debugPrint("failureResponse: \(response)")
+                    }
+        }
+    }
+    
     func fetchFilters(completionHandler: @escaping (_ someArray: [Filter]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "products/attributes/1/terms"
@@ -95,7 +119,7 @@ class NetworkManager: NSObject {
         //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
     
-    func fetchCategorieProducts(categorieId:Int, completionHandler: @escaping (_ someArray: [Product]) -> Void)
+    func fetchCategorieProducts(categorieId: Int, completionHandler: @escaping (_ someArray: [Product]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "products?category=" + "\(categorieId)"
         

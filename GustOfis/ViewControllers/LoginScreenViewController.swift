@@ -8,24 +8,28 @@
 
 import UIKit
 
-class LoginScreenViewController: ViewController, UITextFieldDelegate {
+class LoginScreenViewController: ViewController {
 
     @IBOutlet weak var nameSurname: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     @IBOutlet weak var gustofisLogo: UIImageView!
     @IBOutlet weak var gustofisLogoTopConstraint: NSLayoutConstraint!
     
+    var isTextFieldsSetDefault: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.nameSurname.layer.cornerRadius = 17.5
-        self.nameSurname.layer.masksToBounds = true
-        self.password.layer.cornerRadius = 17.5
-        self.password.layer.masksToBounds = true
+        self.isTextFieldsSetDefault = false
+        
+        self.nameSurname.setDefaults(placeholderText: "Kullanıcı adı", borderLineWidth: 261)
+        self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: 261)
+        
         self.loginButton.layer.cornerRadius = 17.5
         self.loginButton.layer.borderWidth = 0.5
         self.loginButton.layer.borderColor = UIColor(red: 114/255, green: 113/255, blue: 143/255, alpha: 1.0).cgColor
@@ -44,7 +48,7 @@ class LoginScreenViewController: ViewController, UITextFieldDelegate {
 
         print("\(UIScreen.main.bounds.size.width) : \(UIScreen.main.bounds.size.height)")
         
-        self.scrollView.contentSize = CGSize(width:UIScreen.main.bounds.size.width, height:667)
+        self.scrollView.contentSize = CGSize(width:UIScreen.main.bounds.size.width, height:867)
 
         print("before: \(self.gustofisLogoTopConstraint.constant)")
         
@@ -53,6 +57,11 @@ class LoginScreenViewController: ViewController, UITextFieldDelegate {
         print("after: \(self.gustofisLogoTopConstraint.constant)")
         
         self.view.layoutIfNeeded()
+        
+        if !self.isTextFieldsSetDefault {
+            self.isTextFieldsSetDefault = !self.isTextFieldsSetDefault
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,9 +69,15 @@ class LoginScreenViewController: ViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    override func textFieldDidBeginEditing(_ textField: UITextField) {
+        super.textFieldDidBeginEditing(textField)
+        
         self.textfield = textField
         self.textfield.becomeFirstResponder()
+    }
+    
+    override func textFieldDidEndEditing(_ textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
