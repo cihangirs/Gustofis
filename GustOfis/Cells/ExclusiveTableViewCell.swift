@@ -33,15 +33,32 @@ class ExclusiveTableViewCell: UITableViewCell {
         self.stepper.labelFont = UIFont(name: "ProximaNova-Semibold", size: 15.0)!
         self.stepper.labelTextColor = UIColor(red: 72/255, green: 70/255, blue: 70/255, alpha: 1)
         
+//        self.addToBasketButton.setTitle("SEPETE EKLE", for: UIControlState.normal)
+//        self.addToBasketButton.setTitle("hehehehh", for: UIControlState.selected)
+        self.addToBasketButton.addTarget(self, action: #selector(myButtonTapped), for: UIControlEvents.touchUpInside)
+        self.addToBasketButton.setBackgroundColor(UIColor(red: 153/255, green: 204/255, blue: 0/255, alpha: 1), for: UIControlState.selected)
+        self.addToBasketButton.clipsToBounds = true
 //        let centerConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
 
 //        imageView?.translatesAutoresizingMaskIntoConstraints = false
 //        self.contentView.addConstraint(centerConstraint)
     }
 
+    @objc func myButtonTapped() {
+        if self.stepper.value != 0 {
+            self.addToBasketButton.isSelected = !self.addToBasketButton.isSelected
+            
+            if self.addToBasketButton.isSelected {
+                self.addToBasketButton.setTitle("✓ \(Int(self.stepper.value)) ADET SEPETTE", for: UIControlState.selected)
+            }
+            else {
+                self.addToBasketButton.setTitle("SEPETE EKLE", for: UIControlState.selected)
+            }
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

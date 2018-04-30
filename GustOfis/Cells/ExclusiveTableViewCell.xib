@@ -16,9 +16,6 @@
         <array key="Proxima Nova Regular.otf">
             <string>ProximaNova-Regular</string>
         </array>
-        <array key="Proxima Nova Semibold.otf">
-            <string>ProximaNova-Semibold</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -27,12 +24,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="399.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6V-kY-mOR">
                         <rect key="frame" x="40" y="0.0" width="240" height="240"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="240" id="GC0-c3-NPV"/>
                             <constraint firstAttribute="height" constant="240" id="h8e-xJ-8Kq"/>
@@ -66,7 +63,8 @@
                             <constraint firstAttribute="width" constant="102" id="Axt-r8-1Km"/>
                             <constraint firstAttribute="height" constant="24" id="btC-ap-kcT"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="11"/>
+                        <fontDescription key="fontDescription" name="Bitter-Bold" family="Bitter" pointSize="10"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <state key="normal" title="SEPETE EKLE">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>

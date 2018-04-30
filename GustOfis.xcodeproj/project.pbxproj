@@ -31,6 +31,7 @@
 		6C40A9A3207E68E5000FF25F /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C40A9A1207E68E5000FF25F /* LocationTableViewCell.xib */; };
 		6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */; };
 		6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */; };
+		6C4D739520935977007EEDFB /* UIButton+StateStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D739420935977007EEDFB /* UIButton+StateStyle.swift */; };
 		6C542DAD20861F59006A520D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C542DAB20861F59006A520D /* ProductDetailViewController.swift */; };
 		6C542DAE20861F59006A520D /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C542DAC20861F59006A520D /* ProductDetailViewController.xib */; };
 		6C68CE1E208100B300821295 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C68CE1C208100B300821295 /* CategoriesViewController.swift */; };
@@ -119,6 +120,7 @@
 		6C40A9A1207E68E5000FF25F /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionView.swift; sourceTree = "<group>"; };
 		6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSelectionView.xib; sourceTree = "<group>"; };
+		6C4D739420935977007EEDFB /* UIButton+StateStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+StateStyle.swift"; sourceTree = "<group>"; };
 		6C542DAB20861F59006A520D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		6C542DAC20861F59006A520D /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		6C68CE1C208100B300821295 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				6CB1735D2091C50B00A81CC6 /* UITextField+BottomLine.swift */,
+				6C4D739420935977007EEDFB /* UIButton+StateStyle.swift */,
 			);
 			name = Extensions;
 			path = "New Group";
@@ -782,6 +785,7 @@
 				6C3BA61B20751ADF00B7F411 /* NewMemberViewController.swift in Sources */,
 				6C1B4E3C2087611D0073AFD0 /* InnerView.swift in Sources */,
 				6C3BA617207515E400B7F411 /* LoginScreenViewController.swift in Sources */,
+				6C4D739520935977007EEDFB /* UIButton+StateStyle.swift in Sources */,
 				6C8FFD05206BD23800C5698E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

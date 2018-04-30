@@ -21,11 +21,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginScreenViewController" customModule="GustOfis" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImageView" destination="jML-AV-3to" id="xJ2-sI-Nhe"/>
+                <outlet property="email" destination="drr-Kp-eMN" id="EXU-Qk-y6H"/>
                 <outlet property="facebookButton" destination="SCA-Se-hKO" id="t1U-xY-XIj"/>
                 <outlet property="gustofisLogo" destination="DIf-Fc-4aA" id="Pzk-wk-EUD"/>
                 <outlet property="gustofisLogoTopConstraint" destination="VB1-ej-CCU" id="PRU-y2-d04"/>
                 <outlet property="loginButton" destination="783-YP-YvI" id="0Q9-dP-pOk"/>
-                <outlet property="nameSurname" destination="drr-Kp-eMN" id="JPG-LH-JLg"/>
                 <outlet property="password" destination="PeQ-ab-DGh" id="Gov-YK-9Vc"/>
                 <outlet property="registerButton" destination="aPA-Dc-jhj" id="ncf-aw-ZJP"/>
                 <outlet property="scrollView" destination="ktf-uk-L2j" id="0HZ-j6-ivO"/>

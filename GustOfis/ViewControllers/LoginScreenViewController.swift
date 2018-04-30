@@ -10,7 +10,7 @@ import UIKit
 
 class LoginScreenViewController: ViewController {
 
-    @IBOutlet weak var nameSurname: UITextField!
+    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
@@ -27,7 +27,7 @@ class LoginScreenViewController: ViewController {
         
         self.isTextFieldsSetDefault = false
         
-        self.nameSurname.setDefaults(placeholderText: "Kullanıcı adı", borderLineWidth: 261)
+        self.email.setDefaults(placeholderText: "E-posta adresi", borderLineWidth: 261)
         self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: 261)
         
         self.loginButton.layer.cornerRadius = 17.5
@@ -52,7 +52,7 @@ class LoginScreenViewController: ViewController {
 
         print("before: \(self.gustofisLogoTopConstraint.constant)")
         
-        self.gustofisLogoTopConstraint.constant = -((self.nameSurname.frame.origin.y - self.gustofisLogo.frame.size.height) / 2)
+        self.gustofisLogoTopConstraint.constant = -((self.email.frame.origin.y - self.gustofisLogo.frame.size.height) / 2)
         
         print("after: \(self.gustofisLogoTopConstraint.constant)")
         
@@ -86,7 +86,7 @@ class LoginScreenViewController: ViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        print("hello \(self.nameSurname.text!) your password is \(self.password.text!)")
+        print("hello \(self.email.text!) your password is \(self.password.text!)")
         print("you logged in dude")
         self.navigationController?.pushViewController(HomeViewController(), animated: true)
     }
