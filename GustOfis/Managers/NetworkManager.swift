@@ -80,7 +80,7 @@ class NetworkManager: NSObject {
                                         case .success:
                                             let user = response.result.value
                                             completionHandler(user!)
-                                            
+
                                         case .failure:
                                             debugPrint("failureResponse: \(response)")
                                         }

@@ -12,6 +12,8 @@ import SDWebImage
 class ExclusivesViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var exclusiveTableView: UITableView!
+    @IBOutlet weak var basketButton: UIButton!
+    
     weak var delegate: HomeViewController?
     
     var productArray = [Product]()
@@ -22,12 +24,17 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
         self.exclusiveTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
     
+        self.basketButton.layer.cornerRadius = 31.5
         // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func didBasketButtonTapped(_ sender: UIButton) {
+        print("didBasketButtonTapped")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

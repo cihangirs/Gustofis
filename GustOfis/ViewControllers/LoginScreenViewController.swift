@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIAlertController_Blocks
 
 class LoginScreenViewController: ViewController {
 
@@ -26,6 +27,8 @@ class LoginScreenViewController: ViewController {
         super.viewDidLoad()
         
         self.isTextFieldsSetDefault = false
+        
+        self.textfield = self.email
         
         self.email.setDefaults(placeholderText: "E-posta adresi", borderLineWidth: 261)
         self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: 261)
@@ -86,14 +89,52 @@ class LoginScreenViewController: ViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        print("hello \(self.email.text!) your password is \(self.password.text!)")
+        //print("hello \(self.email.text!) your password is \(self.password.text!)")
         self.textfield.resignFirstResponder()
-        print("isValidEmail: \(self.email.text!.isValidEmail())")
-        NetworkManager.shared().login(user: AppManager.shared().currentUser, completionHandler: { response in
-            print("loginResponse: \(response)")
-        })
-        print("you logged in dude")
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+        
+        if self.email.text?.count != 0 {
+            if self.password.text?.count != 0 {
+                AppManager.shared().currentUser = User(nameSurname: self.email.text!, username: self.email.text!, email: self.email.text!, password: self.password.text!)
+                
+                NetworkManager.shared().login(user: AppManager.shared().currentUser, completionHandler: { response in
+                    print("loginResponse: \(response)")
+                    self.navigationController?.pushViewController(HomeViewController(), animated: true)
+                })
+                print("you logged in dude")
+            }
+            else {
+                UIAlertController.showAlert(
+                    in: self,
+                    withTitle: "Errör",
+                    message: "funny :)",
+                    cancelButtonTitle: ":(",
+                    destructiveButtonTitle: nil,
+                    otherButtonTitles: nil,
+                    tap: {(controller, action, buttonIndex) in
+                        if buttonIndex == controller.cancelButtonIndex {
+                            print("Cancel Tapped")
+                        }
+                    }
+                )
+                print("password field can not be empty")
+            }
+        }
+        else {
+            UIAlertController.showAlert(
+                in: self,
+                withTitle: "Errör",
+                message: "E-mail field can not be empty",
+                cancelButtonTitle: "OK dude",
+                destructiveButtonTitle: nil,
+                otherButtonTitles: nil,
+                tap: {(controller, action, buttonIndex) in
+                    if buttonIndex == controller.cancelButtonIndex {
+                        print("Cancel Tapped")
+                    }
+                }
+            )
+            print("email field can not be empty")
+        }
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {

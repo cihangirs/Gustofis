@@ -16,6 +16,7 @@ target 'GustOfis' do
   pod 'GMStepper'
   pod 'SDWebImage'
   pod 'PagingMenuController'
+  pod 'UIAlertController+Blocks'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|

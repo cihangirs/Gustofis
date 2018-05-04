@@ -112,6 +112,23 @@ class NewMemberViewController: ViewController, SomeProtocol {
     
     @IBAction func proceedButtonTapped(_ sender: UIButton) {
         print("proceedButtonTapped")
+        
+        if self.password.text != self.passwordAgain.text {
+            UIAlertController.showAlert(
+                in: self,
+                withTitle: "Errör",
+                message: "Passwords do not match",
+                cancelButtonTitle: "My mistake",
+                destructiveButtonTitle: nil,
+                otherButtonTitles: nil,
+                tap: {(controller, action, buttonIndex) in
+                    if buttonIndex == controller.cancelButtonIndex {
+                        print("Cancel Tapped")
+                    }
+            }
+            )
+        }
+        
         AppManager.shared().currentUser = User(nameSurname: self.nameSurname.text!, username: self.email.text!, email: self.email.text!, password: self.password.text!)
         print("currentUser: \(AppManager.shared().currentUser)")
         self.textfield.resignFirstResponder()
