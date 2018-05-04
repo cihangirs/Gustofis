@@ -32,6 +32,8 @@
 		6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */; };
 		6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */; };
 		6C4D739520935977007EEDFB /* UIButton+StateStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D739420935977007EEDFB /* UIButton+StateStyle.swift */; };
+		6C4D73972099B0D1007EEDFB /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D73962099B0D1007EEDFB /* AppManager.swift */; };
+		6C4D7399209A0438007EEDFB /* String+Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D7398209A0438007EEDFB /* String+Validations.swift */; };
 		6C542DAD20861F59006A520D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C542DAB20861F59006A520D /* ProductDetailViewController.swift */; };
 		6C542DAE20861F59006A520D /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C542DAC20861F59006A520D /* ProductDetailViewController.xib */; };
 		6C68CE1E208100B300821295 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C68CE1C208100B300821295 /* CategoriesViewController.swift */; };
@@ -121,6 +123,8 @@
 		6C4BB1BA207D068500320E90 /* LocationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionView.swift; sourceTree = "<group>"; };
 		6C4BB1BC207D06A300320E90 /* LocationSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSelectionView.xib; sourceTree = "<group>"; };
 		6C4D739420935977007EEDFB /* UIButton+StateStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+StateStyle.swift"; sourceTree = "<group>"; };
+		6C4D73962099B0D1007EEDFB /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		6C4D7398209A0438007EEDFB /* String+Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validations.swift"; sourceTree = "<group>"; };
 		6C542DAB20861F59006A520D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		6C542DAC20861F59006A520D /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		6C68CE1C208100B300821295 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				6CC7BBAB206E2AC3003E5149 /* NetworkManager.swift */,
+				6C4D73962099B0D1007EEDFB /* AppManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 			children = (
 				6CB1735D2091C50B00A81CC6 /* UITextField+BottomLine.swift */,
 				6C4D739420935977007EEDFB /* UIButton+StateStyle.swift */,
+				6C4D7398209A0438007EEDFB /* String+Validations.swift */,
 			);
 			name = Extensions;
 			path = "New Group";
@@ -765,6 +771,7 @@
 				6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */,
 				6C22B07220736FEC00C73AB9 /* Categorie.swift in Sources */,
 				6C20B51520752768001D7A78 /* HomeViewController.swift in Sources */,
+				6C4D73972099B0D1007EEDFB /* AppManager.swift in Sources */,
 				6C68CE26208100E500821295 /* ExclusivesViewController.swift in Sources */,
 				6C8FFD3E206BEFF400C5698E /* SecondViewController.swift in Sources */,
 				6C3291E8207244B700DBFC5E /* Order.swift in Sources */,
@@ -774,6 +781,7 @@
 				6C20B50D207523BD001D7A78 /* NewMemberTwoViewController.swift in Sources */,
 				6CFC9DF12074CB4400615B1B /* QRReaderView.swift in Sources */,
 				6C22B0742073719700C73AB9 /* Product.swift in Sources */,
+				6C4D7399209A0438007EEDFB /* String+Validations.swift in Sources */,
 				6C68CE3E2085E93A00821295 /* FilterTableViewCell.swift in Sources */,
 				6CC7BBAC206E2AC3003E5149 /* NetworkManager.swift in Sources */,
 				6C40A9A2207E68E5000FF25F /* LocationTableViewCell.swift in Sources */,

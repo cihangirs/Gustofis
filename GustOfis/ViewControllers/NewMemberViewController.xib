@@ -25,12 +25,12 @@
             <connections>
                 <outlet property="email" destination="AFE-ZA-oHI" id="k3W-BI-NRT"/>
                 <outlet property="locationSelectionButton" destination="Nqx-K2-zy6" id="BRX-li-nMD"/>
+                <outlet property="nameSurname" destination="u4T-Lr-dyY" id="ouM-Zq-9PI"/>
                 <outlet property="password" destination="WQX-J1-dGu" id="E3O-jc-3pf"/>
                 <outlet property="passwordAgain" destination="sVL-26-K31" id="VAo-xo-TYx"/>
                 <outlet property="proceedButton" destination="0TK-Rr-23b" id="lMM-fI-MZa"/>
                 <outlet property="scrollView" destination="yYz-Vx-wLV" id="5uN-id-ERT"/>
                 <outlet property="telephone" destination="pVv-ND-5Wq" id="tLO-lh-FGh"/>
-                <outlet property="username" destination="u4T-Lr-dyY" id="UUb-4i-FaM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -58,7 +58,7 @@
                             <color key="textColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4T-Lr-dyY">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ad Soyad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4T-Lr-dyY">
                             <rect key="frame" x="40" y="187.5" width="295" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="8um-qt-o8D"/>

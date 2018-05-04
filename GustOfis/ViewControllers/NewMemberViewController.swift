@@ -12,7 +12,7 @@ class NewMemberViewController: ViewController, SomeProtocol {
     
     @IBOutlet weak var proceedButton: UIButton!
     @IBOutlet weak var locationSelectionButton: UIButton!
-    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var nameSurname: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var passwordAgain: UITextField!
@@ -32,7 +32,7 @@ class NewMemberViewController: ViewController, SomeProtocol {
         
         self.isTextFieldsSetDefault = false
         
-        self.username.setDefaults(placeholderText: "Kullanıcı adı", borderLineWidth: 270)
+        self.nameSurname.setDefaults(placeholderText: "Ad soyad", borderLineWidth: 270)
         self.email.setDefaults(placeholderText: "E-posta adresi", borderLineWidth: 270)
         self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: 270)
         self.passwordAgain.setDefaults(placeholderText: "Şifre tekrar", borderLineWidth: 270)
@@ -111,9 +111,45 @@ class NewMemberViewController: ViewController, SomeProtocol {
     
     @IBAction func proceedButtonTapped(_ sender: UIButton) {
         print("proceedButtonTapped")
+        AppManager.shared().currentUser = User(nameSurname: self.nameSurname.text!, username: self.email.text!, email: self.email.text!, password: self.password.text!)
+        print("currentUser: \(AppManager.shared().currentUser)")
+        self.textfield.resignFirstResponder()
         self.navigationController?.pushViewController(NewMemberTwoViewController(), animated: true)
     }
 
+    func parseNameSurname() -> (String, String) {
+        let nameSurname = self.nameSurname.text!.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+        let wordsAndEmptyStrings:[String] = nameSurname.components(separatedBy: NSCharacterSet.whitespaces)
+        let filteredArray = wordsAndEmptyStrings.filter({ $0.count > 0 })
+        print("wordsAndEmptyStrings: \(wordsAndEmptyStrings)")
+        print("filteredArray: \(filteredArray)")
+        
+        var name = ""
+        var surname = ""
+        
+        var i = 1;
+        
+        for str in filteredArray {
+            if i != filteredArray.count {
+                name = name + str
+                name = name + " "
+            }
+            else {
+                surname = str
+            }
+            i = i + 1
+        }
+        
+        if name.count > 0 {
+            let index = name.index(name.endIndex, offsetBy: -1)
+            name = String(name[..<index])
+        }
+        
+        print("name: \(name) surname: \(surname)")
+        
+        return (name, surname)
+    }
+    
     @IBAction func locationSelectionButtonTapped(_ sender: UIButton) {
         self.view.addSubview(self.backgroundView)
         self.view.addSubview(self.locationSelectionView)

@@ -44,7 +44,7 @@ class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegat
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         print("registerButtonTapped")
         
-        NetworkManager.shared().createUser(user: User(username:"cccc2", email: "cccc2@cccc.com", password: "cccccc2"), completionHandler: { response in
+        NetworkManager.shared().createUser(user: AppManager.shared().currentUser, completionHandler: { response in
             print("response: \(response)")
         })
         //self.navigationController?.pushViewController(ProfileViewController(), animated: true)

@@ -6,7 +6,6 @@
 //  Copyright © 2018 Cihangir Sungur. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
@@ -19,7 +18,7 @@ class NetworkManager: NSObject {
     
     enum API
     {
-        static let baseURL = URL(string: "https://gustofisdev.wpengine.com/wp-json/wc/v2/")!
+        static let baseURL = URL(string: "https://gustofisdev.wpengine.com/")!
     }
     
     private static var sharedNetworkManager: NetworkManager = {
@@ -64,9 +63,33 @@ class NetworkManager: NSObject {
         return sharedNetworkManager
     }
 
+    func login(user: User, completionHandler: @escaping (_ someArray: User) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "oauth/token/customers"
+        
+        let userDictionary = ["username": user.username!, "email": user.email!, "password": user.password!]
+        
+        self.sessionManager.request(requestStr,
+                                    method: .post,
+                                    parameters: userDictionary,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseObject() { (response: DataResponse<User>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let user = response.result.value
+                                            completionHandler(user!)
+                                            
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+    }
+    
     func createUser(user: User, completionHandler: @escaping (_ someArray: User) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "customers"
+        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/customers"
         
         let userDictionary = ["username": user.username!, "email": user.email!, "password": user.password!]
 
@@ -90,7 +113,7 @@ class NetworkManager: NSObject {
     
     func fetchFilters(completionHandler: @escaping (_ someArray: [Filter]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "products/attributes/1/terms"
+        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/products/attributes/1/terms"
         
         self.sessionManager.request(requestStr,
                                     method: .get,
@@ -121,7 +144,7 @@ class NetworkManager: NSObject {
     
     func fetchCategorieProducts(categorieId: Int, completionHandler: @escaping (_ someArray: [Product]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "products?category=" + "\(categorieId)"
+        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/products?category=" + "\(categorieId)"
         
         self.sessionManager.request(requestStr,
                                     method: .get,
@@ -152,7 +175,7 @@ class NetworkManager: NSObject {
     
     func fetchProducts(completionHandler: @escaping (_ someArray: [Product]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "products"
+        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/products"
 
         self.sessionManager.request(requestStr,
                                     method: .get,
@@ -183,7 +206,7 @@ class NetworkManager: NSObject {
 
     func fetchOrders(completionHandler: @escaping (_ someArray: [Order]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "orders"
+        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/orders"
 
         self.sessionManager.request(requestStr,
                                     method: .get,
@@ -213,7 +236,7 @@ class NetworkManager: NSObject {
     
     func fetchCategories(completionHandler: @escaping (_ someArray: [Categorie]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "products/categories"
+        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/products/categories"
 
         self.sessionManager.request(requestStr,
                                     method: .get,

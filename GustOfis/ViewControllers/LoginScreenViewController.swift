@@ -87,6 +87,11 @@ class LoginScreenViewController: ViewController {
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         print("hello \(self.email.text!) your password is \(self.password.text!)")
+        self.textfield.resignFirstResponder()
+        print("isValidEmail: \(self.email.text!.isValidEmail())")
+        NetworkManager.shared().login(user: AppManager.shared().currentUser, completionHandler: { response in
+            print("loginResponse: \(response)")
+        })
         print("you logged in dude")
         self.navigationController?.pushViewController(HomeViewController(), animated: true)
     }
