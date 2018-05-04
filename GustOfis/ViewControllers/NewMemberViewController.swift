@@ -38,6 +38,7 @@ class NewMemberViewController: ViewController, SomeProtocol {
         self.passwordAgain.setDefaults(placeholderText: "Şifre tekrar", borderLineWidth: 270)
         self.telephone.setDefaults(placeholderText: "Telefon numarası", borderLineWidth: 270)
         
+        self.textfield = self.nameSurname
 //        self.pickerView.backgroundColor = UIColor.white
 //        self.pickerView.delegate = self
 //        self.pickerView.dataSource = self
