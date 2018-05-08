@@ -32,11 +32,11 @@ class NewMemberViewController: ViewController, SomeProtocol {
         
         self.isTextFieldsSetDefault = false
         
-        self.nameSurname.setDefaults(placeholderText: "Ad soyad", borderLineWidth: 270)
-        self.email.setDefaults(placeholderText: "E-posta adresi", borderLineWidth: 270)
-        self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: 270)
-        self.passwordAgain.setDefaults(placeholderText: "Şifre tekrar", borderLineWidth: 270)
-        self.telephone.setDefaults(placeholderText: "Telefon numarası", borderLineWidth: 270)
+        self.nameSurname.setDefaults(placeholderText: "Ad soyad", borderLineWidth: UIScreen.main.bounds.size.width - 108)
+        self.email.setDefaults(placeholderText: "E-posta adresi", borderLineWidth: UIScreen.main.bounds.size.width - 108)
+        self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: UIScreen.main.bounds.size.width - 108)
+        self.passwordAgain.setDefaults(placeholderText: "Şifre tekrar", borderLineWidth: UIScreen.main.bounds.size.width - 108)
+        self.telephone.setDefaults(placeholderText: "Telefon numarası", borderLineWidth: UIScreen.main.bounds.size.width - 108)
         
         self.textfield = self.nameSurname
 //        self.pickerView.backgroundColor = UIColor.white

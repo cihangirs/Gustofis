@@ -30,8 +30,8 @@ class LoginScreenViewController: ViewController {
         
         self.textfield = self.email
         
-        self.email.setDefaults(placeholderText: "E-posta adresi", borderLineWidth: 261)
-        self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: 261)
+        self.email.setDefaults(placeholderText: "E-posta adresi", borderLineWidth: UIScreen.main.bounds.size.width - 114)
+        self.password.setDefaults(placeholderText: "Şifre", borderLineWidth: UIScreen.main.bounds.size.width - 114)
         
         self.loginButton.layer.cornerRadius = 17.5
         self.loginButton.layer.borderWidth = 0.5

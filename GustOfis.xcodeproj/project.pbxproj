@@ -296,11 +296,11 @@
 				6C4BB1B9207D063800320E90 /* Views */,
 				6C91B550207399650073560D /* Managers */,
 				6CD431C820767911008D045C /* Fonts */,
+				6CB1735F2091C53500A81CC6 /* Extensions */,
 				6C8FFD08206BD23800C5698E /* Main.storyboard */,
 				6C8FFD0B206BD23800C5698E /* Assets.xcassets */,
 				6C8FFD10206BD23800C5698E /* Info.plist */,
 				6C3BA60D2075091D00B7F411 /* LaunchScreen.xib */,
-				6CB1735F2091C53500A81CC6 /* Extensions */,
 			);
 			path = GustOfis;
 			sourceTree = "<group>";
