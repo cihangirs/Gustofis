@@ -105,8 +105,8 @@ class LoginScreenViewController: ViewController {
                 NetworkManager.shared().login(user: AppManager.shared().currentUser, completionHandler: { response in
                     print("loginResponse: \(response)")
                     hud.dismiss()
+                    print("you logged in dude: \(AppManager.shared().currentUser)")
                     self.navigationController?.pushViewController(HomeViewController(), animated: true)
-                    print("you logged in dude")
                 })
             }
             else {

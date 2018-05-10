@@ -19,6 +19,8 @@ class User: NSObject, Mappable {
     var password: String?
     var location: Int?
     var telephone: String?
+    var accessToken: String?
+    var refreshToken: String?
 
     init(email: String, password: String) {
         //let(name, surname) = User.parseNameSurname(nameSurname: nameSurname)
@@ -88,6 +90,8 @@ class User: NSObject, Mappable {
         id <- map["id"]
         name <- map["name"]
         email <- map["email"]
+        accessToken <- map["token"]
+        refreshToken <- map["refresh_token"]
     }
     
 }
