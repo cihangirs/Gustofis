@@ -18,7 +18,7 @@ class NetworkManager: NSObject {
     
     enum API
     {
-        static let baseURL = URL(string: "https://gustofisdev.wpengine.com/")!
+        static let baseURL = URL(string: "https://gustofisdev.wpengine.com/wp-json/gustofis/v1/")!
     }
     
     private static var sharedNetworkManager: NetworkManager = {
@@ -65,38 +65,38 @@ class NetworkManager: NSObject {
 
     func login(user: User, completionHandler: @escaping (_ someArray: User) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "oauth/token/customers"
+        let requestStr = "\(API.baseURL)" + "login"
         
-        let userDictionary = ["username": user.username!, "email": user.email!, "password": user.password!]
+        let userDictionary = ["email": user.email!, "password": user.password!]
         
         self.sessionManager.request(requestStr,
                                     method: .post,
                                     parameters: userDictionary,
-                                    encoding: JSONEncoding.default,
+                                    encoding: URLEncoding.default,
                                     headers: nil).validate().responseObject() { (response: DataResponse<User>) in
                                         
                                         switch response.result
                                         {
-                                        case .success:
-                                            let user = response.result.value
-                                            completionHandler(user!)
+                                            case .success:
+                                                let user = response.result.value
+                                                completionHandler(user!)
 
-                                        case .failure:
-                                            debugPrint("failureResponse: \(response)")
+                                            case .failure:
+                                                debugPrint("failureResponse: \(response)")
                                         }
         }
     }
     
     func createUser(user: User, completionHandler: @escaping (_ someArray: User) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/customers"
+        let requestStr = "\(API.baseURL)" + "register"
         
-        let userDictionary = ["username": user.username!, "email": user.email!, "password": user.password!]
+        let userDictionary = ["name": user.name!, "email": user.email!, "password": user.password!]
 
         self.sessionManager.request(requestStr,
             method: .post,
             parameters: userDictionary,
-            encoding: JSONEncoding.default,
+            encoding: URLEncoding.default,
             headers: nil).validate().responseObject() { (response: DataResponse<User>) in
                 
                 switch response.result
@@ -107,13 +107,13 @@ class NetworkManager: NSObject {
                     
                     case .failure:
                         debugPrint("failureResponse: \(response)")
-                    }
+                }
         }
     }
     
     func fetchFilters(completionHandler: @escaping (_ someArray: [Filter]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/products/attributes/1/terms"
+        let requestStr = "\(API.baseURL)" + "filters"
         
         self.sessionManager.request(requestStr,
                                     method: .get,
@@ -144,7 +144,7 @@ class NetworkManager: NSObject {
     
     func fetchCategorieProducts(categorieId: Int, completionHandler: @escaping (_ someArray: [Product]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/products?category=" + "\(categorieId)"
+        let requestStr = "\(API.baseURL)" + "products?category=" + "\(categorieId)"
         
         self.sessionManager.request(requestStr,
                                     method: .get,
@@ -175,7 +175,7 @@ class NetworkManager: NSObject {
     
     func fetchProducts(completionHandler: @escaping (_ someArray: [Product]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/products"
+        let requestStr = "\(API.baseURL)" + "products"
 
         self.sessionManager.request(requestStr,
                                     method: .get,
@@ -204,6 +204,37 @@ class NetworkManager: NSObject {
 //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
 
+    func fetchProductDetail(productId: Int, completionHandler: @escaping (_ someArray: Product) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "product/" + "\(productId)"
+        
+        self.sessionManager.request(requestStr,
+                                    method: .get,
+                                    parameters: nil,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseObject() { (response: DataResponse<Product>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let product = response.result.value
+                                            print("product: \(product!)")
+                                            
+//                                            for product in products!
+//                                            {
+//                                                print("productId: \(product.productId!) productName: \(product.name!)")
+//                                            }
+                                            
+                                            completionHandler(product!)
+                                            
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+        
+        //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
+    }
+    
     func fetchOrders(completionHandler: @escaping (_ someArray: [Order]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/orders"
@@ -236,7 +267,7 @@ class NetworkManager: NSObject {
     
     func fetchCategories(completionHandler: @escaping (_ someArray: [Categorie]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/products/categories"
+        let requestStr = "\(API.baseURL)" + "categories"
 
         self.sessionManager.request(requestStr,
                                     method: .get,

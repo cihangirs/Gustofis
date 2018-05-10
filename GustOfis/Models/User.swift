@@ -11,19 +11,33 @@ import ObjectMapper
 
 class User: NSObject, Mappable {
     
-    var name: String?
-    var surname: String?
-    var username: String?
+    var id: Int?            //keeps user id
+    var name: String?       //keeps name and surname with a space between them
+    var surname: String?    //no usage right now
+    var username: String?   //no usage right now
     var email: String?
     var password: String?
-    
-    init(nameSurname: String, username: String, email: String, password: String) {
-        let(name, surname) = User.parseNameSurname(nameSurname: nameSurname)
-        self.name = name
-        self.surname = surname
-        self.username = username
+    var location: Int?
+    var telephone: String?
+
+    init(email: String, password: String) {
+        //let(name, surname) = User.parseNameSurname(nameSurname: nameSurname)
+        //self.name = nameSurname
+        //        self.surname = surname
+        //        self.username = username
         self.email = email
         self.password = password
+    }
+    
+    init(nameSurname: String, email: String, password: String, location: Int, telephone: String) {
+        //let(name, surname) = User.parseNameSurname(nameSurname: nameSurname)
+        self.name = nameSurname
+//        self.surname = surname
+//        self.username = username
+        self.email = email
+        self.password = password
+        self.location = location
+        self.telephone = telephone
     }
     
     override init() {
@@ -68,9 +82,11 @@ class User: NSObject, Mappable {
     }
     
     func mapping(map: Map) {
-        name <- map["first_name"]
-        surname <- map["last_name"]
-        username <- map["username"]
+//        name <- map["first_name"]
+//        surname <- map["last_name"]
+//        username <- map["username"]
+        id <- map["id"]
+        name <- map["name"]
         email <- map["email"]
     }
     

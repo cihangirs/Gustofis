@@ -8,6 +8,7 @@
 
 import UIKit
 import UIAlertController_Blocks
+import JGProgressHUD
 
 class LoginScreenViewController: ViewController {
 
@@ -94,13 +95,19 @@ class LoginScreenViewController: ViewController {
         
         if self.email.text?.count != 0 {
             if self.password.text?.count != 0 {
-                AppManager.shared().currentUser = User(nameSurname: self.email.text!, username: self.email.text!, email: self.email.text!, password: self.password.text!)
+                
+                let hud = JGProgressHUD(style: .dark)
+                hud.textLabel.text = "Loading"
+                hud.show(in: self.view)
+                
+                AppManager.shared().currentUser = User(email: self.email.text!, password: self.password.text!)
                 
                 NetworkManager.shared().login(user: AppManager.shared().currentUser, completionHandler: { response in
                     print("loginResponse: \(response)")
+                    hud.dismiss()
                     self.navigationController?.pushViewController(HomeViewController(), animated: true)
+                    print("you logged in dude")
                 })
-                print("you logged in dude")
             }
             else {
                 UIAlertController.showAlert(

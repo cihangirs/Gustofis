@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -44,11 +45,16 @@ class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegat
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         print("registerButtonTapped")
         
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+
         NetworkManager.shared().createUser(user: AppManager.shared().currentUser, completionHandler: { response in
             print("response: \(response)")
+            hud.dismiss()
+            self.navigationController?.pushViewController(HomeViewController(), animated: true)
         })
         //self.navigationController?.pushViewController(ProfileViewController(), animated: true)
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
     }
     
     @IBAction func openCameraButton(sender: AnyObject) {

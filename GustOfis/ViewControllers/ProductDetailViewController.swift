@@ -8,6 +8,7 @@
 
 import UIKit
 import GMStepper
+import JGProgressHUD
 
 class ProductDetailViewController: ViewController, UIScrollViewDelegate {
     
@@ -21,6 +22,7 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.fetchProduct()
 //        self.addToBasketButton.layer.cornerRadius = 15
 //        
 //        self.stepper.layer.cornerRadius = 15
@@ -57,7 +59,17 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func fetchProduct() {
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
+        NetworkManager.shared().fetchProductDetail(productId: 1301, completionHandler: { response in
+            print("response: \(response)")
+            hud.dismiss()
+        })
+    }
     /*
     // MARK: - Navigation
 

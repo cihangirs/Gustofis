@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol SomeProtocol {
-    func someFunc(_ index: Int)
+protocol LocationSelectionProtocol {
+    func didLocationSelected(_ index: Int)
 }
 
 class LocationSelectionView: UIView, UITableViewDelegate, UITableViewDataSource {
@@ -94,7 +94,7 @@ class LocationSelectionView: UIView, UITableViewDelegate, UITableViewDataSource 
     }
     
     @IBAction func okButtonTapped(_ sender: UIButton) {
-        self.delegate?.someFunc(self.selectedRow)
+        self.delegate?.didLocationSelected(self.selectedRow)
     }
     //    override func awakeFromNib() {
 //        super.awakeFromNib()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewMemberViewController: ViewController, SomeProtocol {
+class NewMemberViewController: ViewController, LocationSelectionProtocol {
     
     @IBOutlet weak var proceedButton: UIButton!
     @IBOutlet weak var locationSelectionButton: UIButton!
@@ -21,6 +21,7 @@ class NewMemberViewController: ViewController, SomeProtocol {
     var locationSelectionView = LocationSelectionView()
     var backgroundView = UIView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.size.width, height:UIScreen.main.bounds.size.height))
     var isTextFieldsSetDefault: Bool!
+    var selectedLocationIndex: Int!
     
     //let pickerView = UIPickerView()
     let locationArray = ["LEVENT 1C PLAZA", "LEVENT 41D PLAZA"]
@@ -129,7 +130,7 @@ class NewMemberViewController: ViewController, SomeProtocol {
             )
         }
         
-        AppManager.shared().currentUser = User(nameSurname: self.nameSurname.text!, username: self.email.text!, email: self.email.text!, password: self.password.text!)
+        AppManager.shared().currentUser = User(nameSurname: self.nameSurname.text!, email: self.email.text!, password: self.password.text!, location: self.selectedLocationIndex, telephone: self.telephone.text!)
         print("currentUser: \(AppManager.shared().currentUser)")
         self.textfield.resignFirstResponder()
         self.navigationController?.pushViewController(NewMemberTwoViewController(), animated: true)
@@ -173,8 +174,9 @@ class NewMemberViewController: ViewController, SomeProtocol {
         self.view.addSubview(self.locationSelectionView)
     }
     
-    func someFunc(_ index: Int) {
+    func didLocationSelected(_ index: Int) {
         print("location: \(self.locationArray[index])")
+        self.selectedLocationIndex = index
         self.locationSelectionView.removeFromSuperview()
         self.backgroundView.removeFromSuperview()
         self.locationSelectionButton.setTitle(self.locationArray[index], for: UIControlState.normal)

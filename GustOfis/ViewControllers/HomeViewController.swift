@@ -153,8 +153,8 @@ class HomeViewController: ViewController {
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
         
-        let pagingMenuController = self.childViewControllers.first as! PagingMenuController
-        pagingMenuController.move(toPage: 1)
+//        let pagingMenuController = self.childViewControllers.first as! PagingMenuController
+//        pagingMenuController.move(toPage: 1)
         
         NetworkManager.shared().fetchCategorieProducts(categorieId:categorieId, completionHandler: { productArray in
             
