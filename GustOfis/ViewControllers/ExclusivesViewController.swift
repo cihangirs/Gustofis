@@ -58,7 +58,8 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(ProductDetailViewController(), animated: true)
+        //print("productId: \(self.productArray[indexPath.row].productId!)")
+        self.navigationController?.pushViewController(ProductDetailViewController(productId: self.productArray[indexPath.row].productId!), animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

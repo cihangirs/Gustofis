@@ -109,6 +109,7 @@ class LoginScreenViewController: ViewController {
                     self.navigationController?.pushViewController(HomeViewController(), animated: true)
                 })
             }
+                
             else {
                 UIAlertController.showAlert(
                     in: self,

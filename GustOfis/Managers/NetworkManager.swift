@@ -216,20 +216,15 @@ class NetworkManager: NSObject {
                                         
                                         switch response.result
                                         {
-                                        case .success:
-                                            let product = response.result.value
-                                            print("product: \(product!)")
+                                            case .success:
+                                                let product = response.result.value
+                                                print("product: \(product!)")
+                                                
+                                                completionHandler(product!)
                                             
-//                                            for product in products!
-//                                            {
-//                                                print("productId: \(product.productId!) productName: \(product.name!)")
-//                                            }
-                                            
-                                            completionHandler(product!)
-                                            
-                                        case .failure:
-                                            debugPrint("failureResponse: \(response)")
-                                        }
+                                            case .failure:
+                                                debugPrint("failureResponse: \(response)")
+                                            }
         }
         
         //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)

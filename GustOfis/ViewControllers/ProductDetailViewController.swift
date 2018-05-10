@@ -14,15 +14,27 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var innerScrollView: UIScrollView!
     //@IBOutlet weak var innerView: UIView!
-    var innerView: UIView!
+
     @IBOutlet weak var stepper: GMStepper!
     @IBOutlet weak var addToBasketButton: UIButton!
     @IBOutlet weak var addToHealthAppButton: UIButton!
     
+    var innerView: UIView!
+    var productId: Int
+
+    init(productId: Int) {
+        self.productId = productId
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fetchProduct()
+        self.fetchProductDetail()
 //        self.addToBasketButton.layer.cornerRadius = 15
 //        
 //        self.stepper.layer.cornerRadius = 15
@@ -59,13 +71,13 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func fetchProduct() {
+    func fetchProductDetail() {
         
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
         
-        NetworkManager.shared().fetchProductDetail(productId: 1301, completionHandler: { response in
+        NetworkManager.shared().fetchProductDetail(productId: 1053/*self.productId*/, completionHandler: { response in
             print("response: \(response)")
             hud.dismiss()
         })
