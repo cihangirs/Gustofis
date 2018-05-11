@@ -93,7 +93,7 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
         
-        NetworkManager.shared().fetchProductDetail(productId: 1053/*self.productId*/, completionHandler: { response in
+        NetworkManager.shared().fetchProductDetail(productId: self.productId, completionHandler: { response in
             
             self.productImage?.sd_setImage(with: URL(string: response.images![0].src!), placeholderImage: nil){ (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
                 

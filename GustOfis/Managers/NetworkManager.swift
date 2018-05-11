@@ -63,7 +63,7 @@ class NetworkManager: NSObject {
         return sharedNetworkManager
     }
 
-    func login(user: User, completionHandler: @escaping (_ someArray: User) -> Void)
+    func login(user: User, completionHandler: @escaping (_ user: User) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "login"
         
@@ -87,7 +87,7 @@ class NetworkManager: NSObject {
         }
     }
     
-    func createUser(user: User, completionHandler: @escaping (_ someArray: User) -> Void)
+    func createUser(user: User, completionHandler: @escaping (_ user: User) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "register"
         
@@ -111,7 +111,7 @@ class NetworkManager: NSObject {
         }
     }
     
-    func fetchFilters(completionHandler: @escaping (_ someArray: [Filter]) -> Void)
+    func fetchFilters(completionHandler: @escaping (_ filterArray: [Filter]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "filters"
         
@@ -142,7 +142,7 @@ class NetworkManager: NSObject {
         //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
     
-    func fetchCategorieProducts(categorieId: Int, completionHandler: @escaping (_ someArray: [Product]) -> Void)
+    func fetchCategorieProducts(categorieId: Int, completionHandler: @escaping (_ productArray: [Product]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "products?category=" + "\(categorieId)"
         
@@ -173,7 +173,7 @@ class NetworkManager: NSObject {
         //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
     
-    func fetchProducts(completionHandler: @escaping (_ someArray: [Product]) -> Void)
+    func fetchProducts(completionHandler: @escaping (_ productArray: [Product]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "products"
 
@@ -204,7 +204,7 @@ class NetworkManager: NSObject {
 //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
 
-    func fetchProductDetail(productId: Int, completionHandler: @escaping (_ someArray: Product) -> Void)
+    func fetchProductDetail(productId: Int, completionHandler: @escaping (_ product: Product) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "product/" + "\(productId)"
         
@@ -230,7 +230,7 @@ class NetworkManager: NSObject {
         //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
     
-    func fetchOrders(completionHandler: @escaping (_ someArray: [Order]) -> Void)
+    func fetchOrders(completionHandler: @escaping (_ orderArray: [Order]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/orders"
 
@@ -260,7 +260,7 @@ class NetworkManager: NSObject {
         //baseRequest(url: requestStr, completionHandler: completionHandler)
     }
     
-    func fetchCategories(completionHandler: @escaping (_ someArray: [Categorie]) -> Void)
+    func fetchCategories(completionHandler: @escaping (_ categorieArray: [Categorie]) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "categories"
 

@@ -35,12 +35,7 @@ class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegat
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
     }
-    
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-//        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//        imagePicked.image = image
-//        dismiss(animated:true, completion: nil)
-//    }
+
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         print("registerButtonTapped")
@@ -54,7 +49,6 @@ class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegat
             hud.dismiss()
             self.navigationController?.pushViewController(HomeViewController(), animated: true)
         })
-        //self.navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
     @IBAction func openCameraButton(sender: AnyObject) {
