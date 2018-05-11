@@ -40,7 +40,15 @@ class LoginScreenViewController: ViewController {
         self.registerButton.layer.cornerRadius = 17.5
         self.facebookButton.layer.cornerRadius = 17.5
         
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        #if DEBUG
+            self.email.text = "cihangir.sungur@gmail.com"
+            self.password.text = "135246"
+            self.loginButtonTapped(self.loginButton)
+        #else
+        
+        //
+        
+        #endif
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)

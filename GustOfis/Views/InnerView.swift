@@ -17,6 +17,11 @@ class InnerView: UIView {
     
     @IBOutlet weak var stepper: GMStepper!
     
+    @IBOutlet weak var shortDescription: UILabel!
+    @IBOutlet weak var productPrice: UILabel!
+    @IBOutlet weak var productInformation: UILabel!
+    @IBOutlet weak var aboutManufacturer: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

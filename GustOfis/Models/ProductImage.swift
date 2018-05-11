@@ -12,6 +12,7 @@ import ObjectMapper
 class ProductImage: NSObject, Mappable {
     
     var src: String?
+    var name: String?
     
     override init() {
         super.init()
@@ -23,6 +24,7 @@ class ProductImage: NSObject, Mappable {
     
     func mapping(map: Map) {
         src <- map["src"]
+        name <- map["name"]
     }
     
 }

@@ -26,6 +26,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
@@ -65,7 +69,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.setAsUnfocused(borderColor: UIColor(red: 114/255, green: 113/255, blue: 143/255, alpha: 1.0))
     }
+  
+    func leftCloseButton() {
+        let image = UIImage(named: "backButton")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        let item = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.done, target: self, action: #selector(leftItemClicked))
+        self.navigationItem.leftBarButtonItem = item
+    }
     
+    func rightShareButton() {
+        let image = UIImage(named: "shareButton")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        let item = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.done, target: self, action: #selector(rightItemClicked))
+        self.navigationItem.rightBarButtonItem = item
+    }
+    
+    @objc func leftItemClicked() {
+        print("leftItemClicked to be overrided")
+    }
+    
+    @objc func rightItemClicked() {
+        print("rightItemClicked to be overrided")
+    }
+
 //    @IBAction func crashButtonTapped(_ sender: AnyObject) {
 //        Crashlytics.sharedInstance().crash()
 //    }

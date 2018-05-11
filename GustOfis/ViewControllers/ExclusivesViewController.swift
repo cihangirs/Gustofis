@@ -51,7 +51,7 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
 
         cell.productImageView?.sd_setImage(with: URL(string: self.productArray[indexPath.section].images![0].src!), placeholderImage: nil){ (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
 
-            cell.productImageView?.image = self.resizeImage(image: image!, newWidth: 240)
+            cell.productImageView?.image = AppManager.shared().resizeImage(image: image!, newWidth: 240)
         }
 
         return cell
@@ -59,7 +59,8 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print("productId: \(self.productArray[indexPath.row].productId!)")
-        self.navigationController?.pushViewController(ProductDetailViewController(productId: self.productArray[indexPath.row].productId!), animated: true)
+//        self.navigationController?.pushViewController(ProductDetailViewController(productId: self.productArray[indexPath.row].productId!, productName: self.productArray[indexPath.row].name!), animated: true)
+        self.navigationController?.pushViewController(ProductDetailViewController(productId: self.productArray[indexPath.row].productId!, productName: self.productArray[indexPath.row].name!), animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,18 +93,6 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
-    }
-    
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        
-        let scale = newWidth / image.size.width
-        let newHeight = image.size.height * scale
-        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
     }
 
 }
