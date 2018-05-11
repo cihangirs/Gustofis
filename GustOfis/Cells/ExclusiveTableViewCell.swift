@@ -35,7 +35,7 @@ class ExclusiveTableViewCell: UITableViewCell {
         
 //        self.addToBasketButton.setTitle("SEPETE EKLE", for: UIControlState.normal)
 //        self.addToBasketButton.setTitle("hehehehh", for: UIControlState.selected)
-        self.addToBasketButton.addTarget(self, action: #selector(myButtonTapped), for: UIControlEvents.touchUpInside)
+        self.addToBasketButton.addTarget(self, action: #selector(addToBasketButtonTapped), for: UIControlEvents.touchUpInside)
         self.addToBasketButton.setBackgroundColor(UIColor(red: 153/255, green: 204/255, blue: 0/255, alpha: 1), for: UIControlState.selected)
         self.addToBasketButton.clipsToBounds = true
 //        let centerConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
@@ -44,7 +44,7 @@ class ExclusiveTableViewCell: UITableViewCell {
 //        self.contentView.addConstraint(centerConstraint)
     }
 
-    @objc func myButtonTapped() {
+    @objc func addToBasketButtonTapped() {
         if self.stepper.value != 0 {
             self.addToBasketButton.isSelected = !self.addToBasketButton.isSelected
             

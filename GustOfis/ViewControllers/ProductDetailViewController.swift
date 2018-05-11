@@ -13,13 +13,8 @@ import SDWebImage
 
 class ProductDetailViewController: ViewController, UIScrollViewDelegate {
     
-    @IBOutlet weak var innerScrollView: UIScrollView!
-    //@IBOutlet weak var innerView: UIView!
     @IBOutlet weak var productImage: UIImageView!
-    
-    @IBOutlet weak var stepper: GMStepper!
-    @IBOutlet weak var addToBasketButton: UIButton!
-    @IBOutlet weak var addToHealthAppButton: UIButton!
+    @IBOutlet weak var innerScrollView: UIScrollView!
     
     var innerView: InnerView!
     
@@ -59,6 +54,10 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
         self.innerView.layoutIfNeeded()
         
         self.innerScrollView.addSubview(self.innerView)
+        
+        self.innerView.addToBasketButton.addTarget(self, action: #selector(addToBasketButtonTapped), for: UIControlEvents.touchUpInside)
+        self.innerView.addToBasketButton.setBackgroundColor(UIColor(red: 153/255, green: 204/255, blue: 0/255, alpha: 1), for: UIControlState.selected)
+        self.innerView.addToBasketButton.clipsToBounds = true
         
         self.fetchProductDetail()
     }
@@ -106,6 +105,19 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
             self.innerView.aboutManufacturer.text = response.aboutManufacturer
             hud.dismiss()
         })
+    }
+    
+    @objc func addToBasketButtonTapped() {
+        if self.innerView.stepper.value != 0 {
+            self.innerView.addToBasketButton.isSelected = !self.innerView.addToBasketButton.isSelected
+            
+            if self.innerView.addToBasketButton.isSelected {
+                self.innerView.addToBasketButton.setTitle("✓ \(Int(self.innerView.stepper.value)) ADET SEPETTE", for: UIControlState.selected)
+            }
+            else {
+                self.innerView.addToBasketButton.setTitle("SEPETE EKLE", for: UIControlState.selected)
+            }
+        }
     }
     
     /*
