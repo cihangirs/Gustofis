@@ -12,6 +12,8 @@ import UIKit
 class AppManager: NSObject {
 
     var currentUser: User!
+    var userToken: String!
+    var avatarUrl: String!
     
     private static var sharedAppManager: AppManager = {
         

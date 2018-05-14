@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class NewMemberViewController: ViewController, LocationSelectionProtocol {
     
@@ -130,10 +131,24 @@ class NewMemberViewController: ViewController, LocationSelectionProtocol {
             )
         }
         
-        AppManager.shared().currentUser = User(nameSurname: self.nameSurname.text!, email: self.email.text!, password: self.password.text!, location: self.selectedLocationIndex, telephone: self.telephone.text!)
-        print("currentUser: \(AppManager.shared().currentUser)")
-        self.textfield.resignFirstResponder()
-        self.navigationController?.pushViewController(NewMemberTwoViewController(), animated: true)
+        else
+        {
+            AppManager.shared().currentUser = User(nameSurname: self.nameSurname.text!, email: self.email.text!, password: self.password.text!, location: self.selectedLocationIndex, telephone: self.telephone.text!)
+            print("currentUser: \(AppManager.shared().currentUser)")
+            self.textfield.resignFirstResponder()
+            
+            let hud = JGProgressHUD(style: .dark)
+            hud.textLabel.text = "Loading"
+            hud.show(in: self.view)
+            
+            NetworkManager.shared().createUser(user: AppManager.shared().currentUser, completionHandler: { response in
+                print("response: \(response)")
+                AppManager.shared().userToken = response.accessToken
+                hud.dismiss()
+                self.navigationController?.pushViewController(NewMemberTwoViewController(), animated: true)
+            })
+            
+        }
     }
 
     func parseNameSurname() -> (String, String) {

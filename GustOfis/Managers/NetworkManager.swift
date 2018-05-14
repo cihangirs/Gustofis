@@ -63,6 +63,22 @@ class NetworkManager: NSObject {
         return sharedNetworkManager
     }
 
+    func updateAuthKey(accessToken: String)
+    {
+        var headers = Alamofire.SessionManager.defaultHTTPHeaders
+        // add your custom header
+        headers["Content-Type"] = "application/json"
+        headers["Authorization"] = "Basic " + accessToken
+        
+        // create a custom session configuration
+        let configuration = URLSessionConfiguration.default
+        // add the headers
+        configuration.httpAdditionalHeaders = headers
+        
+        // create a session manager with the configuration
+        self.sessionManager = Alamofire.SessionManager(configuration: configuration)
+    }
+    
     func login(user: User, completionHandler: @escaping (_ user: User) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "login"
@@ -79,6 +95,7 @@ class NetworkManager: NSObject {
                                         {
                                             case .success:
                                                 let user = response.result.value
+                                                AppManager.shared().userToken = user?.accessToken
                                                 completionHandler(user!)
 
                                             case .failure:
@@ -108,6 +125,47 @@ class NetworkManager: NSObject {
                     case .failure:
                         debugPrint("failureResponse: \(response)")
                 }
+        }
+    }
+
+    func updateAvatar(image: UIImage, completionHandler: @escaping (_ avatarUrl: String) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "upload-avatar"
+        
+        let imageData = UIImageJPEGRepresentation(image, 1)
+        
+        let headers = ["Authorization": "Basic " + AppManager.shared().userToken]
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(imageData!, withName: "image", fileName: "avatar.jpg", mimeType: "image/jpg")
+        }, to: requestStr, method: .post, headers: headers)
+        { (result) in
+            switch result {
+            case .success(let upload, _, _):
+
+                upload.uploadProgress(closure: { (Progress) in
+                    print("Upload Progress: \(Progress.fractionCompleted)")
+                })
+
+                upload.responseJSON { response in
+//                    print(response)
+//                    print(response.request!)  // original URL request
+//                    print(response.response!) // URL response
+//                    print(response.data!)     // server data
+//                    print(response.result)   // result of response serialization
+//                    //                        self.showSuccesAlert()
+//                    //self.removeImage("frame", fileExtension: "txt")
+                    if let JSON = response.result.value {
+                        let mydict = JSON as! NSDictionary
+                        completionHandler(mydict["avatar_url"]! as! String)
+                    }
+                }
+
+            case .failure(let encodingError):
+                //self.delegate?.showFailAlert()
+                print(encodingError)
+            }
+
         }
     }
     

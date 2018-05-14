@@ -34,21 +34,30 @@ class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegat
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicked.image = image
         dismiss(animated:true, completion: nil)
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
+        NetworkManager.shared().updateAvatar(image: image, completionHandler: { avatarUrl in
+            AppManager.shared().avatarUrl = avatarUrl
+            hud.dismiss()
+        })
     }
 
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         print("registerButtonTapped")
-        
-        let hud = JGProgressHUD(style: .dark)
-        hud.textLabel.text = "Loading"
-        hud.show(in: self.view)
-
-        NetworkManager.shared().createUser(user: AppManager.shared().currentUser, completionHandler: { response in
-            print("response: \(response)")
-            hud.dismiss()
-            self.navigationController?.pushViewController(HomeViewController(), animated: true)
-        })
+        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+//        let hud = JGProgressHUD(style: .dark)
+//        hud.textLabel.text = "Loading"
+//        hud.show(in: self.view)
+//
+//        NetworkManager.shared().createUser(user: AppManager.shared().currentUser, completionHandler: { response in
+//            print("response: \(response)")
+//            hud.dismiss()
+//            self.navigationController?.pushViewController(HomeViewController(), animated: true)
+//        })
     }
     
     @IBAction func openCameraButton(sender: AnyObject) {
