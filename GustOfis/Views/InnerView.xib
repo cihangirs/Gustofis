@@ -24,6 +24,7 @@
                 <outlet property="addToBasketButton" destination="3BD-4g-77H" id="vrH-g9-2oK"/>
                 <outlet property="addToHealthAppButton" destination="1Qd-9V-ycl" id="Qfz-T5-AOi"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="M6K-Cl-q1e"/>
+                <outlet property="nutritionTableView" destination="CTz-kb-AXk" id="BWR-gD-kzP"/>
                 <outlet property="productInformation" destination="c4R-IF-vf2" id="TEN-kv-hIh"/>
                 <outlet property="productPrice" destination="EzU-ia-u7O" id="Cbm-JR-nd2"/>
                 <outlet property="shortDescription" destination="8AA-tK-jBB" id="PkG-Bs-88j"/>
@@ -112,30 +113,6 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                     <color key="textColor" red="0.23921568630000001" green="0.2470588235" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kalori" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-bd-yhC">
-                    <rect key="frame" x="21" y="440.5" width="30" height="15"/>
-                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
-                    <color key="textColor" red="0.23921568627450979" green="0.24705882352941178" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Şeker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEg-MC-HBu">
-                    <rect key="frame" x="21" y="465.5" width="31" height="15"/>
-                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
-                    <color key="textColor" red="0.23921568630000001" green="0.2470588235" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yağ Oranı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3w-mL-kNj">
-                    <rect key="frame" x="21" y="490.5" width="51.5" height="15"/>
-                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
-                    <color key="textColor" red="0.23921568630000001" green="0.2470588235" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wie-Qz-6wq">
-                    <rect key="frame" x="21" y="515.5" width="37.5" height="15"/>
-                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="12"/>
-                    <color key="textColor" red="0.23921568630000001" green="0.2470588235" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpI-Ry-gdU">
                     <rect key="frame" x="21" y="589.5" width="288" height="73.5"/>
                     <string key="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</string>
@@ -143,40 +120,44 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CTz-kb-AXk">
+                    <rect key="frame" x="16" y="423" width="303" height="125"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="3Mi-oF-Ky8"/>
+                        <outlet property="delegate" destination="-1" id="C4B-O0-skl"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="8AA-tK-jBB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="1hB-Rc-dum"/>
-                <constraint firstItem="b3w-mL-kNj" firstAttribute="top" secondItem="PEg-MC-HBu" secondAttribute="bottom" constant="10" id="5Dh-AE-Zra"/>
-                <constraint firstItem="b3w-mL-kNj" firstAttribute="leading" secondItem="PEg-MC-HBu" secondAttribute="leading" id="814-Pe-MQd"/>
+                <constraint firstItem="CTz-kb-AXk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="7zQ-q0-u0F"/>
                 <constraint firstItem="YKa-wk-BLV" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="ErW-Xl-ECb"/>
-                <constraint firstItem="PEg-MC-HBu" firstAttribute="top" secondItem="jsN-bd-yhC" secondAttribute="bottom" constant="10" id="GCD-I9-9Gu"/>
                 <constraint firstItem="6Hv-yJ-KfG" firstAttribute="top" secondItem="heQ-lU-15u" secondAttribute="bottom" constant="140" id="Ib2-kU-tUh"/>
                 <constraint firstItem="YKa-wk-BLV" firstAttribute="top" secondItem="3BD-4g-77H" secondAttribute="top" id="KkS-Yc-phf"/>
-                <constraint firstItem="Wie-Qz-6wq" firstAttribute="top" secondItem="b3w-mL-kNj" secondAttribute="bottom" constant="10" id="Nnb-qH-oWw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8AA-tK-jBB" secondAttribute="trailing" constant="21" id="R2q-Ij-KhI"/>
                 <constraint firstItem="1Qd-9V-ycl" firstAttribute="top" secondItem="FpI-Ry-gdU" secondAttribute="bottom" constant="45" id="SEN-cx-uSi"/>
                 <constraint firstItem="heQ-lU-15u" firstAttribute="top" secondItem="c4R-IF-vf2" secondAttribute="bottom" constant="37" id="VNW-4i-tyu"/>
-                <constraint firstItem="PEg-MC-HBu" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="Zgq-0e-kr2"/>
                 <constraint firstItem="EzU-ia-u7O" firstAttribute="top" secondItem="8AA-tK-jBB" secondAttribute="bottom" constant="26" id="aes-6n-a7u"/>
                 <constraint firstItem="c4R-IF-vf2" firstAttribute="top" secondItem="zcm-jB-SYb" secondAttribute="bottom" constant="20" id="cTx-bl-l5Q"/>
                 <constraint firstItem="3BD-4g-77H" firstAttribute="trailing" secondItem="8AA-tK-jBB" secondAttribute="trailing" id="cXJ-hh-qOW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="c4R-IF-vf2" secondAttribute="trailing" constant="26" id="d5R-zN-7Pm"/>
                 <constraint firstItem="FpI-Ry-gdU" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="dd1-Ur-cfN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CTz-kb-AXk" secondAttribute="trailing" constant="16" id="eFF-sf-VjJ"/>
                 <constraint firstItem="FpI-Ry-gdU" firstAttribute="top" secondItem="6Hv-yJ-KfG" secondAttribute="bottom" constant="21" id="eg2-xz-QQR"/>
                 <constraint firstItem="c4R-IF-vf2" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="fSL-cA-AaZ"/>
                 <constraint firstItem="FpI-Ry-gdU" firstAttribute="trailing" secondItem="c4R-IF-vf2" secondAttribute="trailing" id="mGs-Ci-ZNs"/>
                 <constraint firstItem="8AA-tK-jBB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="21" id="nVM-4G-nzl"/>
                 <constraint firstItem="zcm-jB-SYb" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="njZ-eF-TdB"/>
+                <constraint firstItem="6Hv-yJ-KfG" firstAttribute="top" secondItem="CTz-kb-AXk" secondAttribute="bottom" constant="7.5" id="oZi-GS-mRj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EzU-ia-u7O" secondAttribute="trailing" constant="45" id="p9T-t7-cj4"/>
                 <constraint firstItem="1Qd-9V-ycl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="pQJ-mT-DqR"/>
                 <constraint firstItem="heQ-lU-15u" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="qY1-pA-Zax"/>
-                <constraint firstItem="jsN-bd-yhC" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="sMb-ep-tBv"/>
+                <constraint firstItem="CTz-kb-AXk" firstAttribute="top" secondItem="heQ-lU-15u" secondAttribute="bottom" constant="7.5" id="ts2-8B-dxO"/>
                 <constraint firstItem="6Hv-yJ-KfG" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="wON-u0-wL1"/>
-                <constraint firstItem="Wie-Qz-6wq" firstAttribute="leading" secondItem="b3w-mL-kNj" secondAttribute="leading" id="xGi-sa-qJk"/>
                 <constraint firstItem="zcm-jB-SYb" firstAttribute="top" secondItem="YKa-wk-BLV" secondAttribute="bottom" constant="56" id="y5u-dH-mdG"/>
                 <constraint firstItem="3BD-4g-77H" firstAttribute="top" secondItem="EzU-ia-u7O" secondAttribute="bottom" constant="20" id="yez-We-Q84"/>
-                <constraint firstItem="jsN-bd-yhC" firstAttribute="top" secondItem="heQ-lU-15u" secondAttribute="bottom" constant="25" id="yq2-Uy-aZH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1Qd-9V-ycl" secondAttribute="trailing" constant="20" id="zGF-rD-0Ht"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

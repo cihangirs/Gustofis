@@ -9,7 +9,7 @@
 import UIKit
 import GMStepper
 
-class InnerView: UIView {
+class InnerView: UIView, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var addToBasketButton: UIButton!
@@ -21,6 +21,10 @@ class InnerView: UIView {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productInformation: UILabel!
     @IBOutlet weak var aboutManufacturer: UILabel!
+    
+    @IBOutlet weak var nutritionTableView: UITableView!
+    
+    var nutritionsArray = [Nutrition]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,6 +42,8 @@ class InnerView: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
+        self.nutritionTableView.register(UINib(nibName: "NutritionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
         self.addToHealthAppButton.layer.cornerRadius = 17.5
         self.addToBasketButton.layer.cornerRadius = 12
 
@@ -50,6 +56,27 @@ class InnerView: UIView {
         self.stepper.labelTextColor = UIColor.black
         self.stepper.labelFont = UIFont(name: "ProximaNova-Semibold", size: 15.0)!
         self.stepper.labelTextColor = UIColor(red: 72/255, green: 70/255, blue: 70/255, alpha: 1)
+    }
+
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.nutritionsArray.count;
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellReuseIdentifier = "cell"
+        // create a new cell if needed or reuse an old one
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? NutritionTableViewCell else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        cell.nutritionName.text = self.nutritionsArray[indexPath.row].name
+        cell.nutritionValue.text = self.nutritionsArray[indexPath.row].value
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30.0
     }
     
     @IBAction func didAddToBasketButtonTapped(_ sender: UIButton) {

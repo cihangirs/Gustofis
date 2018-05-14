@@ -71,6 +71,8 @@
 		6C8FFD43206BF00100C5698E /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD41206BF00100C5698E /* ThirdViewController.xib */; };
 		6C8FFD46206BF00D00C5698E /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FFD44206BF00D00C5698E /* FourthViewController.swift */; };
 		6C8FFD47206BF00D00C5698E /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD45206BF00D00C5698E /* FourthViewController.xib */; };
+		6CABC88B20A9E01C0056535F /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABC88920A9E01C0056535F /* NutritionTableViewCell.swift */; };
+		6CABC88C20A9E01C0056535F /* NutritionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CABC88A20A9E01C0056535F /* NutritionTableViewCell.xib */; };
 		6CAC587F20A49A2100C46462 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC587E20A49A2100C46462 /* Nutrition.swift */; };
 		6CB17357208F5FAB00A81CC6 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB17356208F5FAB00A81CC6 /* Filter.swift */; };
 		6CB1735C20909ADD00A81CC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB1735B20909ADD00A81CC6 /* User.swift */; };
@@ -165,6 +167,8 @@
 		6C8FFD41206BF00100C5698E /* ThirdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 		6C8FFD44206BF00D00C5698E /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		6C8FFD45206BF00D00C5698E /* FourthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
+		6CABC88920A9E01C0056535F /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
+		6CABC88A20A9E01C0056535F /* NutritionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionTableViewCell.xib; sourceTree = "<group>"; };
 		6CAC587E20A49A2100C46462 /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		6CB17356208F5FAB00A81CC6 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		6CB1735B20909ADD00A81CC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				6C68CE2D2084C2BC00821295 /* ExclusiveTableViewCell.xib */,
 				6C68CE3C2085E93A00821295 /* FilterTableViewCell.swift */,
 				6C68CE3D2085E93A00821295 /* FilterTableViewCell.xib */,
+				6CABC88920A9E01C0056535F /* NutritionTableViewCell.swift */,
+				6CABC88A20A9E01C0056535F /* NutritionTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -554,6 +560,7 @@
 				6C542DAE20861F59006A520D /* ProductDetailViewController.xib in Resources */,
 				6C3BA60E2075091D00B7F411 /* LaunchScreen.xib in Resources */,
 				6C1B4E3E208761290073AFD0 /* InnerView.xib in Resources */,
+				6CABC88C20A9E01C0056535F /* NutritionTableViewCell.xib in Resources */,
 				6C8FFD0A206BD23800C5698E /* Main.storyboard in Resources */,
 				6C4BB1BD207D06A300320E90 /* LocationSelectionView.xib in Resources */,
 				6C20B50E207523BD001D7A78 /* NewMemberTwoViewController.xib in Resources */,
@@ -691,6 +698,7 @@
 				6C68CE2E2084C2BC00821295 /* ExclusiveTableViewCell.swift in Sources */,
 				6CB1735C20909ADD00A81CC6 /* User.swift in Sources */,
 				6C68CE2A2084BF1100821295 /* CategoryTableViewCell.swift in Sources */,
+				6CABC88B20A9E01C0056535F /* NutritionTableViewCell.swift in Sources */,
 				6CB1735E2091C50B00A81CC6 /* UITextField+BottomLine.swift in Sources */,
 				6C1B4E402088D4DC0073AFD0 /* ProductImage.swift in Sources */,
 				6C4BB1BB207D068500320E90 /* LocationSelectionView.swift in Sources */,

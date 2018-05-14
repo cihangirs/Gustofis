@@ -97,12 +97,14 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
             self.productImage?.sd_setImage(with: URL(string: response.images![0].src!), placeholderImage: nil){ (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
                 
                 self.productImage?.image = AppManager.shared().resizeImage(image: image!, newWidth: 375)
-            }
-            
+            } 
+            print("nutritionalValues: \(response.nutritionalValues!)")
+            self.innerView.nutritionsArray = response.nutritionalValues!
             self.innerView.shortDescription.text = response.shortDescription
             self.innerView.productPrice.text = response.price! + " TL"
             self.innerView.productInformation.text = response.productDescription
             self.innerView.aboutManufacturer.text = response.aboutManufacturer
+            self.innerView.nutritionTableView.reloadData()
             hud.dismiss()
         })
     }
