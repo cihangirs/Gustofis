@@ -21,7 +21,6 @@ class ExclusiveTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.addToBasketButton.layer.cornerRadius = 12
         
         self.stepper.layer.cornerRadius = 12
         self.stepper.layer.borderWidth = 1
@@ -35,6 +34,7 @@ class ExclusiveTableViewCell: UITableViewCell {
         
 //        self.addToBasketButton.setTitle("SEPETE EKLE", for: UIControlState.normal)
 //        self.addToBasketButton.setTitle("hehehehh", for: UIControlState.selected)
+        self.addToBasketButton.layer.cornerRadius = 12
         self.addToBasketButton.addTarget(self, action: #selector(addToBasketButtonTapped), for: UIControlEvents.touchUpInside)
         self.addToBasketButton.setBackgroundColor(UIColor(red: 153/255, green: 204/255, blue: 0/255, alpha: 1), for: UIControlState.selected)
         self.addToBasketButton.clipsToBounds = true

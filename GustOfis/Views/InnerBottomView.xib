@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bitter-Regular.otf">
+            <string>Bitter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InnerBottomView" customModule="GustOfis" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="y6E-CS-sz4" id="Q9L-nM-o80"/>
+                <outlet property="goesWellByTableView" destination="tT6-jd-TEm" id="vFA-A5-Eyi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="y6E-CS-sz4">
+            <rect key="frame" x="0.0" y="0.0" width="776" height="795"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tT6-jd-TEm">
+                    <rect key="frame" x="0.0" y="109" width="776" height="686"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="yEJ-rV-OyB"/>
+                        <outlet property="delegate" destination="-1" id="oy9-aZ-Iy0"/>
+                    </connections>
+                </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YANINDA İYİ GİDER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOV-l4-AyB">
+                    <rect key="frame" x="227" y="46" width="322" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="QbM-4b-N8V"/>
+                        <constraint firstAttribute="width" constant="322" id="Uvr-oo-gNt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="BOV-uD-Be3" firstAttribute="bottom" secondItem="tT6-jd-TEm" secondAttribute="bottom" id="Jdd-nj-LmP"/>
+                <constraint firstItem="tT6-jd-TEm" firstAttribute="top" secondItem="SOV-l4-AyB" secondAttribute="top" constant="63" id="MRj-9s-y6Z"/>
+                <constraint firstItem="SOV-l4-AyB" firstAttribute="top" secondItem="BOV-uD-Be3" secondAttribute="top" constant="26" id="i3h-lR-Icz"/>
+                <constraint firstItem="tT6-jd-TEm" firstAttribute="leading" secondItem="BOV-uD-Be3" secondAttribute="leading" id="iLZ-qA-Sug"/>
+                <constraint firstItem="SOV-l4-AyB" firstAttribute="centerX" secondItem="BOV-uD-Be3" secondAttribute="centerX" id="ls4-et-V8E"/>
+                <constraint firstItem="BOV-uD-Be3" firstAttribute="trailing" secondItem="tT6-jd-TEm" secondAttribute="trailing" id="mRa-Dq-AQt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="BOV-uD-Be3"/>
+            <point key="canvasLocation" x="-84" y="-1939.5"/>
+        </view>
+    </objects>
+</document>

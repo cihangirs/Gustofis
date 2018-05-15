@@ -73,6 +73,10 @@
 		6C8FFD47206BF00D00C5698E /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C8FFD45206BF00D00C5698E /* FourthViewController.xib */; };
 		6CABC88B20A9E01C0056535F /* NutritionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABC88920A9E01C0056535F /* NutritionTableViewCell.swift */; };
 		6CABC88C20A9E01C0056535F /* NutritionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CABC88A20A9E01C0056535F /* NutritionTableViewCell.xib */; };
+		6CABC88E20AAC0D00056535F /* InnerBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABC88D20AAC0D00056535F /* InnerBottomView.swift */; };
+		6CABC89420AAC32A0056535F /* InnerBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CABC89320AAC32A0056535F /* InnerBottomView.xib */; };
+		6CABC89720AAC65B0056535F /* GoesWellByTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABC89520AAC65B0056535F /* GoesWellByTableViewCell.swift */; };
+		6CABC89820AAC65B0056535F /* GoesWellByTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CABC89620AAC65B0056535F /* GoesWellByTableViewCell.xib */; };
 		6CAC587F20A49A2100C46462 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAC587E20A49A2100C46462 /* Nutrition.swift */; };
 		6CB17357208F5FAB00A81CC6 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB17356208F5FAB00A81CC6 /* Filter.swift */; };
 		6CB1735C20909ADD00A81CC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB1735B20909ADD00A81CC6 /* User.swift */; };
@@ -169,6 +173,10 @@
 		6C8FFD45206BF00D00C5698E /* FourthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
 		6CABC88920A9E01C0056535F /* NutritionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableViewCell.swift; sourceTree = "<group>"; };
 		6CABC88A20A9E01C0056535F /* NutritionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionTableViewCell.xib; sourceTree = "<group>"; };
+		6CABC88D20AAC0D00056535F /* InnerBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerBottomView.swift; sourceTree = "<group>"; };
+		6CABC89320AAC32A0056535F /* InnerBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InnerBottomView.xib; sourceTree = "<group>"; };
+		6CABC89520AAC65B0056535F /* GoesWellByTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoesWellByTableViewCell.swift; sourceTree = "<group>"; };
+		6CABC89620AAC65B0056535F /* GoesWellByTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoesWellByTableViewCell.xib; sourceTree = "<group>"; };
 		6CAC587E20A49A2100C46462 /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		6CB17356208F5FAB00A81CC6 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		6CB1735B20909ADD00A81CC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -253,6 +261,8 @@
 				6C68CE3D2085E93A00821295 /* FilterTableViewCell.xib */,
 				6CABC88920A9E01C0056535F /* NutritionTableViewCell.swift */,
 				6CABC88A20A9E01C0056535F /* NutritionTableViewCell.xib */,
+				6CABC89520AAC65B0056535F /* GoesWellByTableViewCell.swift */,
+				6CABC89620AAC65B0056535F /* GoesWellByTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -267,6 +277,8 @@
 				6C68CE3A2084EC7900821295 /* TabView.xib */,
 				6C1B4E3B2087611D0073AFD0 /* InnerView.swift */,
 				6C1B4E3D208761290073AFD0 /* InnerView.xib */,
+				6CABC88D20AAC0D00056535F /* InnerBottomView.swift */,
+				6CABC89320AAC32A0056535F /* InnerBottomView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -554,9 +566,11 @@
 				6C68CE23208100C200821295 /* FiltersViewController.xib in Resources */,
 				6C68CE2B2084BF1100821295 /* CategoryTableViewCell.xib in Resources */,
 				6C68CE3B2084EC7900821295 /* TabView.xib in Resources */,
+				6CABC89420AAC32A0056535F /* InnerBottomView.xib in Resources */,
 				6C68CE332084C84D00821295 /* 1.jpg in Resources */,
 				6C8FFD0C206BD23800C5698E /* Assets.xcassets in Resources */,
 				6C8FFD35206BD61900C5698E /* ViewController.xib in Resources */,
+				6CABC89820AAC65B0056535F /* GoesWellByTableViewCell.xib in Resources */,
 				6C542DAE20861F59006A520D /* ProductDetailViewController.xib in Resources */,
 				6C3BA60E2075091D00B7F411 /* LaunchScreen.xib in Resources */,
 				6C1B4E3E208761290073AFD0 /* InnerView.xib in Resources */,
@@ -716,8 +730,10 @@
 				6C22B0742073719700C73AB9 /* Product.swift in Sources */,
 				6C4D7399209A0438007EEDFB /* String+Validations.swift in Sources */,
 				6C68CE3E2085E93A00821295 /* FilterTableViewCell.swift in Sources */,
+				6CABC88E20AAC0D00056535F /* InnerBottomView.swift in Sources */,
 				6CC7BBAC206E2AC3003E5149 /* NetworkManager.swift in Sources */,
 				6C40A9A2207E68E5000FF25F /* LocationTableViewCell.swift in Sources */,
+				6CABC89720AAC65B0056535F /* GoesWellByTableViewCell.swift in Sources */,
 				6C68CE1E208100B300821295 /* CategoriesViewController.swift in Sources */,
 				6CAC587F20A49A2100C46462 /* Nutrition.swift in Sources */,
 				6C8FFD42206BF00100C5698E /* ThirdViewController.swift in Sources */,

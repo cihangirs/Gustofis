@@ -17,6 +17,7 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
     @IBOutlet weak var innerScrollView: UIScrollView!
     
     var innerView: InnerView!
+    var innerBottomView: InnerBottomView!
     
     var productId: Int
     var productName: String
@@ -45,11 +46,11 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
 //        self.stepper.labelTextColor = UIColor.black
         // Do any additional setup after loading the view.
         
-        self.innerScrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width - 40, height: 760 + 275)
+        self.innerScrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width - 40, height: 760 + 275 + 400)
         
         self.view.layoutIfNeeded()
         
-        self.innerView = InnerView(frame: CGRect(origin: CGPoint(x: 0,y :275), size: CGSize(width: UIScreen.main.bounds.size.width - 40, height: self.innerScrollView.contentSize.height - 275)))
+        self.innerView = InnerView(frame: CGRect(origin: CGPoint(x: 0,y :275), size: CGSize(width: UIScreen.main.bounds.size.width - 40, height: self.innerScrollView.contentSize.height - 275 - 400)))
         self.innerView.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
         self.innerView.layoutIfNeeded()
         
@@ -58,6 +59,12 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
         self.innerView.addToBasketButton.addTarget(self, action: #selector(addToBasketButtonTapped), for: UIControlEvents.touchUpInside)
         self.innerView.addToBasketButton.setBackgroundColor(UIColor(red: 153/255, green: 204/255, blue: 0/255, alpha: 1), for: UIControlState.selected)
         self.innerView.addToBasketButton.clipsToBounds = true
+        
+        //not 75, it is 275. find measuring the height of a tableview
+        self.innerBottomView = InnerBottomView(frame: CGRect(origin: CGPoint(x: 0,y : 0 + self.innerView.frame.size.height), size: CGSize(width: UIScreen.main.bounds.size.width - 40, height: 400)))
+        self.innerBottomView.layoutIfNeeded()
+        
+        self.innerScrollView.addSubview(self.innerBottomView)
         
         self.fetchProductDetail()
     }
@@ -98,7 +105,7 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
                 
                 self.productImage?.image = AppManager.shared().resizeImage(image: image!, newWidth: 375)
             } 
-            print("nutritionalValues: \(response.nutritionalValues!)")
+            //print("nutritionalValues: \(response.nutritionalValues!)")
             self.innerView.nutritionsArray = response.nutritionalValues!
             self.innerView.shortDescription.text = response.shortDescription
             self.innerView.productPrice.text = response.price! + " TL"
