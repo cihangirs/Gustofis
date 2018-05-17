@@ -27,15 +27,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tT6-jd-TEm">
-                    <rect key="frame" x="0.0" y="109" width="776" height="686"/>
+                    <rect key="frame" x="0.0" y="85" width="776" height="710"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="yEJ-rV-OyB"/>
                         <outlet property="delegate" destination="-1" id="oy9-aZ-Iy0"/>
                     </connections>
                 </tableView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YANINDA İYİ GİDER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOV-l4-AyB">
-                    <rect key="frame" x="227" y="46" width="322" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YANINDA İYİ GİDER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOV-l4-AyB">
+                    <rect key="frame" x="227" y="48.5" width="322" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="QbM-4b-N8V"/>
                         <constraint firstAttribute="width" constant="322" id="Uvr-oo-gNt"/>
@@ -48,8 +48,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="BOV-uD-Be3" firstAttribute="bottom" secondItem="tT6-jd-TEm" secondAttribute="bottom" id="Jdd-nj-LmP"/>
-                <constraint firstItem="tT6-jd-TEm" firstAttribute="top" secondItem="SOV-l4-AyB" secondAttribute="top" constant="63" id="MRj-9s-y6Z"/>
-                <constraint firstItem="SOV-l4-AyB" firstAttribute="top" secondItem="BOV-uD-Be3" secondAttribute="top" constant="26" id="i3h-lR-Icz"/>
+                <constraint firstItem="tT6-jd-TEm" firstAttribute="top" secondItem="SOV-l4-AyB" secondAttribute="bottom" constant="15" id="dHo-R3-qZd"/>
+                <constraint firstItem="SOV-l4-AyB" firstAttribute="top" secondItem="BOV-uD-Be3" secondAttribute="top" constant="28" id="i3h-lR-Icz"/>
                 <constraint firstItem="tT6-jd-TEm" firstAttribute="leading" secondItem="BOV-uD-Be3" secondAttribute="leading" id="iLZ-qA-Sug"/>
                 <constraint firstItem="SOV-l4-AyB" firstAttribute="centerX" secondItem="BOV-uD-Be3" secondAttribute="centerX" id="ls4-et-V8E"/>
                 <constraint firstItem="BOV-uD-Be3" firstAttribute="trailing" secondItem="tT6-jd-TEm" secondAttribute="trailing" id="mRa-Dq-AQt"/>

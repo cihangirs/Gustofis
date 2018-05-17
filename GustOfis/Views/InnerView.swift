@@ -23,8 +23,10 @@ class InnerView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var aboutManufacturer: UILabel!
     
     @IBOutlet weak var nutritionTableView: UITableView!
+    @IBOutlet weak var nutritionTableViewHeightConstraint: NSLayoutConstraint!
     
     var nutritionsArray = [Nutrition]()
+    weak var delegate: ProductDetailViewController?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +45,7 @@ class InnerView: UIView, UITableViewDelegate, UITableViewDataSource {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         self.nutritionTableView.register(UINib(nibName: "NutritionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        self.nutritionTableView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
         
         self.addToHealthAppButton.layer.cornerRadius = 17.5
         self.addToBasketButton.layer.cornerRadius = 12
@@ -77,6 +80,17 @@ class InnerView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30.0
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        self.nutritionTableView.layer.removeAllAnimations()
+        
+        self.frame.size.height = self.addToHealthAppButton.frame.maxY
+        
+        UIView.animate(withDuration: 0.5) {
+            self.updateConstraints()
+            self.layoutIfNeeded()
+        }
     }
     
     @IBAction func didAddToBasketButtonTapped(_ sender: UIButton) {

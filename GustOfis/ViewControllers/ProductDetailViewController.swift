@@ -46,13 +46,20 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
 //        self.stepper.labelTextColor = UIColor.black
         // Do any additional setup after loading the view.
         
-        self.innerScrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width - 40, height: 760 + 275 + 400)
+//        self.innerScrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width - 40, height: UIScreen.main.bounds.size.height)
         
         self.view.layoutIfNeeded()
         
-        self.innerView = InnerView(frame: CGRect(origin: CGPoint(x: 0,y :275), size: CGSize(width: UIScreen.main.bounds.size.width - 40, height: self.innerScrollView.contentSize.height - 275 - 400)))
+        self.innerView = InnerView(frame: CGRect(origin: CGPoint(x: 0, y: 275), size: CGSize(width: UIScreen.main.bounds.size.width - 40, height: 760)))
         self.innerView.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
         self.innerView.layoutIfNeeded()
+        self.innerView.delegate = self
+//        self.innerView.translatesAutoresizingMaskIntoConstraints = false
+        
+//        var constX:NSLayoutConstraint = NSLayoutConstraint(item: new_view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0);
+        
+//        self.innerView.addConstraint(NSLayoutConstraint(item: self, attribute: <#T##NSLayoutAttribute#>, relatedBy: <#T##NSLayoutRelation#>, toItem: self., attribute: <#T##NSLayoutAttribute#>, multiplier: <#T##CGFloat#>, constant: <#T##CGFloat#>))
+        
         
         self.innerScrollView.addSubview(self.innerView)
         
@@ -60,13 +67,20 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
         self.innerView.addToBasketButton.setBackgroundColor(UIColor(red: 153/255, green: 204/255, blue: 0/255, alpha: 1), for: UIControlState.selected)
         self.innerView.addToBasketButton.clipsToBounds = true
         
-        //not 75, it is 275. find measuring the height of a tableview
-        self.innerBottomView = InnerBottomView(frame: CGRect(origin: CGPoint(x: 0,y : 0 + self.innerView.frame.size.height), size: CGSize(width: UIScreen.main.bounds.size.width - 40, height: 400)))
+        self.innerBottomView = InnerBottomView(frame: CGRect(origin: CGPoint(x: 0, y : self.innerView.frame.size.height + 390), size: CGSize(width: self.innerScrollView.frame.size.width, height: 400)))
         self.innerBottomView.layoutIfNeeded()
+        self.innerBottomView.delegate = self
         
-        self.innerScrollView.addSubview(self.innerBottomView)
+        self.innerScrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width - 40, height: 760 + 275 + 64)
+        
+        print("self.innerScrollView.contentSize: \(self.innerScrollView.contentSize)")
+        print("before self.innerView.addToHealthAppButton.frame.origin.y: \(self.innerView.addToHealthAppButton.frame.origin.y)")
         
         self.fetchProductDetail()
+        
+//        self.innerView.sizeToFit()
+        
+        print("after self.innerView.addToHealthAppButton.frame.origin.y: \(self.innerView.addToHealthAppButton.frame.origin.y)")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -104,8 +118,7 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
             self.productImage?.sd_setImage(with: URL(string: response.images![0].src!), placeholderImage: nil){ (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
                 
                 self.productImage?.image = AppManager.shared().resizeImage(image: image!, newWidth: 375)
-            } 
-            //print("nutritionalValues: \(response.nutritionalValues!)")
+            }
             self.innerView.nutritionsArray = response.nutritionalValues!
             self.innerView.shortDescription.text = response.shortDescription
             self.innerView.productPrice.text = response.price! + " TL"

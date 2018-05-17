@@ -13,6 +13,8 @@ class InnerBottomView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var goesWellByTableView: UITableView!
     
+    weak var delegate: ProductDetailViewController?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

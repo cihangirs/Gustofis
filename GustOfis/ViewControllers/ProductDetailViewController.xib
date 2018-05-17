@@ -29,7 +29,7 @@
                     </constraints>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEk-DX-4Hl">
-                    <rect key="frame" x="20" y="20" width="335" height="603"/>
+                    <rect key="frame" x="20" y="20" width="335" height="583"/>
                     <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="0.0" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="WcY-4U-Uhj"/>
@@ -40,9 +40,9 @@
             <constraints>
                 <constraint firstItem="cEk-DX-4Hl" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" constant="-40" id="7bI-xc-5LV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3eP-U5-aGj" secondAttribute="trailing" id="7eq-yC-wcB"/>
-                <constraint firstItem="cEk-DX-4Hl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="BoE-MK-4x0"/>
+                <constraint firstItem="cEk-DX-4Hl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" constant="-20" id="BoE-MK-4x0"/>
                 <constraint firstItem="3eP-U5-aGj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YRo-Sg-X4A"/>
-                <constraint firstItem="cEk-DX-4Hl" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="20" id="gd2-Dm-Tj7"/>
+                <constraint firstItem="cEk-DX-4Hl" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="gd2-Dm-Tj7"/>
                 <constraint firstItem="cEk-DX-4Hl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="kaN-sU-35s"/>
                 <constraint firstItem="3eP-U5-aGj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oGs-Ur-VNC"/>
                 <constraint firstItem="cEk-DX-4Hl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ppx-8z-Rtq"/>

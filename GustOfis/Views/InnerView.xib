@@ -120,7 +120,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CTz-kb-AXk">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="303" placeholderIntrinsicHeight="125" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CTz-kb-AXk" customClass="IntrinsicTableView" customModule="GustOfis" customModuleProvider="target">
                     <rect key="frame" x="16" y="423" width="303" height="125"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
@@ -131,10 +131,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
             </subviews>
             <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="8AA-tK-jBB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="1hB-Rc-dum"/>
+                <constraint firstItem="8AA-tK-jBB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="3lm-YN-nL7"/>
                 <constraint firstItem="CTz-kb-AXk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="7zQ-q0-u0F"/>
                 <constraint firstItem="YKa-wk-BLV" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="ErW-Xl-ECb"/>
-                <constraint firstItem="6Hv-yJ-KfG" firstAttribute="top" secondItem="heQ-lU-15u" secondAttribute="bottom" constant="140" id="Ib2-kU-tUh"/>
                 <constraint firstItem="YKa-wk-BLV" firstAttribute="top" secondItem="3BD-4g-77H" secondAttribute="top" id="KkS-Yc-phf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8AA-tK-jBB" secondAttribute="trailing" constant="21" id="R2q-Ij-KhI"/>
                 <constraint firstItem="1Qd-9V-ycl" firstAttribute="top" secondItem="FpI-Ry-gdU" secondAttribute="bottom" constant="45" id="SEN-cx-uSi"/>
@@ -147,10 +146,10 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CTz-kb-AXk" secondAttribute="trailing" constant="16" id="eFF-sf-VjJ"/>
                 <constraint firstItem="FpI-Ry-gdU" firstAttribute="top" secondItem="6Hv-yJ-KfG" secondAttribute="bottom" constant="21" id="eg2-xz-QQR"/>
                 <constraint firstItem="c4R-IF-vf2" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="fSL-cA-AaZ"/>
+                <constraint firstItem="6Hv-yJ-KfG" firstAttribute="top" secondItem="CTz-kb-AXk" secondAttribute="bottom" constant="7.5" id="gtb-hl-aBh"/>
                 <constraint firstItem="FpI-Ry-gdU" firstAttribute="trailing" secondItem="c4R-IF-vf2" secondAttribute="trailing" id="mGs-Ci-ZNs"/>
                 <constraint firstItem="8AA-tK-jBB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="21" id="nVM-4G-nzl"/>
                 <constraint firstItem="zcm-jB-SYb" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="njZ-eF-TdB"/>
-                <constraint firstItem="6Hv-yJ-KfG" firstAttribute="top" secondItem="CTz-kb-AXk" secondAttribute="bottom" constant="7.5" id="oZi-GS-mRj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EzU-ia-u7O" secondAttribute="trailing" constant="45" id="p9T-t7-cj4"/>
                 <constraint firstItem="1Qd-9V-ycl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="pQJ-mT-DqR"/>
                 <constraint firstItem="heQ-lU-15u" firstAttribute="leading" secondItem="8AA-tK-jBB" secondAttribute="leading" id="qY1-pA-Zax"/>
