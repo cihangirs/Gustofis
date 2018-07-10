@@ -27,6 +27,13 @@ class ProfileViewController: ViewController, UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.scrollView.contentSize = CGSize(width:UIScreen.main.bounds.size.width, height:903)
+        self.view.layoutIfNeeded()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
