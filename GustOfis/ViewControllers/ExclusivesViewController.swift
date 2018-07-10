@@ -34,7 +34,8 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func didBasketButtonTapped(_ sender: UIButton) {
-        print("didBasketButtonTapped")
+        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+        //print("didBasketButtonTapped")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
