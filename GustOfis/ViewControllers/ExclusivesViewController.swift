@@ -21,10 +21,14 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.exclusiveTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
     
         self.basketButton.layer.cornerRadius = 31.5
+        
+        self.exclusiveTableView.estimatedRowHeight = 500
+        self.exclusiveTableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.exclusiveTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view.
     }
     
@@ -52,8 +56,10 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
 
         cell.productImageView?.sd_setImage(with: URL(string: self.productArray[indexPath.section].images![0].src!), placeholderImage: nil){ (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
 
-            cell.productImageView?.image = AppManager.shared().resizeImage(image: image!, newWidth: 240)
+            cell.productImageView?.image = AppManager.shared().resizeImage(image: image!, newWidth: 1080)
         }
+        
+        print("src: \(self.productArray[indexPath.section].images![0].src!)")
 
         return cell
     }
@@ -82,10 +88,6 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

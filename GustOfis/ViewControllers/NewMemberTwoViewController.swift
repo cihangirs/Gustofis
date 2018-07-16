@@ -22,6 +22,9 @@ class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegat
         self.cameraButton.layer.cornerRadius = 17.5
         self.photoUploadButton.layer.cornerRadius = 17.5
         self.registerButton.layer.cornerRadius = 17.5
+        
+        self.imagePicked.layer.cornerRadius = 0
+        self.imagePicked.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 
@@ -32,7 +35,7 @@ class NewMemberTwoViewController: ViewController, UIImagePickerControllerDelegat
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imagePicked.image = image
+        self.imagePicked.image = image
         dismiss(animated:true, completion: nil)
         
         let hud = JGProgressHUD(style: .dark)

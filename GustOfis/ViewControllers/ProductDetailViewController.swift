@@ -90,7 +90,7 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
         
         self.title = self.productName
         
-        self.leftCloseButton()
+        self.leftBackButton()
         self.rightShareButton()
     }
     

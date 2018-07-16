@@ -53,7 +53,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.height, 0.0)
         self.scrollView.contentInset = contentInset
         self.scrollView.scrollIndicatorInsets = contentInset
-        self.scrollView.scrollRectToVisible(self.textfield.frame, animated: true)
+        //?! take it back
+        //self.scrollView.scrollRectToVisible(self.textfield.frame, animated: true)
     }
     
     @objc func keyboardWillHide(note: NSNotification){
@@ -70,7 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.setAsUnfocused(borderColor: UIColor(red: 114/255, green: 113/255, blue: 143/255, alpha: 1.0))
     }
   
-    func leftCloseButton() {
+    func leftBackButton() {
         let image = UIImage(named: "backButton")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         let item = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.done, target: self, action: #selector(leftItemClicked))
         self.navigationItem.leftBarButtonItem = item
