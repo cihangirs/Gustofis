@@ -58,17 +58,17 @@ class LoginScreenViewController: ViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        print("\(UIScreen.main.bounds.size.width) : \(UIScreen.main.bounds.size.height)")
-        
-        self.scrollView.contentSize = CGSize(width:UIScreen.main.bounds.size.width, height:867)
-
-        print("before: \(self.gustofisLogoTopConstraint.constant)")
-        
-        self.gustofisLogoTopConstraint.constant = -((self.email.frame.origin.y - self.gustofisLogo.frame.size.height) / 2)
-        
-        print("after: \(self.gustofisLogoTopConstraint.constant)")
-        
-        self.view.layoutIfNeeded()
+//        print("\(UIScreen.main.bounds.size.width) : \(UIScreen.main.bounds.size.height)")
+//        
+//        self.scrollView.contentSize = CGSize(width:UIScreen.main.bounds.size.width, height:867)
+//
+//        print("before: \(self.gustofisLogoTopConstraint.constant)")
+//        
+//        self.gustofisLogoTopConstraint.constant = -((self.email.frame.origin.y - self.gustofisLogo.frame.size.height) / 2)
+//        
+//        print("after: \(self.gustofisLogoTopConstraint.constant)")
+//        
+//        self.view.layoutIfNeeded()
         
         if !self.isTextFieldsSetDefault {
             self.isTextFieldsSetDefault = !self.isTextFieldsSetDefault
