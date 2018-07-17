@@ -35,7 +35,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Uzw-H7-NDm">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Uzw-H7-NDm">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktf-uk-L2j">
@@ -151,7 +151,7 @@
                                 <constraint firstAttribute="bottom" secondItem="SCA-Se-hKO" secondAttribute="bottom" constant="92.666666666666629" id="kFf-KL-hDp"/>
                                 <constraint firstItem="aPA-Dc-jhj" firstAttribute="centerX" secondItem="EDL-0p-LAV" secondAttribute="centerX" id="kRS-eu-OfH"/>
                                 <constraint firstItem="SCA-Se-hKO" firstAttribute="centerX" secondItem="EDL-0p-LAV" secondAttribute="centerX" id="li4-aR-IX3"/>
-                                <constraint firstItem="DIf-Fc-4aA" firstAttribute="centerX" secondItem="EDL-0p-LAV" secondAttribute="centerX" constant="1" id="oNQ-Yj-lMu"/>
+                                <constraint firstItem="DIf-Fc-4aA" firstAttribute="centerX" secondItem="EDL-0p-LAV" secondAttribute="centerX" id="oNQ-Yj-lMu"/>
                                 <constraint firstItem="drr-Kp-eMN" firstAttribute="leading" secondItem="EDL-0p-LAV" secondAttribute="leading" constant="40" id="phP-g1-4SV"/>
                                 <constraint firstItem="SCA-Se-hKO" firstAttribute="trailing" secondItem="aPA-Dc-jhj" secondAttribute="trailing" id="w0W-5I-DXG"/>
                             </constraints>
