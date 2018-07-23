@@ -8,6 +8,7 @@
 
 import UIKit
 import GMStepper
+import SDWebImage
 
 class ExclusiveTableViewCell: UITableViewCell {
 
@@ -17,6 +18,10 @@ class ExclusiveTableViewCell: UITableViewCell {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productShortDescription: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
+    
+    weak var delegate: ExclusivesViewController?
+    
+    private var _product: Product? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,24 +36,37 @@ class ExclusiveTableViewCell: UITableViewCell {
         self.stepper.labelTextColor = UIColor.black
         self.stepper.labelFont = UIFont(name: "ProximaNova-Semibold", size: 15.0)!
         self.stepper.labelTextColor = UIColor(red: 72/255, green: 70/255, blue: 70/255, alpha: 1)
-        
-//        self.addToBasketButton.setTitle("SEPETE EKLE", for: UIControlState.normal)
-//        self.addToBasketButton.setTitle("hehehehh", for: UIControlState.selected)
+
         self.addToBasketButton.layer.cornerRadius = 12
         self.addToBasketButton.addTarget(self, action: #selector(addToBasketButtonTapped), for: UIControlEvents.touchUpInside)
         self.addToBasketButton.setBackgroundColor(UIColor(red: 153/255, green: 204/255, blue: 0/255, alpha: 1), for: UIControlState.selected)
         self.addToBasketButton.clipsToBounds = true
-//        let centerConstraint = NSLayoutConstraint(item: imageView!, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
-
-//        imageView?.translatesAutoresizingMaskIntoConstraints = false
-//        self.contentView.addConstraint(centerConstraint)
     }
 
+    var product: Product? {
+        get {
+            return self._product
+        }
+        set {
+            self._product = newValue
+            self.productName.text = self._product!.name
+            self.productPrice.text = "\(self._product!.price!)" + " TL"
+            self.productShortDescription.text = self._product!.shortDescription
+            
+            self.productImageView?.sd_setImage(with: URL(string: self._product!.images![0].src!), placeholderImage: nil){ (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
+                
+                self.productImageView?.image = AppManager.shared().resizeImage(image: image!, newWidth: 1080)
+            }
+            
+        }
+    }
+    
     @objc func addToBasketButtonTapped() {
         if self.stepper.value != 0 {
             self.addToBasketButton.isSelected = !self.addToBasketButton.isSelected
             
             if self.addToBasketButton.isSelected {
+                self.delegate?.addToCart((self.product?.productId)!, Int(self.stepper.value))
                 self.addToBasketButton.setTitle("✓ \(Int(self.stepper.value)) ADET SEPETTE", for: UIControlState.selected)
             }
             else {

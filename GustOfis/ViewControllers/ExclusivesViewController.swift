@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SDWebImage
+import JGProgressHUD
 
 class ExclusivesViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -38,8 +38,9 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func didBasketButtonTapped(_ sender: UIButton) {
-        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+        //self.navigationController?.pushViewController(ProfileViewController(), animated: true)
         //print("didBasketButtonTapped")
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,23 +51,13 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        cell.productName.text = self.productArray[indexPath.section].name
-        cell.productPrice.text = "\(self.productArray[indexPath.section].price!)" + " TL"
-        cell.productShortDescription.text = self.productArray[indexPath.section].shortDescription
-
-        cell.productImageView?.sd_setImage(with: URL(string: self.productArray[indexPath.section].images![0].src!), placeholderImage: nil){ (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
-
-            cell.productImageView?.image = AppManager.shared().resizeImage(image: image!, newWidth: 1080)
-        }
-        
-        print("src: \(self.productArray[indexPath.section].images![0].src!)")
+        cell.delegate = self
+        cell.product = self.productArray[indexPath.section]
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print("productId: \(self.productArray[indexPath.row].productId!)")
-//        self.navigationController?.pushViewController(ProductDetailViewController(productId: self.productArray[indexPath.row].productId!, productName: self.productArray[indexPath.row].name!), animated: true)
         self.navigationController?.pushViewController(ProductDetailViewController(productId: self.productArray[indexPath.row].productId!, productName: self.productArray[indexPath.row].name!), animated: true)
     }
     
@@ -96,6 +87,18 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func addToCart(_ productId: Int, _ quantity: Int){
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
+        NetworkManager.shared().addToCart(productId: productId, quantity: quantity) { addToCartResponse in
+            print("addToCartResponse: \(addToCartResponse)")
+            hud.dismiss()
+        }
     }
 
 }

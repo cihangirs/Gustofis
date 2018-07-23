@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bitter-Regular.otf">
+            <string>Bitter-Regular</string>
+        </array>
+        <array key="Proxima Nova Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+        <array key="Proxima Nova Semibold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CartTableViewCell" customModule="GustOfis" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leh-wz-8VO">
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="75"/>
+                        <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="hRT-xA-wv8"/>
+                        </constraints>
+                    </view>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" placeholder="x" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hQc-cw-v2D">
+                        <rect key="frame" x="18" y="19" width="11" height="13"/>
+                        <color key="backgroundColor" red="0.85763552418410982" green="0.91921168565750122" blue="0.5936300860407604" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="7Rn-uq-qXj"/>
+                            <constraint firstAttribute="width" constant="11" id="v86-xs-G5f"/>
+                        </constraints>
+                        <color key="textColor" red="0.38823529411764707" green="0.71764705882352942" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weK-tA-Dy5">
+                        <rect key="frame" x="37" y="18" width="28" height="15"/>
+                        <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="12"/>
+                        <color key="textColor" red="0.16470588235294117" green="0.16862745098039217" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kahvaltı Tabağı" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOH-uE-2Ub">
+                        <rect key="frame" x="73" y="18" width="90" height="15"/>
+                        <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="12"/>
+                        <color key="textColor" red="0.16470588235294117" green="0.16862745098039217" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 TL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIN-cR-hRZ">
+                        <rect key="frame" x="244.5" y="40.5" width="43.5" height="22"/>
+                        <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhj-oh-Kmn">
+                        <rect key="frame" x="73" y="38" width="75.5" height="27"/>
+                        <string key="text">Ezine Peynir
+Zeytin, Salatalık</string>
+                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="11"/>
+                        <color key="textColor" red="0.25098039215686274" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="hQc-cw-v2D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="96T-xq-zt5"/>
+                    <constraint firstItem="bhj-oh-Kmn" firstAttribute="top" secondItem="hOH-uE-2Ub" secondAttribute="bottom" constant="5" id="9BF-cY-Bc1"/>
+                    <constraint firstItem="weK-tA-Dy5" firstAttribute="leading" secondItem="hQc-cw-v2D" secondAttribute="trailing" constant="8" id="GRy-c7-WUz"/>
+                    <constraint firstItem="hOH-uE-2Ub" firstAttribute="leading" secondItem="weK-tA-Dy5" secondAttribute="trailing" constant="8" id="PTu-dd-tcJ"/>
+                    <constraint firstAttribute="trailing" secondItem="dIN-cR-hRZ" secondAttribute="trailing" constant="32" id="R3K-1a-Den"/>
+                    <constraint firstItem="dIN-cR-hRZ" firstAttribute="centerY" secondItem="bhj-oh-Kmn" secondAttribute="centerY" id="Sh7-dl-QfV"/>
+                    <constraint firstItem="hOH-uE-2Ub" firstAttribute="centerY" secondItem="weK-tA-Dy5" secondAttribute="centerY" id="UEV-Ro-kFc"/>
+                    <constraint firstItem="hQc-cw-v2D" firstAttribute="centerY" secondItem="weK-tA-Dy5" secondAttribute="centerY" id="fe5-pp-Yo0"/>
+                    <constraint firstItem="hQc-cw-v2D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="k3h-HV-Vxw"/>
+                    <constraint firstItem="Leh-wz-8VO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lDY-9I-E7x"/>
+                    <constraint firstItem="Leh-wz-8VO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wL0-Dv-45N"/>
+                    <constraint firstItem="bhj-oh-Kmn" firstAttribute="leading" secondItem="hOH-uE-2Ub" secondAttribute="leading" id="yVt-Om-SIi"/>
+                    <constraint firstAttribute="bottom" secondItem="Leh-wz-8VO" secondAttribute="bottom" constant="-0.5" id="z4K-nQ-9AG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cartItemCountTF" destination="hQc-cw-v2D" id="oQQ-H5-e9h"/>
+                <outlet property="cartItemIngredients" destination="bhj-oh-Kmn" id="BgE-93-Mvn"/>
+                <outlet property="cartItemName" destination="hOH-uE-2Ub" id="ufD-AF-jBf"/>
+                <outlet property="cartItemPrice" destination="dIN-cR-hRZ" id="Tqo-7H-3MI"/>
+            </connections>
+            <point key="canvasLocation" x="117" y="53.5"/>
+        </tableViewCell>
+    </objects>
+</document>

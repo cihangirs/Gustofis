@@ -8,8 +8,8 @@
 
 import UIKit
 import GMStepper
-import JGProgressHUD
 import SDWebImage
+import JGProgressHUD
 
 class ProductDetailViewController: ViewController, UIScrollViewDelegate {
     

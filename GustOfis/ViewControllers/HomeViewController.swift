@@ -59,6 +59,9 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 }
 
 class HomeViewController: ViewController {
+
+    @IBOutlet weak var headerLogo: UIImageView!
+    
     fileprivate let options = PagingMenuOptions()
     
     override func viewDidLoad() {
@@ -67,44 +70,65 @@ class HomeViewController: ViewController {
         let pagingMenuController = PagingMenuController(options: options)
         pagingMenuController.onMove = { state in
             switch state {
-            case let .willMoveController(menuController, previousMenuController):
-                print(previousMenuController)
-                print(menuController)
-            case let .didMoveController(menuController, previousMenuController):
-                print(previousMenuController)
-                print(menuController)
-            case let .willMoveItem(menuItemView, previousMenuItemView):
-                print(previousMenuItemView)
-                print(menuItemView)
-            case let .didMoveItem(menuItemView, previousMenuItemView):
-                print(previousMenuItemView)
-                print(menuItemView)
-            case .didScrollStart:
-                print("Scroll start")
-            case .didScrollEnd:
-                print("Scroll end")
-            }
+                case let .willMoveController(menuController, previousMenuController):
+                    print(previousMenuController)
+                    print(menuController)
+                case let .didMoveController(menuController, previousMenuController):
+                    print(previousMenuController)
+                    print(menuController)
+                case let .willMoveItem(menuItemView, previousMenuItemView):
+                    print(previousMenuItemView)
+                    print(menuItemView)
+                case let .didMoveItem(menuItemView, previousMenuItemView):
+                    print(previousMenuItemView)
+                    print(menuItemView)
+                case .didScrollStart:
+                    print("Scroll start")
+                case .didScrollEnd:
+                    print("Scroll end")
+                }
         }
-        
+
         pagingMenuController.view.frame = view.frame
-        pagingMenuController.view.frame.origin.y += 64
-        pagingMenuController.view.frame.size.height -= 64
+        pagingMenuController.view.frame.origin.y += 44
+        pagingMenuController.view.frame.size.height -= 44
         
         addChildViewController(pagingMenuController)
         view.addSubview(pagingMenuController.view)
         pagingMenuController.didMove(toParentViewController: self)
-
+        
         pagingMenuController.move(toPage: 1, animated: false)
         // Do any additional setup after loading the view.
-        
+
         self.setChildViewControllersDelegate(pagingViewControllers: pagingMenuController.pagingViewController!)
-        
+
         self.fetchProducts()
         self.fetchCategories()
         self.fetchFilters()
         //print("pagingMenuController.pagingViewController: \(pagingMenuController.pagingViewController!)")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.topItem?.hidesBackButton = true
+
+        
+        self.title = "some title"
+        //self.view.bringSubview(toFront: self.headerLogo)
+        //self.headerLogo.didMoveToWindow()
+        //self.navigationItem.setHidesBackButton(true, animated: true)
+        
+//        self.leftBackButton()
+//        self.rightShareButton()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     func fetchProducts() {
     
         let hud = JGProgressHUD(style: .dark)
@@ -200,11 +224,6 @@ class HomeViewController: ViewController {
         (pagingViewControllers.controllers[0] as! CategoriesViewController).delegate = self
         (pagingViewControllers.controllers[1] as! ExclusivesViewController).delegate = self
         (pagingViewControllers.controllers[2] as! FiltersViewController).delegate = self
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Crashlytics
+import JGProgressHUD
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -48,19 +49,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(note: NSNotification) {
-        let userInfo = note.userInfo
-        let keyboardFrame = userInfo?[UIKeyboardFrameEndUserInfoKey] as! CGRect
-        let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.height, 0.0)
-        self.scrollView.contentInset = contentInset
-        self.scrollView.scrollIndicatorInsets = contentInset
-        //?! take it back
-        //self.scrollView.scrollRectToVisible(self.textfield.frame, animated: true)
+//        let userInfo = note.userInfo
+//        let keyboardFrame = userInfo?[UIKeyboardFrameEndUserInfoKey] as! CGRect
+//        let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardFrame.height, 0.0)
+//        self.scrollView.contentInset = contentInset
+//        self.scrollView.scrollIndicatorInsets = contentInset
+//        //?! take it back
+//        self.scrollView.scrollRectToVisible(self.textfield.frame, animated: true)
     }
     
     @objc func keyboardWillHide(note: NSNotification){
-        let contentInset = UIEdgeInsets.zero
-        self.scrollView.contentInset = contentInset
-        self.scrollView.scrollIndicatorInsets = contentInset
+//        let contentInset = UIEdgeInsets.zero
+//        self.scrollView.contentInset = contentInset
+//        self.scrollView.scrollIndicatorInsets = contentInset
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
