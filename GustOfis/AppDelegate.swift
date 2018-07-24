@@ -15,24 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let firstViewController: FirstViewController = FirstViewController()
-    let secondViewController: SecondViewController = SecondViewController()
-    let thirdViewController: ThirdViewController = ThirdViewController()
-    let fourthViewController: FourthViewController = FourthViewController()
+//    let firstViewController: FirstViewController = FirstViewController()
+//    let secondViewController: SecondViewController = SecondViewController()
+//    let thirdViewController: ThirdViewController = ThirdViewController()
+//    let fourthViewController: FourthViewController = FourthViewController()
 
     let loginScreenViewController: LoginScreenViewController = LoginScreenViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         //sleep(1)
-        firstViewController.tabBarItem = UITabBarItem(title: "First", image: UIImage(named: "first"), tag: 0)
-        secondViewController.tabBarItem = UITabBarItem(title: "Second", image: UIImage(named: "second"), tag: 0)
-        thirdViewController.tabBarItem = UITabBarItem(title: "Third", image: UIImage(named: "third"), tag: 0)
-        fourthViewController.tabBarItem = UITabBarItem(title: "Fourth", image: UIImage(named: "fourth"), tag: 0)
-        
-        let tabBarController = UITabBarController()
-        let controllers = [firstViewController, secondViewController, thirdViewController, fourthViewController]
-        tabBarController.viewControllers = controllers
+//        firstViewController.tabBarItem = UITabBarItem(title: "First", image: UIImage(named: "first"), tag: 0)
+//        secondViewController.tabBarItem = UITabBarItem(title: "Second", image: UIImage(named: "second"), tag: 0)
+//        thirdViewController.tabBarItem = UITabBarItem(title: "Third", image: UIImage(named: "third"), tag: 0)
+//        fourthViewController.tabBarItem = UITabBarItem(title: "Fourth", image: UIImage(named: "fourth"), tag: 0)
+//
+//        let tabBarController = UITabBarController()
+//        let controllers = [firstViewController, secondViewController, thirdViewController, fourthViewController]
+//        tabBarController.viewControllers = controllers
         
         let navigationController = UINavigationController(rootViewController: loginScreenViewController)
         

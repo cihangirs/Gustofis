@@ -76,7 +76,7 @@ class CategoriesViewController: ViewController, UITableViewDelegate, UITableView
         
         print("cell.categorie: \(cell.categorie)")
 
-        self.delegate?.fetchCategorieProducts(categorieId: cell.categorie.categorieId!)
+        //self.delegate?.fetchCategorieProducts(categorieId: cell.categorie.categorieId!)
     }
 
 }

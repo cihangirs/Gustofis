@@ -114,7 +114,8 @@ class LoginScreenViewController: ViewController {
                     print("loginResponse: \(response)")
                     hud.dismiss()
                     print("you logged in dude: \(AppManager.shared().currentUser)")
-                    self.navigationController?.pushViewController(HomeViewController(), animated: true)
+                    //self.navigationController?.pushViewController(HomeViewController(), animated: true)
+                    self.navigationController?.pushViewController(ExclusivesViewController(), animated: true)
                 })
             }
                 

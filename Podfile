@@ -15,7 +15,7 @@ target 'GustOfis' do
   pod 'OneSignal'
   pod 'GMStepper'
   pod 'SDWebImage'
-  pod 'PagingMenuController'
+  pod 'Segmentio', '~> 3.0'
   pod 'UIAlertController+Blocks'
   
   post_install do |installer|
