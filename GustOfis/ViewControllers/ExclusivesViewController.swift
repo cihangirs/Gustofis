@@ -16,7 +16,8 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var basketButton: UIButton!
     @IBOutlet weak var segmentioView: Segmentio!
     
-    weak var delegate: HomeViewController?
+    //weak var delegate: HomeViewController?
+    weak var delegate: AppDelegate?
     
     var productArray = [Product]()
     
@@ -96,6 +97,10 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func rightItemClicked() {
+        self.delegate?.openFiltersView()
     }
     
     @IBAction func didBasketButtonTapped(_ sender: UIButton) {

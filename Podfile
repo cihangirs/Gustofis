@@ -17,6 +17,7 @@ target 'GustOfis' do
   pod 'SDWebImage'
   pod 'Segmentio', '~> 3.0'
   pod 'UIAlertController+Blocks'
+  pod 'PBRevealViewController/Swift'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|

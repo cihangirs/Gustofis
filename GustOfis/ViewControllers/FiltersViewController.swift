@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class FiltersViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,6 +22,8 @@ class FiltersViewController: ViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
         self.filterTableView.register(UINib(nibName: "FilterTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        self.fetchFilters()
         // Do any additional setup after loading the view.
     }
 
@@ -37,7 +40,7 @@ class FiltersViewController: ViewController, UITableViewDelegate, UITableViewDat
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        cell.contentView.backgroundColor = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1.0)
+        //cell.contentView.backgroundColor = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1.0)
         cell.filterName.text = self.filterArray[indexPath.row].filterName
         cell.filterImageView.image = UIImage(named:"filterImageView\(indexPath.row + 1)")
         
@@ -58,6 +61,28 @@ class FiltersViewController: ViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
+    }
+
+    func fetchFilters() {
+
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+
+        NetworkManager.shared().fetchFilters(completionHandler: { filterArray in
+
+            //self.categorieArray = categorieArray;
+            print("filterArray: \(filterArray)")
+
+            self.filterArray = filterArray
+            self.filterTableView.reloadData()
+            //            for categorie in self.categorieArray
+            //            {
+            //                print("categorieId: \(categorie.categorieId!) parentId: \(categorie.name!)\n")
+            //            }
+
+            hud.dismiss()
+        })
     }
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

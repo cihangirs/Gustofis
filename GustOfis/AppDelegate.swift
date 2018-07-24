@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import PBRevealViewController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    let thirdViewController: ThirdViewController = ThirdViewController()
 //    let fourthViewController: FourthViewController = FourthViewController()
 
+    var pbRevealViewController: PBRevealViewController?
     let loginScreenViewController: LoginScreenViewController = LoginScreenViewController()
+    let exclusivesViewController: ExclusivesViewController = ExclusivesViewController()
+    let filtersViewController: FiltersViewController = FiltersViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -34,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let controllers = [firstViewController, secondViewController, thirdViewController, fourthViewController]
 //        tabBarController.viewControllers = controllers
         
+        
+        loginScreenViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: loginScreenViewController)
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -45,6 +51,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    //?! nice idea, call this when user get login
+    func userDidLogin()
+    {
+        exclusivesViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: exclusivesViewController)
+        pbRevealViewController = PBRevealViewController(leftViewController: nil, mainViewController: navigationController, rightViewController: filtersViewController)
+        pbRevealViewController?.isRightPresentViewHierarchically = true
+        //pbRevealViewController?.toggleAnimationType = PBRevealToggleAnimationType.spring
+        pbRevealViewController!.mainViewController = navigationController
+        window?.rootViewController = pbRevealViewController
+        //self.navigationController?.pushViewController(ExclusivesViewController(), animated: true)
+    }
+    
+    func openFiltersView()
+    {
+        pbRevealViewController?.revealRightView()
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

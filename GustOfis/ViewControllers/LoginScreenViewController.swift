@@ -23,6 +23,7 @@ class LoginScreenViewController: ViewController {
     @IBOutlet weak var gustofisLogoTopConstraint: NSLayoutConstraint!
     
     var isTextFieldsSetDefault: Bool!
+    weak var delegate: AppDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +116,10 @@ class LoginScreenViewController: ViewController {
                     hud.dismiss()
                     print("you logged in dude: \(AppManager.shared().currentUser)")
                     //self.navigationController?.pushViewController(HomeViewController(), animated: true)
-                    self.navigationController?.pushViewController(ExclusivesViewController(), animated: true)
+//                    if self.delegate?.responds(to: #selector(userDidLogin(:)))
+//                    {
+                        self.delegate?.userDidLogin()
+//                    }
                 })
             }
                 
