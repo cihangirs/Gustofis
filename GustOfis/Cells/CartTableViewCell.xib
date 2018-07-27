@@ -38,9 +38,8 @@
                         </constraints>
                     </view>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" placeholder="x" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hQc-cw-v2D">
-                        <rect key="frame" x="18" y="19" width="11" height="13"/>
-                        <color key="backgroundColor" red="0.85763552418410982" green="0.91921168565750122" blue="0.5936300860407604" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="18" y="30" width="11" height="13"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="7Rn-uq-qXj"/>
                             <constraint firstAttribute="width" constant="11" id="v86-xs-G5f"/>
@@ -50,24 +49,27 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weK-tA-Dy5">
-                        <rect key="frame" x="37" y="18" width="28" height="15"/>
+                        <rect key="frame" x="37" y="29" width="28" height="15"/>
                         <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="12"/>
                         <color key="textColor" red="0.16470588235294117" green="0.16862745098039217" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kahvaltı Tabağı" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOH-uE-2Ub">
-                        <rect key="frame" x="73" y="18" width="90" height="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Kahvaltı Tabağı" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOH-uE-2Ub">
+                        <rect key="frame" x="73" y="29" width="164" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="164" id="Gd4-uf-NGK"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="12"/>
                         <color key="textColor" red="0.16470588235294117" green="0.16862745098039217" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 TL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIN-cR-hRZ">
-                        <rect key="frame" x="244.5" y="40.5" width="43.5" height="22"/>
+                        <rect key="frame" x="244.5" y="25.5" width="43.5" height="22"/>
                         <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhj-oh-Kmn">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhj-oh-Kmn">
                         <rect key="frame" x="73" y="38" width="75.5" height="27"/>
                         <string key="text">Ezine Peynir
 Zeytin, Salatalık</string>
@@ -78,12 +80,12 @@ Zeytin, Salatalık</string>
                 </subviews>
                 <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="hQc-cw-v2D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="96T-xq-zt5"/>
-                    <constraint firstItem="bhj-oh-Kmn" firstAttribute="top" secondItem="hOH-uE-2Ub" secondAttribute="bottom" constant="5" id="9BF-cY-Bc1"/>
+                    <constraint firstItem="hQc-cw-v2D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="96T-xq-zt5"/>
+                    <constraint firstItem="bhj-oh-Kmn" firstAttribute="top" secondItem="hOH-uE-2Ub" secondAttribute="bottom" constant="-6" id="9BF-cY-Bc1"/>
                     <constraint firstItem="weK-tA-Dy5" firstAttribute="leading" secondItem="hQc-cw-v2D" secondAttribute="trailing" constant="8" id="GRy-c7-WUz"/>
                     <constraint firstItem="hOH-uE-2Ub" firstAttribute="leading" secondItem="weK-tA-Dy5" secondAttribute="trailing" constant="8" id="PTu-dd-tcJ"/>
                     <constraint firstAttribute="trailing" secondItem="dIN-cR-hRZ" secondAttribute="trailing" constant="32" id="R3K-1a-Den"/>
-                    <constraint firstItem="dIN-cR-hRZ" firstAttribute="centerY" secondItem="bhj-oh-Kmn" secondAttribute="centerY" id="Sh7-dl-QfV"/>
+                    <constraint firstItem="dIN-cR-hRZ" firstAttribute="centerY" secondItem="bhj-oh-Kmn" secondAttribute="centerY" constant="-15" id="Sh7-dl-QfV"/>
                     <constraint firstItem="hOH-uE-2Ub" firstAttribute="centerY" secondItem="weK-tA-Dy5" secondAttribute="centerY" id="UEV-Ro-kFc"/>
                     <constraint firstItem="hQc-cw-v2D" firstAttribute="centerY" secondItem="weK-tA-Dy5" secondAttribute="centerY" id="fe5-pp-Yo0"/>
                     <constraint firstItem="hQc-cw-v2D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="k3h-HV-Vxw"/>

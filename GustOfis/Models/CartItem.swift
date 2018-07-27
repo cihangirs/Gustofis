@@ -11,7 +11,7 @@ import ObjectMapper
 
 class CartItem: NSObject, Mappable {
 
-    var productKey: String?
+    var productId: Int?
     var productTitle: String?
     var quantity: Int?
     var total: Double?
@@ -25,7 +25,7 @@ class CartItem: NSObject, Mappable {
     }
     
     func mapping(map: Map) {
-        productKey <- map["product_key"]
+        productId <- map["product_id"]
         productTitle <- map["product_title"]
         quantity <- map["quantity"]
         total <- map["total"]

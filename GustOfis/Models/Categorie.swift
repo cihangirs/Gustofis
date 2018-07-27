@@ -13,6 +13,8 @@ class Categorie: NSObject, Mappable {
     
     var categorieId: Int?
     var name: String?
+    var iconNormal: String?
+    var iconActive: String?
     
     override init() {
         super.init()
@@ -25,6 +27,8 @@ class Categorie: NSObject, Mappable {
     func mapping(map: Map) {
         categorieId <- map["id"]
         name <- map["name"]
+        iconNormal <- map["icon_normal"]
+        iconActive <- map["icon_active"]
     }
     
 }

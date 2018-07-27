@@ -17,7 +17,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedStringKey.foregroundColor: UIColor(red: 61/255, green: 63/255, blue: 71/255, alpha: 1.0),
+             NSAttributedStringKey.font: UIFont(name: "ProximaNova-Bold", size: 14)!]
 //        let button = UIButton(type: .roundedRect)
 //        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
 //        button.setTitle("Crash", for: [])

@@ -22,18 +22,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8gO-ko-zVa">
-                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="JUt-LT-XVz"/>
                         <outlet property="delegate" destination="-1" id="qwC-tp-eFM"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="8gO-ko-zVa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RWg-dn-nOZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="8gO-ko-zVa" secondAttribute="top" constant="-20" id="l9T-y0-MWf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="8gO-ko-zVa" secondAttribute="top" constant="-45" id="l9T-y0-MWf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8gO-ko-zVa" secondAttribute="bottom" id="so0-UY-FDQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8gO-ko-zVa" secondAttribute="trailing" id="w5f-XM-FwL"/>
             </constraints>

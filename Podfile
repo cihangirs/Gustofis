@@ -25,6 +25,10 @@ target 'GustOfis' do
               config.build_settings['SWIFT_VERSION'] = '3.0'
           end
       end
+      installer.pods_project.build_configurations.each do |config|
+          config.build_settings.delete('CODE_SIGNING_ALLOWED')
+          config.build_settings.delete('CODE_SIGNING_REQUIRED')
+      end
   end
 
   target 'GustOfisTests' do

@@ -17,8 +17,10 @@ class Product: NSObject, Mappable {
     var featured: Bool?
     var productDescription: String?
     var shortDescription: String?
-    var price: String?
+    var price: Double?
     var inStock: Bool?
+    var inCart: Bool?
+    var quantityInTheCart: Int?
     var images: [ProductImage]?
     var relatedIds: [Int]?
     var nutritionalValues: [Nutrition]?
@@ -45,6 +47,8 @@ class Product: NSObject, Mappable {
         shortDescription <- map["short_description"]
         price <- map["price"]
         inStock <- map["in_stock"]
+        inCart <- map["in_cart"]
+        quantityInTheCart <- map["quantity_in_the_cart"]
         images <- map["images"]
         relatedIds <- map["related_ids"]
         nutritionalValues <- map["besin_degerleri"]

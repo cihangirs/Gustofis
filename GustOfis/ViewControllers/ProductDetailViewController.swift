@@ -112,6 +112,7 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
+        hud.backgroundColor = UIColor.white
         
         NetworkManager.shared().fetchProductDetail(productId: self.productId, completionHandler: { response in
             
@@ -121,7 +122,7 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
             }
             self.innerView.nutritionsArray = response.nutritionalValues!
             self.innerView.shortDescription.text = response.shortDescription
-            self.innerView.productPrice.text = response.price! + " TL"
+            self.innerView.productPrice.text = "\(response.price!)" + " TL"
             self.innerView.productInformation.text = response.productDescription
             self.innerView.aboutManufacturer.text = response.aboutManufacturer
             self.innerView.nutritionTableView.reloadData()

@@ -8,6 +8,8 @@
 
 import UIKit
 import JGProgressHUD
+import UIAlertController_Blocks
+import PBRevealViewController
 
 class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -22,14 +24,15 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var orderDateTF: UITextField!
     @IBOutlet weak var creditCardTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
-
+    @IBOutlet weak var promotionButton: UIButton!
+    
     let pickerView = UIPickerView()
+    var toolBar = UIToolbar()
     
     var selectedTextField: UITextField = UITextField()
     var myPickerData = [String](arrayLiteral: "Peter", "Jane", "Paul", "Mary", "Kevin", "Lucy")
-
+    
     var cart = Cart()
-    var toolBar = UIToolbar()
     
     var selectedDateIndex: Int = 0
     var selectedCreditCardIndex: Int = 0
@@ -37,7 +40,9 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.fetchCartItems()
+        
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = false
         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
@@ -52,24 +57,24 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         
-        self.orderDateTF.delegate = self
-        self.orderDateTF.inputView = self.pickerView
-        self.orderDateTF.inputAccessoryView = self.toolBar
-        self.orderDateTF.tintColor = UIColor.clear
-        
-        self.creditCardTF.delegate = self
-        self.creditCardTF.inputView = self.pickerView
-        self.creditCardTF.inputAccessoryView = self.toolBar
-        self.creditCardTF.tintColor = UIColor.clear
-        
-        self.addressTF.delegate = self
-        self.addressTF.inputView = self.pickerView
-        self.addressTF.inputAccessoryView = self.toolBar
-        self.addressTF.tintColor = UIColor.clear
+//        self.orderDateTF.delegate = self
+//        self.orderDateTF.inputView = self.pickerView
+//        self.orderDateTF.inputAccessoryView = self.toolBar
+//        self.orderDateTF.tintColor = UIColor.clear
+//
+//        self.creditCardTF.delegate = self
+//        self.creditCardTF.inputView = self.pickerView
+//        self.creditCardTF.inputAccessoryView = self.toolBar
+//        self.creditCardTF.tintColor = UIColor.clear
+//
+//        self.addressTF.delegate = self
+//        self.addressTF.inputView = self.pickerView
+//        self.addressTF.inputAccessoryView = self.toolBar
+//        self.addressTF.tintColor = UIColor.clear
         
         self.cartTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
-        self.fetchCartItems()
+        self.promotionButton.layer.borderWidth = 1
+        self.promotionButton.layer.borderColor = UIColor(red: 65/255, green: 64/255, blue: 94/255, alpha: 1.0).cgColor
         // Do any additional setup after loading the view.
     }
 
@@ -77,6 +82,8 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "deleteBasketIcon.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.done, target: self, action: #selector(rightItemClicked))
         
         self.title = "SEPETİM"
         
@@ -87,9 +94,25 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func didPickerElementSelected() {
-        self.selectedTextField.resignFirstResponder()
-        print("didPickerElementSelected")
+    override func rightItemClicked() {
+        
+        UIAlertController.showAlert(
+            in: self,
+            withTitle: "",
+            message: "Sepeti boşaltmak istediğinizden emin misiniz?",
+            cancelButtonTitle: "Hayır",
+            destructiveButtonTitle: nil,
+            otherButtonTitles: ["Evet"],
+            tap: {(controller, action, buttonIndex) in
+                if buttonIndex == controller.cancelButtonIndex {
+                    print("Cancel Tapped")
+                }
+                else
+                {
+                    self.deleteAllCartItems()
+                }
+            }
+        )
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -112,7 +135,7 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             myPickerData = [String](arrayLiteral: "", "Kadıköy", "Beşiktaş", "Karaköy", "Levent", "Şişli", "Sarıyer")
         }
         else {
-            myPickerData = [String](arrayLiteral: "", "1", "2", "3", "4", "5", "6")
+            myPickerData = [String](arrayLiteral: "", "1", "2", "3", "4", "5", "6", "7", "8", "9")
         }
         
         self.pickerView.reloadAllComponents()
@@ -143,17 +166,21 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             fatalError("The dequeued cell is not an instance of CartTableViewCell.")
         }
         
+        print("indexPath.section: \(indexPath.section)")
+        
         cell.delegate = self
         cell.cartItemCountTF.delegate = self
         cell.cartItemCountTF.inputView = self.pickerView
         cell.cartItemCountTF.inputAccessoryView = self.toolBar
+        cell.cartItemCountTF.tag = indexPath.section
         
         let cartItem = self.cart.items[indexPath.section]
         
         cell.cartItemCountTF.text = "\(cartItem.quantity!)"
         cell.cartItemName.text = cartItem.productTitle
         //cell.cartItemIngredients.text = cartItem.
-        cell.cartItemPrice.text = "\(cartItem.total!)"
+        cell.cartItemPrice.text = "\(cartItem.total!) TL"
+        
         
         return cell
     }
@@ -170,6 +197,43 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         return 75
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let more = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            //self.isEditing = false
+            print("more button tapped")
+            
+            let hud = JGProgressHUD(style: .dark)
+            hud.textLabel.text = "Loading"
+            hud.show(in: self.view)
+            
+            NetworkManager.shared().removeFromCart(productId: Int(self.cart.items[indexPath.row].productId!), completionHandler: { cart in
+                self.cart = cart
+                self.cartTableView.reloadData()
+                hud.dismiss()
+            })
+        }
+        more.backgroundColor = UIColor.red
+        
+//        let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
+//            //self.isEditing = false
+//            print("favorite button tapped")
+//        }
+//        favorite.backgroundColor = UIColor.orange
+//
+//        let share = UITableViewRowAction(style: .normal, title: "Share") { action, index in
+//            //self.isEditing = false
+//            print("share button tapped")
+//        }
+//        share.backgroundColor = UIColor.blue
+        
+        return [more]
+    }
+    
     // Picker functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -184,11 +248,52 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("self.selectedTextField.tag: \(self.selectedTextField.tag)")
+        print("self.cart.items[self.selectedTextField.tag].productId: \(self.cart.items[self.selectedTextField.tag].productId!)")
+        print("myPickerData.row: \(myPickerData[row])")
+        
         self.selectedTextField.text = myPickerData[row]
+        //self.updateCart(self.cart.items[self.selectedTextField.tag].productId!, Int(myPickerData[row])!)
+    }
+    
+    @objc func didPickerElementSelected() {
+        self.selectedTextField.resignFirstResponder()
+        self.updateCart(self.cart.items[self.selectedTextField.tag].productId!, Int(self.selectedTextField.text!)!)
+        print("didPickerElementSelected")
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return self.view.frame.size.width
+    }
+
+    func updateCart(_ productId: Int, _ quantity: Int){
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
+        NetworkManager.shared().updateCart(productId: productId, quantity: quantity) { cart in
+            print("cart: \(cart)")
+            self.cart = cart
+            self.cartTableView.reloadData()
+            self.cartTableView.layoutIfNeeded()
+            self.cartTableView.clipsToBounds = true
+            self.cartTableViewHeightConstraint.constant = self.cartTableView.contentSize.height
+  
+            let cartTotal = self.cart.cartTotal
+            let shippingTotal = self.cart.shippingTotal
+            let orderTotal = cartTotal! + shippingTotal!
+            
+            self.cartTotal.text = "\(self.cart.cartTotal!) TL"
+            self.shippingTotal.text = "\(self.cart.shippingTotal!) TL"
+            self.orderTotal.text = "\(orderTotal) TL"
+            
+            hud.dismiss()
+        }
+    }
+    
+    @IBAction func didProceedButtonTapped(_ sender: UIButton) {
+        self.navigationController?.pushViewController(OrderViewController(), animated: true)
     }
     
     func fetchCartItems() {
@@ -196,6 +301,7 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
+        hud.backgroundColor = UIColor.white
         
         NetworkManager.shared().fetchCart(completionHandler: { cart in
             self.cart = cart
@@ -208,12 +314,26 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             let shippingTotal = self.cart.shippingTotal
             let orderTotal = cartTotal! + shippingTotal!
             
-            self.cartTotal.text = "\(self.cart.cartTotal!)"
-            self.shippingTotal.text = "\(self.cart.shippingTotal!)"
-            self.orderTotal.text = "\(orderTotal)"
+            self.cartTotal.text = "\(self.cart.cartTotal!) TL"
+            self.shippingTotal.text = "\(self.cart.shippingTotal!) TL"
+            self.orderTotal.text = "\(orderTotal) TL"
             
             hud.dismiss()
         })
+    }
+    
+    func deleteAllCartItems() {
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
+        NetworkManager.shared().removeAllFromCart { removeAllFromCartResponse in
+            print("removeAllFromCartResponse: \(removeAllFromCartResponse)")
+            hud.dismiss()
+            
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
 }

@@ -46,7 +46,7 @@ class NetworkManager: NSObject {
         var headers = Alamofire.SessionManager.defaultHTTPHeaders
         // add your custom header
         headers["Content-Type"] = "application/json"
-        headers["Authorization"] = "Basic Y2tfZGRhMTcxZWQ1ZGE1MTJkM2YxM2QzNTA1ZDdhOGQ0OWQxOGM4OWExNjpjc18zYjRkZDZjZmU3NmFkN2E3ZjI5M2FhYjc4OTZkZjAxMDU4YmFjYjVj"
+//        headers["Authorization"] = "Basic Y2tfZGRhMTcxZWQ1ZGE1MTJkM2YxM2QzNTA1ZDdhOGQ0OWQxOGM4OWExNjpjc18zYjRkZDZjZmU3NmFkN2E3ZjI5M2FhYjc4OTZkZjAxMDU4YmFjYjVj"
         
         // create a custom session configuration
         let configuration = URLSessionConfiguration.default
@@ -68,7 +68,7 @@ class NetworkManager: NSObject {
         var headers = Alamofire.SessionManager.defaultHTTPHeaders
         // add your custom header
         headers["Content-Type"] = "application/json"
-        headers["Authorization"] = "Basic " + accessToken
+        headers["Authorization"] = "Bearer " + accessToken
         
         // create a custom session configuration
         let configuration = URLSessionConfiguration.default
@@ -83,7 +83,7 @@ class NetworkManager: NSObject {
     {
         let requestStr = "\(API.baseURL)" + "login"
         
-        let userDictionary = ["email": user.email!, "password": user.password!]
+        let userDictionary = ["username": user.email!, "password": user.password!]
         
         self.sessionManager.request(requestStr,
                                     method: .post,
@@ -96,6 +96,7 @@ class NetworkManager: NSObject {
                                             case .success:
                                                 let user = response.result.value
                                                 AppManager.shared().userToken = user?.accessToken
+                                                self.updateAuthKey(accessToken: AppManager.shared().userToken)
                                                 completionHandler(user!)
 
                                             case .failure:
@@ -184,12 +185,6 @@ class NetworkManager: NSObject {
                                         case .success:
                                             let cartItems = response.result.value
                                             print("cartItems: \(cartItems!)")
-                                            
-                                            //                                            for filter in filters!
-                                            //                                            {
-                                            //                                                print("productId: \(product.productId!) productName: \(product.name!)")
-                                            //                                            }
-                                            
                                             completionHandler(cartItems!)
                                             
                                         case .failure:
@@ -200,7 +195,7 @@ class NetworkManager: NSObject {
         //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
     
-    func addToCart(productId: Int, quantity: Int, completionHandler: @escaping (_ addToCartResponse: AddToCartResponse) -> Void)
+    func addToCart(productId: Int, quantity: Int, completionHandler: @escaping (_ cart: Cart) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "cart/add"
         
@@ -210,19 +205,125 @@ class NetworkManager: NSObject {
                                     method: .post,
                                     parameters: addToCartDictionary,
                                     encoding: URLEncoding.default,
-                                    headers: nil).validate().responseObject() { (response: DataResponse<AddToCartResponse>) in
+                                    headers: nil).validate().responseObject() { (response: DataResponse<Cart>) in
                                         
                                         switch response.result
                                         {
                                         case .success:
                                             let addToCartResponse = response.result.value
                                             print("addToCartResponse: \(addToCartResponse!)")
+                                            UserDefaults.standard.set(addToCartResponse?.itemCount, forKey: "basketCount")
                                             completionHandler(addToCartResponse!)
                                             
                                         case .failure:
                                             debugPrint("failureResponse: \(response)")
                                         }
         }
+    }
+    
+    func updateCart(productId: Int, quantity: Int, completionHandler: @escaping (_ cart: Cart) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "cart/quantity"
+        
+        let updateCartDictionary = ["product_id": productId, "quantity": quantity]
+        
+        self.sessionManager.request(requestStr,
+                                    method: .post,
+                                    parameters: updateCartDictionary,
+                                    encoding: URLEncoding.default,
+                                    headers: nil).validate().responseObject() { (response: DataResponse<Cart>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let updateCartResponse = response.result.value
+                                            print("updateCartResponse: \(updateCartResponse!)")
+                                            UserDefaults.standard.set(updateCartResponse?.itemCount, forKey: "basketCount")
+                                            completionHandler(updateCartResponse!)
+                                            
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+    }
+    
+    func removeFromCart(productId: Int, completionHandler: @escaping (_ cart: Cart) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "cart/remove"
+        
+        let removeFromCartDictionary = ["product_id": productId]
+        
+        self.sessionManager.request(requestStr,
+                                    method: .post,
+                                    parameters: removeFromCartDictionary,
+                                    encoding: URLEncoding.default,
+                                    headers: nil).validate().responseObject() { (response: DataResponse<Cart>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let removeFromCartResponse = response.result.value
+                                            UserDefaults.standard.set(removeFromCartResponse?.itemCount, forKey: "basketCount")
+                                            completionHandler(removeFromCartResponse!)
+                                            
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+    }
+    
+    func removeAllFromCart(completionHandler: @escaping (_ cart: Cart) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "cart/remove-all"
+        
+        self.sessionManager.request(requestStr,
+                                    method: .post,
+                                    parameters: nil,
+                                    encoding: URLEncoding.default,
+                                    headers: nil).validate().responseObject() { (response: DataResponse<Cart>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let removeAllFromCartResponse = response.result.value
+                                            print("removeAllFromCartResponse: \(removeAllFromCartResponse!)")
+                                            UserDefaults.standard.set(removeAllFromCartResponse?.itemCount, forKey: "basketCount")
+                                            completionHandler(removeAllFromCartResponse!)
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+    }
+    
+    func checkoutZones(completionHandler: @escaping (_ locationArray: [Location]) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "checkout/zones"
+        
+        self.sessionManager.request(requestStr,
+                                    method: .get,
+                                    parameters: nil,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseArray() { (response: DataResponse<[Location]>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let locations = response.result.value
+                                            print("filters: \(locations!)")
+                                            
+                                            //                                            for filter in filters!
+                                            //                                            {
+                                            //                                                print("productId: \(product.productId!) productName: \(product.name!)")
+                                            //                                            }
+                                            
+                                            completionHandler(locations!)
+                                            
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+        
+        //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
     
     func fetchFilters(completionHandler: @escaping (_ filterArray: [Filter]) -> Void)
@@ -318,6 +419,30 @@ class NetworkManager: NSObject {
 //        baseRequest(url: requestStr, completionHandler: declaredCompletionHandler)
     }
 
+    func fetchStock(categorieId: Int, completionHandler: @escaping (_ stock: Stock) -> Void)
+    {
+        let requestStr = "\(API.baseURL)" + "stock?category_id=" + "\(categorieId)"
+        
+        self.sessionManager.request(requestStr,
+                                    method: .get,
+                                    parameters: nil,
+                                    encoding: JSONEncoding.default,
+                                    headers: nil).validate().responseObject() { (response: DataResponse<Stock>) in
+                                        
+                                        switch response.result
+                                        {
+                                        case .success:
+                                            let stock = response.result.value
+                                            print("product: \(stock!)")
+                                            
+                                            completionHandler(stock!)
+                                            
+                                        case .failure:
+                                            debugPrint("failureResponse: \(response)")
+                                        }
+        }
+    }
+    
     func fetchProductDetail(productId: Int, completionHandler: @escaping (_ product: Product) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "product/" + "\(productId)"

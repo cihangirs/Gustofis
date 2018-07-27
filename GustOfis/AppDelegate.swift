@@ -12,19 +12,25 @@ import Crashlytics
 import PBRevealViewController
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PBRevealViewControllerDelegate {
 
     var window: UIWindow?
 
-//    let firstViewController: FirstViewController = FirstViewController()
-//    let secondViewController: SecondViewController = SecondViewController()
-//    let thirdViewController: ThirdViewController = ThirdViewController()
-//    let fourthViewController: FourthViewController = FourthViewController()
+    let firstViewController: FirstViewController = FirstViewController()
+    let secondViewController: SecondViewController = SecondViewController()
+    let thirdViewController: ThirdViewController = ThirdViewController()
+    let fourthViewController: FourthViewController = FourthViewController()
 
     var pbRevealViewController: PBRevealViewController?
     let loginScreenViewController: LoginScreenViewController = LoginScreenViewController()
     let exclusivesViewController: ExclusivesViewController = ExclusivesViewController()
     let filtersViewController: FiltersViewController = FiltersViewController()
+    let profileViewController: ProfileViewController = ProfileViewController()
+    
+    let tempViewController1: TempViewController = TempViewController()
+    let tempViewController2: TempViewController = TempViewController()
+    let tempViewController3: TempViewController = TempViewController()
+    let tempViewController4: TempViewController = TempViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -41,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loginScreenViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: loginScreenViewController)
+        //let navigationController = UINavigationController(rootViewController: CartViewController())
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
@@ -54,12 +61,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //?! nice idea, call this when user get login
     func userDidLogin()
     {
-        exclusivesViewController.delegate = self
+        exclusivesViewController.appDelegate = self
         let navigationController = UINavigationController(rootViewController: exclusivesViewController)
-        pbRevealViewController = PBRevealViewController(leftViewController: nil, mainViewController: navigationController, rightViewController: filtersViewController)
-        pbRevealViewController?.isRightPresentViewHierarchically = true
-        //pbRevealViewController?.toggleAnimationType = PBRevealToggleAnimationType.spring
-        pbRevealViewController!.mainViewController = navigationController
+        let tabBarController = UITabBarController()
+        navigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabBarHomeIcon"), tag: 0)
+        tempViewController1.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabBarSearchIcon"), tag: 1)
+        tempViewController2.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabBarKioskIcon"), tag: 2)
+        tempViewController3.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabBarChatIcon"), tag: 3)
+        profileViewController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabBarSettingsIcon"), tag: 4)
+        let controllers = [navigationController, tempViewController1, tempViewController2, tempViewController3, profileViewController]
+        tabBarController.viewControllers = controllers
+        pbRevealViewController = PBRevealViewController(leftViewController: nil, mainViewController: tabBarController, rightViewController: nil)
+        pbRevealViewController?.delegate = self
+        pbRevealViewController!.isRightPresentViewHierarchically = false
+        pbRevealViewController?.isRightPresentViewOnTop = false
+        pbRevealViewController?.rightViewRevealWidth = 270
+        pbRevealViewController?.toggleAnimationType = PBRevealToggleAnimationType.spring
+        
+        //pbRevealViewController!.mainViewController = navigationController
+        
+//        tabBarController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
         window?.rootViewController = pbRevealViewController
         //self.navigationController?.pushViewController(ExclusivesViewController(), animated: true)
     }

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bitter-Regular.otf">
+            <string>Bitter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubCategoryViewController" customModule="GustOfis" customModuleProvider="target">
+            <connections>
+                <outlet property="basketButton" destination="vx8-UZ-YpR" id="HX6-1d-wan"/>
+                <outlet property="basketCount" destination="3E2-gQ-xSW" id="lYq-Wq-WAE"/>
+                <outlet property="segmentioView" destination="UBp-Tl-4nD" id="viC-Ju-Uqj"/>
+                <outlet property="subCategoryTableView" destination="bRl-b6-H4E" id="sWj-Tg-SWx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBp-Tl-4nD" customClass="Segmentio" customModule="Segmentio">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="8Ff-Y8-aCG"/>
+                        <constraint firstAttribute="width" constant="375" id="LuQ-bf-V0c"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRl-b6-H4E">
+                    <rect key="frame" x="0.0" y="50" width="375" height="553"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Ik3-wY-GWW"/>
+                        <outlet property="delegate" destination="-1" id="jUL-yB-Pp6"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vx8-UZ-YpR">
+                    <rect key="frame" x="307" y="480" width="63" height="63"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="63" id="TNT-a8-JNV"/>
+                        <constraint firstAttribute="width" constant="63" id="TOo-Qu-1Nz"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="28" maxX="5.5" maxY="0.0"/>
+                    <state key="normal" backgroundImage="basketIcon"/>
+                    <connections>
+                        <action selector="didBasketButtonTapped:" destination="-1" eventType="touchUpInside" id="KYh-Cf-yj6"/>
+                    </connections>
+                </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E2-gQ-xSW">
+                    <rect key="frame" x="328" y="490" width="21" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="23" id="MXg-O4-zpX"/>
+                        <constraint firstAttribute="width" constant="21" id="Wu4-pB-YL4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Bitter-Regular" family="Bitter" pointSize="19"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bRl-b6-H4E" secondAttribute="bottom" id="5aC-yN-zql"/>
+                <constraint firstItem="3E2-gQ-xSW" firstAttribute="centerX" secondItem="vx8-UZ-YpR" secondAttribute="centerX" id="NlR-o9-VeE"/>
+                <constraint firstItem="UBp-Tl-4nD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RUV-ei-fZo"/>
+                <constraint firstItem="bRl-b6-H4E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YFQ-4w-WPh"/>
+                <constraint firstItem="bRl-b6-H4E" firstAttribute="top" secondItem="UBp-Tl-4nD" secondAttribute="bottom" id="bCS-De-C7e"/>
+                <constraint firstItem="vx8-UZ-YpR" firstAttribute="top" secondItem="3E2-gQ-xSW" secondAttribute="top" constant="-10" id="dii-qB-apH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vx8-UZ-YpR" secondAttribute="trailing" constant="5" id="fCh-7b-gmM"/>
+                <constraint firstItem="UBp-Tl-4nD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kLM-X7-R2J"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bRl-b6-H4E" secondAttribute="trailing" id="xYl-d8-7AI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vx8-UZ-YpR" secondAttribute="bottom" constant="60" id="yET-s5-OmR"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="basketIcon" width="61" height="61"/>
+    </resources>
+</document>

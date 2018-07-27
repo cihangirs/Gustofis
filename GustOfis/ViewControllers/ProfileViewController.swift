@@ -55,7 +55,7 @@ class ProfileViewController: ViewController, UITableViewDelegate, UITableViewDat
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ProximaNova-Semibold", size: 14)!]
-        self.title = "PROFİLİM"
+        //self.title = "PROFİLİM"
         
         self.leftBackButton()
     }

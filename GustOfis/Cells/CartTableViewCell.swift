@@ -19,6 +19,7 @@ class CartTableViewCell: UITableViewCell {
  
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.cartItemCountTF.tintColor = UIColor.clear
     }
     
     required init?(coder aDecoder: NSCoder) {
