@@ -118,7 +118,7 @@ class NewMemberViewController: ViewController, LocationSelectionProtocol {
         if self.password.text != self.passwordAgain.text {
             UIAlertController.showAlert(
                 in: self,
-                withTitle: "Errör",
+                withTitle: "Tüme varılamadı",
                 message: "Passwords do not match",
                 cancelButtonTitle: "My mistake",
                 destructiveButtonTitle: nil,

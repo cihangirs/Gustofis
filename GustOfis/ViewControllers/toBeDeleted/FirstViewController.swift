@@ -25,24 +25,24 @@ class FirstViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        let hud = JGProgressHUD(style: .dark)
-        hud.textLabel.text = "Loading"
-        hud.show(in: self.view)
+//
+//        let hud = JGProgressHUD(style: .dark)
+//        hud.textLabel.text = "Loading"
+//        hud.show(in: self.view)
 
         NetworkManager.shared().fetchOrders(completionHandler: { orderArray in
             
             self.myTextView.text.removeAll()
-            
+
             self.orderArray = orderArray
-            
+
             for order in self.orderArray
             {
                 self.myTextView.text.append("orderId: \(order.orderId!) parentId: \(order.parentId!) billing.firstName: \(order.billing!.firstName!) billing.lastName: \(order.billing!.lastName!)\n")
                 print("orderId: \(order.orderId!) parentId: \(order.parentId!) billing: \(order.billing!)\n")
             }
-            
-            hud.dismiss()
+
+//            hud.dismiss()
         })
 
         // Do any additional setup after loading the view.

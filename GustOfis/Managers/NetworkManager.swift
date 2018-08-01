@@ -18,7 +18,7 @@ class NetworkManager: NSObject {
     
     enum API
     {
-        static let baseURL = URL(string: "https://gustofisdev.wpengine.com/wp-json/gustofis/v1/")!
+        static let baseURL = URL(string: "https://gustofis.staging.wpengine.com/wp-json/gustofis/v1/")!
     }
     
     private static var sharedNetworkManager: NetworkManager = {
@@ -79,7 +79,7 @@ class NetworkManager: NSObject {
         self.sessionManager = Alamofire.SessionManager(configuration: configuration)
     }
     
-    func login(user: User, completionHandler: @escaping (_ user: User) -> Void)
+    func login(user: User, completionHandler: @escaping (_ user: User) -> Void, errorHandler: @escaping (_ str: String) -> Void)
     {
         let requestStr = "\(API.baseURL)" + "login"
         
@@ -101,6 +101,19 @@ class NetworkManager: NSObject {
 
                                             case .failure:
                                                 debugPrint("failureResponse: \(response)")
+                                                print("response.error.code: \(response.error!._code)")
+                                                switch (response.error!._code){
+                                                    case NSURLErrorTimedOut:
+                                                        errorHandler("Bağlantı zaman aşımına uğradı")
+                                                        break
+                                                    case NSURLErrorNotConnectedToInternet:
+                                                        errorHandler("NSURLErrorNotConnectedToInternet")
+                                                        //Manager your not connected to internet error
+                                                        break
+                                                    default:
+                                                        errorHandler("default error")
+                                                        //manager your default case
+                                                    }
                                         }
         }
     }
@@ -471,7 +484,7 @@ class NetworkManager: NSObject {
     
     func fetchOrders(completionHandler: @escaping (_ orderArray: [Order]) -> Void)
     {
-        let requestStr = "\(API.baseURL)" + "wp-json/wc/v2/orders"
+        let requestStr = "\(API.baseURL)" + "orders"
 
         self.sessionManager.request(requestStr,
                                     method: .get,

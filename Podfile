@@ -13,11 +13,12 @@ target 'GustOfis' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'OneSignal'
-  pod 'GMStepper'
   pod 'SDWebImage'
   pod 'Segmentio', '~> 3.0'
   pod 'UIAlertController+Blocks'
   pod 'PBRevealViewController/Swift'
+  pod 'OHHTTPStubs'
+  pod 'OHHTTPStubs/Swift' # includes the Default subspec, with support for NSURLSession & JSON, and the Swiftier API wrappers
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|

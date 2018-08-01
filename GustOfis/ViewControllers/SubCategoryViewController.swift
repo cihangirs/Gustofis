@@ -24,8 +24,6 @@ class SubCategoryViewController: ViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        self.fetchStock(self.categorieId!)
-        
         self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
         
         self.basketButton.layer.cornerRadius = 31.5
@@ -33,33 +31,25 @@ class SubCategoryViewController: ViewController, UITableViewDelegate, UITableVie
         self.subCategoryTableView.estimatedRowHeight = 475
         self.subCategoryTableView.rowHeight = UITableViewAutomaticDimension
         
-        self.subCategoryTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        self.subCategoryTableView.register(UINib(nibName: "ProductsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        self.segmentioView.isHidden = true
+        self.subCategoryTableView.isHidden = true
+        self.basketCount.isHidden = true
+        self.basketButton.isHidden = true
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.fetchStock(self.categorieId!)
+        
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.topItem?.hidesBackButton = false
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filterMenuIcon.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.done, target: self, action: #selector(rightItemClicked))
 
-        if let returnValue = UserDefaults.standard.object(forKey: "basketCount") as? Int {
-            if returnValue == 0 {
-                self.basketCount.isHidden = true
-                self.basketButton.isHidden = true
-            }
-            else {
-                self.basketCount.text = "\(returnValue)"
-                self.basketCount.isHidden = false
-                self.basketButton.isHidden = false
-            }
-        } else {
-            self.basketCount.isHidden = true
-            self.basketButton.isHidden = true
-        }
-        
         self.leftBackButton()
     }
 
@@ -75,7 +65,7 @@ class SubCategoryViewController: ViewController, UITableViewDelegate, UITableVie
         
         let cellReuseIdentifier = "cell"
         // create a new cell if needed or reuse an old one
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ExclusiveTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ProductsTableViewCell  else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
@@ -86,7 +76,7 @@ class SubCategoryViewController: ViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(ProductDetailViewController(productId: (self.stock?.products![indexPath.row].productId)!, productName: (self.stock?.products![indexPath.row].name)!), animated: true)
+        self.navigationController?.pushViewController(ProductDetailViewController(productId: (self.stock?.products![indexPath.section].productId)!, productName: (self.stock?.products![indexPath.section].name)!), animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -155,14 +145,31 @@ class SubCategoryViewController: ViewController, UITableViewDelegate, UITableVie
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
-        hud.backgroundColor = UIColor.white
         
         NetworkManager.shared().fetchStock(categorieId: categorieId) { stock in
-            print("stock: \(stock)")
             self.stock = stock
             
             self.showCategories((self.stock?.categories)!)
             self.subCategoryTableView.reloadData()
+            
+            self.segmentioView.isHidden = false
+            self.subCategoryTableView.isHidden = false
+            
+            if let returnValue = UserDefaults.standard.object(forKey: "basketCount") as? Int {
+                if returnValue == 0 {
+                    self.basketCount.isHidden = true
+                    self.basketButton.isHidden = true
+                }
+                else {
+                    self.basketCount.text = "\(returnValue)"
+                    self.basketCount.isHidden = false
+                    self.basketButton.isHidden = false
+                }
+            } else {
+                self.basketCount.isHidden = true
+                self.basketButton.isHidden = true
+            }
+            
             hud.dismiss()
         }
     }

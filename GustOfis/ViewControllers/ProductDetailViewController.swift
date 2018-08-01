@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GMStepper
 import SDWebImage
 import JGProgressHUD
 
@@ -131,16 +130,16 @@ class ProductDetailViewController: ViewController, UIScrollViewDelegate {
     }
     
     @objc func addToBasketButtonTapped() {
-        if self.innerView.stepper.value != 0 {
-            self.innerView.addToBasketButton.isSelected = !self.innerView.addToBasketButton.isSelected
-            
-            if self.innerView.addToBasketButton.isSelected {
-                self.innerView.addToBasketButton.setTitle("✓ \(Int(self.innerView.stepper.value)) ADET SEPETTE", for: UIControlState.selected)
-            }
-            else {
-                self.innerView.addToBasketButton.setTitle("SEPETE EKLE", for: UIControlState.selected)
-            }
-        }
+//        if self.innerView.stepper.value != 0 {
+//            self.innerView.addToBasketButton.isSelected = !self.innerView.addToBasketButton.isSelected
+//            
+//            if self.innerView.addToBasketButton.isSelected {
+//                self.innerView.addToBasketButton.setTitle("✓ \(Int(self.innerView.stepper.value)) ADET SEPETTE", for: UIControlState.selected)
+//            }
+//            else {
+//                self.innerView.addToBasketButton.setTitle("SEPETE EKLE", for: UIControlState.selected)
+//            }
+//        }
     }
     
     /*

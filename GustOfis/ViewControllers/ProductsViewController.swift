@@ -10,11 +10,11 @@ import UIKit
 import JGProgressHUD
 import Segmentio
 
-class ExclusivesViewController: ViewController, UITableViewDelegate, UITableViewDataSource, CartOperationsDelegate {
+class ProductsViewController: ViewController, UITableViewDelegate, UITableViewDataSource, CartOperationsDelegate {
 
-    @IBOutlet weak var exclusiveTableView: UITableView!
-    @IBOutlet weak var basketButton: UIButton!
     @IBOutlet weak var segmentioView: Segmentio!
+    @IBOutlet weak var productsTableView: UITableView!
+    @IBOutlet weak var basketButton: UIButton!
     @IBOutlet weak var basketCount: UILabel!
     
     //weak var delegate: HomeViewController?
@@ -27,55 +27,38 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.fetchStock(0)
+        
         self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
         
         self.basketButton.layer.cornerRadius = 31.5
         
-        self.exclusiveTableView.estimatedRowHeight = 375
-        self.exclusiveTableView.rowHeight = UITableViewAutomaticDimension
+        self.productsTableView.estimatedRowHeight = 375
+        self.productsTableView.rowHeight = UITableViewAutomaticDimension
         
-        self.exclusiveTableView.register(UINib(nibName: "ExclusiveTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        self.productsTableView.register(UINib(nibName: "ProductsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
 
+        self.segmentioView.isHidden = true
+        self.productsTableView.isHidden = true
+        self.basketButton.isHidden = true
+        self.basketCount.isHidden = true
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.fetchStock(0)
-        
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.topItem?.hidesBackButton = true
         
-        self.navigationItem.titleView = UIImageView(image: UIImage(named: "headerLogo.png"))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filterMenuIcon.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightItemClicked))
         
-        if let returnValue = UserDefaults.standard.object(forKey: "basketCount") as? Int {
-            if returnValue == 0 {
-                self.basketCount.isHidden = true
-                self.basketButton.isHidden = true
-            }
-            else {
-                self.basketCount.text = "\(returnValue)"
-                self.basketCount.isHidden = false
-                self.basketButton.isHidden = false
-            }
-        } else {
-            self.basketCount.isHidden = true
-            self.basketButton.isHidden = true
-        }
-        
-        self.exclusiveTableView.reloadData()
+        self.productsTableView.reloadData()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func rightItemClicked() {
-        self.appDelegate?.openFiltersView()
-    }
+//    override func rightItemClicked() {
+//        self.appDelegate?.openFiltersView()
+//    }
     
     @IBAction func didBasketButtonTapped(_ sender: UIButton) {
         self.navigationController?.pushViewController(CartViewController(), animated: true)
@@ -85,7 +68,7 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
         
         let cellReuseIdentifier = "cell"
         // create a new cell if needed or reuse an old one
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ExclusiveTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ProductsTableViewCell  else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
@@ -96,7 +79,7 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(ProductDetailViewController(productId: (self.stock?.products![indexPath.row].productId)!, productName: (self.stock?.products![indexPath.row].name)!), animated: true)
+        self.navigationController?.pushViewController(ProductDetailViewController(productId: (self.stock?.products![indexPath.section].productId)!, productName: (self.stock?.products![indexPath.section].name)!), animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -165,14 +148,30 @@ class ExclusivesViewController: ViewController, UITableViewDelegate, UITableView
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
         
-        hud.backgroundColor = UIColor.white
-        
         NetworkManager.shared().fetchStock(categorieId: categorieId) { stock in
-            print("stock: \(stock)")
             self.stock = stock
             
             self.showCategories((self.stock?.categories)!)
-            self.exclusiveTableView.reloadData()
+            self.productsTableView.reloadData()
+            
+            self.segmentioView.isHidden = false
+            self.productsTableView.isHidden = false
+
+            if let returnValue = UserDefaults.standard.object(forKey: "basketCount") as? Int {
+                if returnValue == 0 {
+                    self.basketCount.isHidden = true
+                    self.basketButton.isHidden = true
+                }
+                else {
+                    self.basketCount.text = "\(returnValue)"
+                    self.basketCount.isHidden = false
+                    self.basketButton.isHidden = false
+                }
+            } else {
+                self.basketCount.isHidden = true
+                self.basketButton.isHidden = true
+            }
+            
             hud.dismiss()
         }
     }

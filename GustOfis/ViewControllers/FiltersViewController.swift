@@ -87,7 +87,10 @@ class FiltersViewController: ViewController, UITableViewDelegate, UITableViewDat
         })
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("something")
+    }
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        self.selectedRow = indexPath.row
 //
 //        let cell:CategoryTableViewCell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell

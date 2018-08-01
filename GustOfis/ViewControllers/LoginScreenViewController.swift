@@ -120,13 +120,30 @@ class LoginScreenViewController: ViewController {
 //                    {
                         self.delegate?.userDidLogin()
 //                    }
+                }, errorHandler: { str in
+                    
+                    hud.dismiss()
+                    
+                    UIAlertController.showAlert(
+                        in: self,
+                        withTitle: "Tüme varılamadı",
+                        message: str,
+                        cancelButtonTitle: "Tamam",
+                        destructiveButtonTitle: nil,
+                        otherButtonTitles: nil,
+                        tap: {(controller, action, buttonIndex) in
+                            if buttonIndex == controller.cancelButtonIndex {
+                                print("Cancel Tapped")
+                            }
+                        }
+                    )
                 })
             }
                 
             else {
                 UIAlertController.showAlert(
                     in: self,
-                    withTitle: "Errör",
+                    withTitle: "Tüme varılamadı",
                     message: "funny :)",
                     cancelButtonTitle: ":(",
                     destructiveButtonTitle: nil,
@@ -143,7 +160,7 @@ class LoginScreenViewController: ViewController {
         else {
             UIAlertController.showAlert(
                 in: self,
-                withTitle: "Errör",
+                withTitle: "Tüme varılamadı",
                 message: "E-mail field can not be empty",
                 cancelButtonTitle: "OK dude",
                 destructiveButtonTitle: nil,

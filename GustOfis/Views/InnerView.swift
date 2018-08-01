@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GMStepper
 
 class InnerView: UIView, UITableViewDelegate, UITableViewDataSource {
 
@@ -15,7 +14,7 @@ class InnerView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var addToBasketButton: UIButton!
     @IBOutlet weak var addToHealthAppButton: UIButton!
     
-    @IBOutlet weak var stepper: GMStepper!
+    //@IBOutlet weak var stepper: GMStepper!
     
     @IBOutlet weak var shortDescription: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -50,15 +49,15 @@ class InnerView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.addToHealthAppButton.layer.cornerRadius = 17.5
         self.addToBasketButton.layer.cornerRadius = 12
 
-        self.stepper.layer.cornerRadius = 12
-        self.stepper.layer.borderWidth = 1
-        self.stepper.layer.borderColor = UIColor.gray.cgColor
-        self.stepper.buttonsBackgroundColor = UIColor.white
-        self.stepper.buttonsTextColor = UIColor.gray
-        self.stepper.labelBackgroundColor = UIColor.white
-        self.stepper.labelTextColor = UIColor.black
-        self.stepper.labelFont = UIFont(name: "ProximaNova-Semibold", size: 15.0)!
-        self.stepper.labelTextColor = UIColor(red: 72/255, green: 70/255, blue: 70/255, alpha: 1)
+//        self.stepper.layer.cornerRadius = 12
+//        self.stepper.layer.borderWidth = 1
+//        self.stepper.layer.borderColor = UIColor.gray.cgColor
+//        self.stepper.buttonsBackgroundColor = UIColor.white
+//        self.stepper.buttonsTextColor = UIColor.gray
+//        self.stepper.labelBackgroundColor = UIColor.white
+//        self.stepper.labelTextColor = UIColor.black
+//        self.stepper.labelFont = UIFont(name: "ProximaNova-Semibold", size: 15.0)!
+//        self.stepper.labelTextColor = UIColor(red: 72/255, green: 70/255, blue: 70/255, alpha: 1)
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,7 +93,7 @@ class InnerView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func didAddToBasketButtonTapped(_ sender: UIButton) {
-        print("didAddToBasketButtonTapped with stepper value:\(stepper.value)")
+        //print("didAddToBasketButtonTapped with stepper value:\(stepper.value)")
     }
     
     @IBAction func didAddToHealthAppButtonTapped(_ sender: UIButton) {

@@ -15,11 +15,11 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExclusivesViewController" customModule="GustOfis" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsViewController" customModule="GustOfis" customModuleProvider="target">
             <connections>
                 <outlet property="basketButton" destination="8ZV-qX-gL9" id="jur-nU-yt8"/>
                 <outlet property="basketCount" destination="vbx-BZ-q94" id="IGQ-yJ-Erq"/>
-                <outlet property="exclusiveTableView" destination="u7Q-v8-hSB" id="uDF-dq-PnI"/>
+                <outlet property="productsTableView" destination="u7Q-v8-hSB" id="uDF-dq-PnI"/>
                 <outlet property="segmentioView" destination="4Ar-XO-3VX" id="RvN-nE-gcR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

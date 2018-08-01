@@ -9,7 +9,6 @@
 import UIKit
 import JGProgressHUD
 import UIAlertController_Blocks
-import PBRevealViewController
 
 class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -29,8 +28,8 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     let pickerView = UIPickerView()
     var toolBar = UIToolbar()
     
-    var selectedTextField: UITextField = UITextField()
-    var myPickerData = [String](arrayLiteral: "Peter", "Jane", "Paul", "Mary", "Kevin", "Lucy")
+    var selectedTextField: UITextField?
+    var myPickerData = [String](arrayLiteral: "", "1", "2", "3", "4", "5", "6", "7", "8", "9")
     
     var cart = Cart()
     
@@ -43,19 +42,20 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         
         self.fetchCartItems()
         
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = false
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-        toolBar.sizeToFit()
+        self.toolBar.barStyle = UIBarStyle.default
+        self.toolBar.isTranslucent = false
+        self.toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        self.toolBar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(didPickerElementSelected))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         
-        toolBar.setItems([spaceButton, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
+        self.toolBar.setItems([spaceButton, doneButton], animated: false)
+        self.toolBar.isUserInteractionEnabled = true
         
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
+        self.pickerView.showsSelectionIndicator = true
         
 //        self.orderDateTF.delegate = self
 //        self.orderDateTF.inputView = self.pickerView
@@ -73,6 +73,7 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
 //        self.addressTF.tintColor = UIColor.clear
         
         self.cartTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
         self.promotionButton.layer.borderWidth = 1
         self.promotionButton.layer.borderColor = UIColor(red: 65/255, green: 64/255, blue: 94/255, alpha: 1.0).cgColor
         // Do any additional setup after loading the view.
@@ -90,68 +91,47 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         self.leftBackButton()
     }
     
-    override func leftItemClicked() {
-        self.navigationController?.popViewController(animated: true)
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        return false
+//    }
+//
+//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//
+//        self.selectedTextField = textField
+//
+//        myPickerData = [] //clear out the clicked field data array
+//
+//        if textField == self.orderDateTF {
+//            myPickerData = [String](arrayLiteral: "" ,"Bugün", "Yarın", "Dün", "Seneye", "Haftaya", "Önümüzdeki Ay")
+//        }
+//        else if textField == self.creditCardTF {
+//            myPickerData = [String](arrayLiteral: "", "1111000022223333", "1111000022224444", "1111000022225555", "1111000022226666", "1111000022227777", "1111000022228888")
+//        }
+//        else if textField == self.addressTF {
+//            myPickerData = [String](arrayLiteral: "", "Kadıköy", "Beşiktaş", "Karaköy", "Levent", "Şişli", "Sarıyer")
+//        }
+//        else {
+//            myPickerData = [String](arrayLiteral: "", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+//        }
+//
+//        self.pickerView.reloadAllComponents()
+//
+//        return true
+//    }
     
-    override func rightItemClicked() {
-        
-        UIAlertController.showAlert(
-            in: self,
-            withTitle: "",
-            message: "Sepeti boşaltmak istediğinizden emin misiniz?",
-            cancelButtonTitle: "Hayır",
-            destructiveButtonTitle: nil,
-            otherButtonTitles: ["Evet"],
-            tap: {(controller, action, buttonIndex) in
-                if buttonIndex == controller.cancelButtonIndex {
-                    print("Cancel Tapped")
-                }
-                else
-                {
-                    self.deleteAllCartItems()
-                }
-            }
-        )
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return false
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
-        self.selectedTextField = textField
-        
-        myPickerData = [] //clear out the clicked field data array
-        
-        if textField == self.orderDateTF {
-            myPickerData = [String](arrayLiteral: "" ,"Bugün", "Yarın", "Dün", "Seneye", "Haftaya", "Önümüzdeki Ay")
-        }
-        else if textField == self.creditCardTF {
-            myPickerData = [String](arrayLiteral: "", "1111000022223333", "1111000022224444", "1111000022225555", "1111000022226666", "1111000022227777", "1111000022228888")
-        }
-        else if textField == self.addressTF {
-            myPickerData = [String](arrayLiteral: "", "Kadıköy", "Beşiktaş", "Karaköy", "Levent", "Şişli", "Sarıyer")
-        }
-        else {
-            myPickerData = [String](arrayLiteral: "", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-        }
-        
-        self.pickerView.reloadAllComponents()
-        self.pickerView.isHidden = false
-        
-        return true
-    }
-    
-    //?! row sayisi fazla olup tableview scroll'un alanini asinca altindakilere bir cozum
 
-    // Set the spacing between sections
+// MARK: - tableView delegate methods
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell: CartTableViewCell = tableView.cellForRow(at: indexPath) as! CartTableViewCell
+        self.selectedTextField = selectedCell.cartItemCountTF
+        self.selectedTextField?.becomeFirstResponder()
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
     }
     
-    // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
@@ -166,10 +146,8 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             fatalError("The dequeued cell is not an instance of CartTableViewCell.")
         }
         
-        print("indexPath.section: \(indexPath.section)")
-        
         cell.delegate = self
-        cell.cartItemCountTF.delegate = self
+        //cell.cartItemCountTF.delegate = self
         cell.cartItemCountTF.inputView = self.pickerView
         cell.cartItemCountTF.inputAccessoryView = self.toolBar
         cell.cartItemCountTF.tag = indexPath.section
@@ -202,39 +180,29 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
+
         let more = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            //self.isEditing = false
-            print("more button tapped")
-            
+
             let hud = JGProgressHUD(style: .dark)
             hud.textLabel.text = "Loading"
             hud.show(in: self.view)
             
-            NetworkManager.shared().removeFromCart(productId: Int(self.cart.items[indexPath.row].productId!), completionHandler: { cart in
+            NetworkManager.shared().removeFromCart(productId: Int(self.cart.items[indexPath.section].productId!), completionHandler: { cart in
                 self.cart = cart
                 self.cartTableView.reloadData()
+                self.cartTableView.layoutIfNeeded()
+                self.cartTableView.clipsToBounds = true
+                self.cartTableViewHeightConstraint.constant = self.cartTableView.contentSize.height
                 hud.dismiss()
             })
         }
         more.backgroundColor = UIColor.red
-        
-//        let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
-//            //self.isEditing = false
-//            print("favorite button tapped")
-//        }
-//        favorite.backgroundColor = UIColor.orange
-//
-//        let share = UITableViewRowAction(style: .normal, title: "Share") { action, index in
-//            //self.isEditing = false
-//            print("share button tapped")
-//        }
-//        share.backgroundColor = UIColor.blue
-        
+
         return [more]
     }
     
-    // Picker functions
+// MARK: - pickerView delegate methods
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -248,24 +216,47 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("self.selectedTextField.tag: \(self.selectedTextField.tag)")
-        print("self.cart.items[self.selectedTextField.tag].productId: \(self.cart.items[self.selectedTextField.tag].productId!)")
-        print("myPickerData.row: \(myPickerData[row])")
-        
-        self.selectedTextField.text = myPickerData[row]
-        //self.updateCart(self.cart.items[self.selectedTextField.tag].productId!, Int(myPickerData[row])!)
-    }
-    
-    @objc func didPickerElementSelected() {
-        self.selectedTextField.resignFirstResponder()
-        self.updateCart(self.cart.items[self.selectedTextField.tag].productId!, Int(self.selectedTextField.text!)!)
-        print("didPickerElementSelected")
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return self.view.frame.size.width
+        self.selectedTextField?.text = myPickerData[row]
     }
 
+// MARK: - action methods
+    
+    @objc func didPickerElementSelected(sender: Any) {
+        self.selectedTextField?.resignFirstResponder()
+        self.updateCart(self.cart.items[self.selectedTextField!.tag].productId!, Int(self.selectedTextField!.text!)!)
+    }
+    
+    @IBAction func didProceedButtonTapped(_ sender: UIButton) {
+        self.navigationController?.pushViewController(OrderViewController(), animated: true)
+    }
+
+    override func leftItemClicked() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func rightItemClicked() {
+        
+        UIAlertController.showAlert(
+            in: self,
+            withTitle: "",
+            message: "Sepeti boşaltmak istediğinizden emin misiniz?",
+            cancelButtonTitle: "Hayır",
+            destructiveButtonTitle: nil,
+            otherButtonTitles: ["Evet"],
+            tap: {(controller, action, buttonIndex) in
+                if buttonIndex == controller.cancelButtonIndex {
+                    print("Cancel Tapped")
+                }
+                else
+                {
+                    self.deleteAllCartItems()
+                }
+        }
+        )
+    }
+    
+// MARK: - network calls
+    
     func updateCart(_ productId: Int, _ quantity: Int){
         
         let hud = JGProgressHUD(style: .dark)
@@ -290,10 +281,6 @@ class CartViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             
             hud.dismiss()
         }
-    }
-    
-    @IBAction func didProceedButtonTapped(_ sender: UIButton) {
-        self.navigationController?.pushViewController(OrderViewController(), animated: true)
     }
     
     func fetchCartItems() {

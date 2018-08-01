@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="GustOfis" customModuleProvider="target">
             <connections>
+                <outlet property="containerScrollView" destination="sFc-Hi-90W" id="pgZ-ZH-H22"/>
                 <outlet property="headerLogo" destination="cHC-Aq-xQN" id="o1G-mr-Wse"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,11 +30,19 @@
                         <constraint firstAttribute="width" constant="60" id="fmP-8f-6sr"/>
                     </constraints>
                 </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFc-Hi-90W">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="ZQg-jA-1SG" firstAttribute="bottom" secondItem="sFc-Hi-90W" secondAttribute="bottom" id="GDz-ti-MHa"/>
+                <constraint firstItem="ZQg-jA-1SG" firstAttribute="trailing" secondItem="sFc-Hi-90W" secondAttribute="trailing" id="UGh-vV-hOr"/>
                 <constraint firstItem="cHC-Aq-xQN" firstAttribute="centerX" secondItem="ZQg-jA-1SG" secondAttribute="centerX" id="VrO-Hw-Yyj"/>
+                <constraint firstItem="sFc-Hi-90W" firstAttribute="leading" secondItem="ZQg-jA-1SG" secondAttribute="leading" id="ZLX-T4-8lA"/>
                 <constraint firstItem="ZQg-jA-1SG" firstAttribute="top" secondItem="cHC-Aq-xQN" secondAttribute="top" constant="38" id="dtK-qK-N7b"/>
+                <constraint firstItem="sFc-Hi-90W" firstAttribute="top" secondItem="ZQg-jA-1SG" secondAttribute="top" id="nV0-KL-HRg"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="ZQg-jA-1SG"/>
