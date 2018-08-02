@@ -13,6 +13,8 @@
 		6C00B884210A28ED0087BEF4 /* TempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C00B882210A28ED0087BEF4 /* TempViewController.xib */; };
 		6C0DB7092109E77D0012B852 /* Roboto-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C0DB7072109E77C0012B852 /* Roboto-Bold.otf */; };
 		6C0DB70A2109E77D0012B852 /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C0DB7082109E77D0012B852 /* Roboto-Regular.otf */; };
+		6C0F34542111EA5D009D428A /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F34522111EA5D009D428A /* CategoryCollectionViewCell.swift */; };
+		6C0F34552111EA5D009D428A /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0F34532111EA5D009D428A /* CategoryCollectionViewCell.xib */; };
 		6C1B4E3C2087611D0073AFD0 /* InnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B4E3B2087611D0073AFD0 /* InnerView.swift */; };
 		6C1B4E3E208761290073AFD0 /* InnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C1B4E3D208761290073AFD0 /* InnerView.xib */; };
 		6C1B4E402088D4DC0073AFD0 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B4E3F2088D4DC0073AFD0 /* ProductImage.swift */; };
@@ -136,6 +138,8 @@
 		6C0843DB210B542C003A9131 /* GustOfis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GustOfis.entitlements; sourceTree = "<group>"; };
 		6C0DB7072109E77C0012B852 /* Roboto-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.otf"; sourceTree = "<group>"; };
 		6C0DB7082109E77D0012B852 /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
+		6C0F34522111EA5D009D428A /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C0F34532111EA5D009D428A /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		6C1B4E3B2087611D0073AFD0 /* InnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerView.swift; sourceTree = "<group>"; };
 		6C1B4E3D208761290073AFD0 /* InnerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InnerView.xib; sourceTree = "<group>"; };
 		6C1B4E3F2088D4DC0073AFD0 /* ProductImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImage.swift; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 				6CF80F3C20F4E1D0005A3BB4 /* ProfileTableViewCell.xib */,
 				6C9374AC20FF8348001ED3E2 /* CartTableViewCell.swift */,
 				6C9374AD20FF8348001ED3E2 /* CartTableViewCell.xib */,
+				6C0F34522111EA5D009D428A /* CategoryCollectionViewCell.swift */,
+				6C0F34532111EA5D009D428A /* CategoryCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 				6C82457A210886E30053E142 /* ProximaNova-Bold.otf in Resources */,
 				6C68CE372084CFEE00821295 /* Proxima Nova Semibold.otf in Resources */,
 				6C68CE322084C84D00821295 /* 2.jpg in Resources */,
+				6C0F34552111EA5D009D428A /* CategoryCollectionViewCell.xib in Resources */,
 				6C68CE3F2085E93A00821295 /* FilterTableViewCell.xib in Resources */,
 				6C00B884210A28ED0087BEF4 /* TempViewController.xib in Resources */,
 				6C8FFD47206BF00D00C5698E /* FourthViewController.xib in Resources */,
@@ -812,6 +819,7 @@
 				6CBEEB5821107C5D004911BF /* GustStepper.swift in Sources */,
 				6CB17357208F5FAB00A81CC6 /* Filter.swift in Sources */,
 				6C9374B120FF8893001ED3E2 /* CartItem.swift in Sources */,
+				6C0F34542111EA5D009D428A /* CategoryCollectionViewCell.swift in Sources */,
 				6C8FFD46206BF00D00C5698E /* FourthViewController.swift in Sources */,
 				6C68CE2E2084C2BC00821295 /* ProductsTableViewCell.swift in Sources */,
 				6CB1735C20909ADD00A81CC6 /* User.swift in Sources */,

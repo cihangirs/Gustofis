@@ -19,6 +19,7 @@
             <connections>
                 <outlet property="basketButton" destination="8ZV-qX-gL9" id="jur-nU-yt8"/>
                 <outlet property="basketCount" destination="vbx-BZ-q94" id="IGQ-yJ-Erq"/>
+                <outlet property="categoryCollectionView" destination="Wct-V7-WwG" id="ZoL-1E-4rg"/>
                 <outlet property="productsTableView" destination="u7Q-v8-hSB" id="uDF-dq-PnI"/>
                 <outlet property="segmentioView" destination="4Ar-XO-3VX" id="RvN-nE-gcR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,7 +30,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-XO-3VX" customClass="Segmentio" customModule="Segmentio">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-XO-3VX" customClass="Segmentio" customModule="Segmentio">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="0.0" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -37,8 +38,25 @@
                         <constraint firstAttribute="width" constant="375" id="fIh-L2-LED"/>
                     </constraints>
                 </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Wct-V7-WwG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="142" id="wzo-fA-kFa"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MZB-Ng-K3o">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="jdR-2Q-iJz"/>
+                        <outlet property="delegate" destination="-1" id="1gv-zA-33o"/>
+                    </connections>
+                </collectionView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u7Q-v8-hSB">
-                    <rect key="frame" x="0.0" y="130" width="375" height="473"/>
+                    <rect key="frame" x="0.0" y="142" width="375" height="461"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="FfM-Qu-PMx"/>
@@ -71,15 +89,18 @@
             <color key="backgroundColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="u7Q-v8-hSB" secondAttribute="bottom" id="3Je-eR-5S6"/>
+                <constraint firstItem="Wct-V7-WwG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="C83-9W-Pk3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8ZV-qX-gL9" secondAttribute="bottom" constant="60" id="Fqp-q6-bfM"/>
                 <constraint firstItem="vbx-BZ-q94" firstAttribute="top" secondItem="8ZV-qX-gL9" secondAttribute="top" constant="10" id="GRH-NZ-gg4"/>
                 <constraint firstItem="u7Q-v8-hSB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PtG-Pm-Sfx"/>
                 <constraint firstItem="vbx-BZ-q94" firstAttribute="centerX" secondItem="8ZV-qX-gL9" secondAttribute="centerX" id="TlX-c3-c7h"/>
+                <constraint firstItem="Wct-V7-WwG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WSC-DH-Siw"/>
                 <constraint firstItem="4Ar-XO-3VX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bcV-Gk-dXV"/>
                 <constraint firstItem="4Ar-XO-3VX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gWi-E9-bdo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8ZV-qX-gL9" secondAttribute="trailing" constant="5" id="hpe-XN-ejs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u7Q-v8-hSB" secondAttribute="trailing" id="pi2-ht-0Mc"/>
-                <constraint firstItem="u7Q-v8-hSB" firstAttribute="top" secondItem="4Ar-XO-3VX" secondAttribute="bottom" id="sZW-o4-KZ3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Wct-V7-WwG" secondAttribute="trailing" id="sCC-cH-rhV"/>
+                <constraint firstItem="u7Q-v8-hSB" firstAttribute="top" secondItem="Wct-V7-WwG" secondAttribute="bottom" id="z1N-MV-R4e"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

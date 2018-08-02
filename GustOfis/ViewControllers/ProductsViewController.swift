@@ -9,13 +9,15 @@
 import UIKit
 import JGProgressHUD
 import Segmentio
+import SDWebImage
 
-class ProductsViewController: ViewController, UITableViewDelegate, UITableViewDataSource, CartOperationsDelegate {
+class ProductsViewController: ViewController, UITableViewDelegate, UITableViewDataSource, CartOperationsDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var segmentioView: Segmentio!
     @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var basketButton: UIButton!
     @IBOutlet weak var basketCount: UILabel!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     //weak var delegate: HomeViewController?
     weak var appDelegate: AppDelegate?
@@ -23,22 +25,24 @@ class ProductsViewController: ViewController, UITableViewDelegate, UITableViewDa
     var productArray = [Product]()
     var content = [SegmentioItem]()
     var stock: Stock?
+    var previousSelectedCategoryCell: CategoryCollectionViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.fetchStock(0)
         
-        self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        
+        //self.view.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        self.view.backgroundColor = UIColor.clear
         self.basketButton.layer.cornerRadius = 31.5
         
         self.productsTableView.estimatedRowHeight = 375
         self.productsTableView.rowHeight = UITableViewAutomaticDimension
         
         self.productsTableView.register(UINib(nibName: "ProductsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-
-        self.segmentioView.isHidden = true
+        self.categoryCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        //self.categoryCollectionView.setCollectionViewLayout(layout, animated: false)
+        //self.segmentioView.isHidden = true
         self.productsTableView.isHidden = true
         self.basketButton.isHidden = true
         self.basketCount.isHidden = true
@@ -50,19 +54,84 @@ class ProductsViewController: ViewController, UITableViewDelegate, UITableViewDa
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.topItem?.hidesBackButton = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filterMenuIcon.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightItemClicked))
         
         self.productsTableView.reloadData()
     }
-    
-//    override func rightItemClicked() {
-//        self.appDelegate?.openFiltersView()
-//    }
+
+// MARK: - action methods
     
     @IBAction func didBasketButtonTapped(_ sender: UIButton) {
         self.navigationController?.pushViewController(CartViewController(), animated: true)
     }
+
+// MARK: - collectionView delegate methods
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.stock != nil {
+            return (self.stock?.categories?.count)!
+        }
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CategoryCollectionViewCell
+        
+        let categorie: Categorie = (self.stock?.categories![indexPath.row])!
+        
+        let url = URL(string: categorie.iconNormal!)
+        if let data = try? Data(contentsOf: url!)
+        {
+            let image: UIImage = UIImage(data: data)!
+
+            //cell.categoryImageView.image = image
+
+            cell.categoryButton.setBackgroundImage(image, for: UIControlState.normal)
+            
+            let url2 = URL(string: categorie.iconActive!)
+            if let data2 = try? Data(contentsOf: url2!)
+            {
+                let image2: UIImage = UIImage(data: data2)!
+
+                cell.categoryButton.setBackgroundImage(image2, for: UIControlState.selected)
+            }
+        }
+
+        cell.categoryLabel.text = categorie.name
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        previousSelectedCategoryCell?.categoryButton.isSelected = false
+        
+        let categorieCell: CategoryCollectionViewCell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
+        categorieCell.categoryButton.isSelected = !categorieCell.categoryButton.isSelected
+        
+        previousSelectedCategoryCell = categorieCell
+        
+        let subCategoryViewController = SubCategoryViewController()
+        subCategoryViewController.categorieId = self.stock!.categories![indexPath.row].categorieId!
+        subCategoryViewController.title = self.stock!.categories![indexPath.row].name
+        self.navigationController?.pushViewController(subCategoryViewController, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 105, height: 105)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+    }
+    
+// MARK: - tableView delegate methods
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -101,7 +170,8 @@ class ProductsViewController: ViewController, UITableViewDelegate, UITableViewDa
     // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        headerView.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        headerView.backgroundColor = UIColor.clear
+        //headerView.backgroundColor = UIColor(red: 245/255, green: 242/255, blue: 242/255, alpha: 1.0)
         return headerView
     }
     
@@ -112,6 +182,8 @@ class ProductsViewController: ViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
+
+// MARK: - network calls
     
     func addToCart(_ productId: Int, _ quantity: Int){
         
@@ -150,11 +222,13 @@ class ProductsViewController: ViewController, UITableViewDelegate, UITableViewDa
         
         NetworkManager.shared().fetchStock(categorieId: categorieId) { stock in
             self.stock = stock
-            
-            self.showCategories((self.stock?.categories)!)
+            self.categoryCollectionView.contentSize = CGSize(width: (self.stock?.categories?.count)! * 100, height: 130)
+                //CGSizeMake(self.view.frame.size.width, (numberOfRows * heightOfCell));
+            //self.showCategories((self.stock?.categories)!)
             self.productsTableView.reloadData()
+            self.categoryCollectionView.reloadData()
             
-            self.segmentioView.isHidden = false
+            //self.segmentioView.isHidden = false
             self.productsTableView.isHidden = false
 
             if let returnValue = UserDefaults.standard.object(forKey: "basketCount") as? Int {
